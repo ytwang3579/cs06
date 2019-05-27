@@ -24,7 +24,7 @@ $user = $response->getGraphUser();
 var_dump($user);
 echo '<br><br>Hello ' . $user['name'];
 
-require_once("../config.php")
+require_once("../config.php");
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
