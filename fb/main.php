@@ -27,14 +27,12 @@ echo '<br><br>Hello ' . $user['name'];
 require_once("../config.php");
 
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "INSERT INTO users (id, name)
-    VALUES ('".$user['id']."', '".$user['name']."')";
-    // use exec() because no results are returned
-    $conn->exec($sql);
-    echo "New record created successfully";
+    require_once('../config.php');
+    $dsn='mysql:host=localhost;dbname=cs06';
+    $dbh=new PDO($dsn,$CFG['mysql_username'],$CFG['mysql_password']);
+    $sth=$dbh->prepare('insert into users (id,name) values (?,?) ');
+    $sth->execute(array($user['id'],$user['name']));
+    echo "<script>alert('Acount Created Successfully XD')</script>";
     }
 catch(PDOException $e)
     {
