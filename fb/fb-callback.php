@@ -70,7 +70,8 @@ $_SESSION['fb_access_token'] = (string) $accessToken;
 
 // User is logged in with a long-lived access token.
 // You can redirect them to a members-only page.
- header('Location: main.php');
-//echo '<script>location.href="main.php"</script>';
+// header('Location: main.php');
+echo '<br><br><script>location.href="main.php"</script>';
+echo '';
 
 
