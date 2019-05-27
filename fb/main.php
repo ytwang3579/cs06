@@ -32,6 +32,8 @@ try {
     $dbh=new PDO($dsn,$CFG['mysql_username'],$CFG['mysql_password']);
     $sth=$dbh->prepare('insert into user_list (id,name) values (?,?) ');
     $sth->execute(array($user['id'],$user['name']));
+    $_SESSION['id']=$user['id'];
+    $_SESSION['name']=$user['name'];
     //echo "<script>alert('Acount Created Successfully XD')</script>";
     echo '<br><br><script>location.href="../chat_room/index.php"</script>';
     }
