@@ -11,7 +11,7 @@
 <b>Friend list</b>
 <br>
 <table>
-<?php
+<?php//list friend list
     require("../config.php");
     $dsn='mysql:host='.$CFG['mysql_host'].';dbname='.$CFG['mysql_dbname'].';';
     try {
@@ -37,7 +37,7 @@
 <b>Chat room list</b>
 <br>
 <table>
-<?php
+<?php//list chat room
         require("../config.php");
         $dsn='mysql:host='.$CFG['mysql_host'].';dbname='.$CFG['mysql_dbname'].';';
         try {
