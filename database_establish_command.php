@@ -15,8 +15,8 @@
     )"; //may add something else
 	
 	$sql2 = "CREATE TABLE chat_list (
-		name VARCHAR(45) PRIMARY KEY NOT NULL,
-		idx INT(10) UNSIGNED AUTO_INCREMENT
+		name VARCHAR(45) NOT NULL,
+		idx INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY
     )"; //may add something else
     // use exec() because no results are returned
     $sth = $conn->prepare($sql);
