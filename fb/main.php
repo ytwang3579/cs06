@@ -30,7 +30,7 @@ try {
     require_once('../config.php');
     $dsn='mysql:host=localhost;dbname=cs06';
     $dbh=new PDO($dsn,$CFG['mysql_username'],$CFG['mysql_password']);
-    $sth=$dbh->prepare('insert into users (id,name) values (?,?) ');
+    $sth=$dbh->prepare('insert into user_list (id,name) values (?,?) ');
     $sth->execute(array($user['id'],$user['name']));
     echo "<script>alert('Acount Created Successfully XD')</script>";
     echo '<br><br><script>location.href="../chat_room/chat_room.php"</script>';
