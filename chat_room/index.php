@@ -1,7 +1,7 @@
 <?php
     // Start the session
     session_start();
-    if($_SESSION['id']=="" | $_SESSION['name']==""){
+    if( !isset($_SESSION['id']) | empty($_SESSION['id']) | !isset($_SESSION['name']) | empty($_SESSION['name']) ){
         echo "<script> location.href='../fb/index.php'; </script>";
         exit();
     }
@@ -47,7 +47,7 @@
         }
 
         $sth=$dbh->prepare('select * from ?_chatlist order by name desc;');
-		$sth->execute( array($_SESSION['id'])) );
+		$sth->execute( array($_SESSION['id']) );
 		while($friend = $sth->fetch()){
 			echo "<tr><td>".$row['chat_room_name']."</td><td>".$row['chat_room_displayname']."</td></tr>";
 		}
