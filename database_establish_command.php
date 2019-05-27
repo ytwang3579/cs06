@@ -4,7 +4,7 @@
 	require_once("configure.php");
 
 	try {
-    $conn = new PDO("mysql:host=$CFG['mysql_host'];dbname=$CFG['mysql_dbname']", $CFG['mysql_username'], $CFG['mysql_password']);
+    $conn = new PDO("mysql:host=".$CFG['mysql_host'].";dbname=".$CFG['mysql_dbname'], $CFG['mysql_username'], $CFG['mysql_password']);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
