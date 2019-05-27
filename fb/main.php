@@ -32,9 +32,26 @@ try {
     $dbh=new PDO($dsn,$CFG['mysql_username'],$CFG['mysql_password']);
     $sth=$dbh->prepare('insert into user_list (id,name) values (?,?) ');
     $sth->execute(array($user['id'],$user['name']));
+    
     $_SESSION['id']=$user['id'];
     $_SESSION['name']=$user['name'];
-    //echo "<script>alert('Acount Created Successfully XD')</script>";
+    
+    $sql = "CREATE TABLE ".$user['id']."_friend (
+            friend_name VARCHAR(45) PRIMARY KEY NOT NULL,
+            confirm_friend VARCHAR(45) NOT NULL
+    )";
+    
+    $sql2 = "CREATE TABLE ".$user['id']."_chatlist (
+            chat_room_name VARCHAR(100) PRIMARY KEY NOT NULL,
+            chat_room_displayname VARCHAR(100) NOT NULL
+    )";
+    
+    $sth = $dbh->prepare($sql);
+    $sth->execute();
+    $sth2 = $dbh->prepare($sql2);
+    $sth2->execute();
+     
+    
     echo '<br><br><script>location.href="../chat_room/index.php"</script>';
     }
 catch(PDOException $e)
