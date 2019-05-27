@@ -1,7 +1,7 @@
 
 //build tables by w3school
 <?php
-	require_once("configure.php")
+	require_once("configure.php");
 
 	try {
     $conn = new PDO("mysql:host=$CFG['mysql_host'];dbname=$CFG['mysql_dbname']", $CFG['mysql_username'], $CFG['mysql_password']);
