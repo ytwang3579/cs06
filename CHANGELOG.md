@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 *Feature(s) in development should be displayed here, with information of who is actively dealing with it.*  
 
 
-## 0.0.7 - 2019-05-27 - s106062129
+## 0.0.7 - 2019-05-27 - s106062128
 - database_establish_command.php done. It can create user_list chat_list table.
 =======
 
