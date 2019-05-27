@@ -21,7 +21,7 @@ $fb = new Facebook\Facebook([
 $helper = $fb->getRedirectLoginHelper();
 
 $permissions = ['email']; // Optional permissions
-$loginUrl = $helper->getLoginUrl('https://softwarestudio.2y.idv.tw/~s106062328/fb/fb-callback.php', $permissions);
+$loginUrl = $helper->getLoginUrl('https:/cs06.2y.cc/fb/fb-callback.php', $permissions);
 
 echo '<div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="false"></div>';
 echo '<button class="btn btn-facebook" onclick="reload();"><i class="fab fa-facebook-f"></i> | Log In</button>';
