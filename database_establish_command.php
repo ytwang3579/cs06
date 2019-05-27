@@ -1,6 +1,6 @@
 
 
-<?php//build tables by w3school
+<?php
 	require_once("./config.php");
 
 	try {
