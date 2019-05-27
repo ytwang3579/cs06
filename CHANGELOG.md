@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 *Feature(s) in development should be displayed here, with information of who is actively dealing with it.*  
 
 - 
-## 0.0.1 - 2019-05-27
+## 0.0.1 - 2019-05-27 s106062129
 ### Added
 - Add database\_establish\_command please add any create database command in it.
 - Add chat\_room template in project.
