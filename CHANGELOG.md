@@ -13,8 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add database\_establish\_command please add any create database command in it.
 - Add chat\_room template in project.
 
-- 
-## 0.0.0 - 2019-05-17
+## 0.0.0 - 2019-05-17 - ytwang
 ### Added
 - Set up this CHANGELOG file
 - README file now contains a brief introduction of the project.
