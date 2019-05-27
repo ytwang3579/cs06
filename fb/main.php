@@ -33,6 +33,7 @@ try {
     $sth=$dbh->prepare('insert into users (id,name) values (?,?) ');
     $sth->execute(array($user['id'],$user['name']));
     echo "<script>alert('Acount Created Successfully XD')</script>";
+    echo '<br><br><script>location.href="../chat_room/chat_room.php"</script>';
     }
 catch(PDOException $e)
     {
