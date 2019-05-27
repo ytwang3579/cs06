@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]  
 *Feature(s) in development should be displayed here, with information of who is actively dealing with it.*  
 
+## 0.0.8 - 2019-05-27 - s106062328
+- fb\main.php create user_chatlist user_friendlist when register, insert
+- into user-list
+=======
 
 ## 0.0.7 - 2019-05-27 - s106062128
 - database\_establish\_command.php done. It can create user\_list chat\_list table.
@@ -34,7 +38,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Change database\_establish\_command to database\_establish\_command.php
 
-## 0.0.2 - 2019-05-27 - 106062328
+## 0.0.2 - 2019-05-27 - s106062328
 ### Added
 - Basically done with fb login.
 
