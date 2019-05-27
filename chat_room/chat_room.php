@@ -9,7 +9,7 @@
     date_default_timezone_set('Asia/Taipei');
 
     if( ($_SERVER['REQUEST_METHOD']=="POST") && !empty($_POST['message']) ){
-        require("./config.php");
+        require("../config.php");
         $dsn='mysql:host='.$CFG['mysql_host'].';dbname='.$CFG['mysql_dbname'].';';
         try {
             $dbh = new PDO($dsn, $CFG['mysql_username'],$CFG['mysql_password']);
@@ -17,8 +17,9 @@
             echo 'Connection failed: ' . $e->getMessage();
         }
 
-        $sth=$dbh->prepare('insert into message (`content`,`nickname`, `gender`, `date`) VALUES ( ? , ? , ? , ? );');
-        $sth->execute( array( htmlentities($_POST['message']), htmlentities($_SESSION['nickname']), $_SESSION['gender'], date("m/d H:i:s") ) );
+        $sth=$dbh->prepare('');
+		$sth->execute( );
+		$return = $sth->fetch();
 
         $dsn = null;
     }
