@@ -16,11 +16,13 @@
 	
 	$sql2 = "CREATE TABLE chat_list (
 		name VARCHAR(45) PRIMARY KEY NOT NULL,
-		index INT UNSIGNED AUTO_INCREMENT
+		index INT(10) UNSIGNED AUTO_INCREMENT
     )"; //may add something else
     // use exec() because no results are returned
-    $conn->exec($sql);
-	$conn->exec($sql2);
+    $sth = $conn->prepare($sql);
+	$sth->execute();
+	$sth2 = $conn->prepare($sql2);
+	$sth2->execute();
 	
     echo "Table MyGuests created successfully";
 	}
