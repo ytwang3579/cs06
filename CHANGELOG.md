@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]  
 *Feature(s) in development should be displayed here, with information of who is actively dealing with it.*  
 
+
+## 0.0.6 - 2019-05-27 - s106062129
+### Changed
+- Rename chat\_room\chat\_room.php to index.php
+
 ## 0.0.5 - 2019-05-27 - s106062129
 ### Changed
 - Changed chat\_room chat\_room.php to read friend list and chat room list
