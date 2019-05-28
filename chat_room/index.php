@@ -7,17 +7,19 @@
     }
 
     date_default_timezone_set('Asia/Taipei');
+    echo "Hello, ".$_SESSION['name'];
 ?>
 <b>Friend list</b>
 <br>
 <table>
-<?php//list friend list
+<?php
+//list friend list
     require("../config.php");
     $dsn='mysql:host='.$CFG['mysql_host'].';dbname='.$CFG['mysql_dbname'].';';
     try {
     	$dbh = new pdo($dsn, $CFG['mysql_username'],$CFG['mysql_password']);
     }catch (pdoexception $e) {
-    	echo 'connection failed: ' . $e->getmessage();
+    	echo 'connection failed: '.$e->getmessage();
     }
 
     $sth=$dbh->prepare('select * from ?_friend order by name desc;');
@@ -37,13 +39,14 @@
 <b>Chat room list</b>
 <br>
 <table>
-<?php//list chat room
+<?php
+//list chat room
         require("../config.php");
         $dsn='mysql:host='.$CFG['mysql_host'].';dbname='.$CFG['mysql_dbname'].';';
         try {
 			$dbh = new pdo($dsn, $CFG['mysql_username'],$CFG['mysql_password']);
         } catch (PDOExpection $e) {
-            echo 'connection failed: ' . $e->getmessage();
+            echo 'connection failed: '.$e->getmessage();
         }
 
         $sth=$dbh->prepare('select * from ?_chatlist order by name desc;');
