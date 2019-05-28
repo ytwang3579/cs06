@@ -7,14 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]  
 *Feature(s) in development should be displayed here, with information of who is actively dealing with it.*  
 
+- Frontend login page design temporarily in *fb/tmp.html* and *fb/login.css* - 2019.05.28 ytwang
+
+## 0.0.9 - 2019-05-28 - ytwang
+### Fixed
+- Bug fixed in chat_room/index.php  
+> \<?php should be the only thing for its line  
+
+### Added
+- *fb/tmp.html* and *fb/login.css* reserved for unfinished index home page.
+
 ## 0.0.8 - 2019-05-27 - s106062328
-- fb\main.php create user_chatlist user_friendlist when register, insert
-- into user-list
-=======
+### Added
+- fb\main.php create user_chatlist user_friendlist when register, insert into user-list
+
 
 ## 0.0.7 - 2019-05-27 - s106062128
-- database\_establish\_command.php done. It can create user\_list chat\_list table.
-=======
+### Added
+- database\_establish\_command.php done.  
+  It can create user\_list chat\_list table.
+
 
 ## 0.0.6 - 2019-05-27 - s106062129
 ### Changed
