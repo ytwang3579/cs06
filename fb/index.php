@@ -24,10 +24,10 @@ $helper = $fb->getRedirectLoginHelper();
 $permissions = ['email']; // Optional permissions
 $loginUrl = $helper->getLoginUrl('https://cs06.2y.cc/fb/fb-callback.php', $permissions);
 
-echo '<div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="false"></div>';
 echo '<button class="btn btn-facebook" onclick="reload();"><i class="fab fa-facebook-f"></i> | Log In</button>';
 echo '<script type="text/javascript">function reload(){location.href="'.$loginUrl.'"}</script>';
 echo '<script src="https://apis.google.com/js/platform.js" async defer></script>';
 ?>
+<br><br>
 <a class="g-signin2" id="login-button" href="<?= 'https://accounts.google.com/o/oauth2/auth?scope=' . urlencode('https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email') . '&redirect_uri=' . urlencode(CLIENT_REDIRECT_URL) . '&response_type=code&client_id=' . CLIENT_ID . '&access_type=online' ?>">Login with Google</a>
 </body>
