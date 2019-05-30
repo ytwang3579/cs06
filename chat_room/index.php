@@ -7,7 +7,7 @@
     }
 
     date_default_timezone_set('Asia/Taipei');
-    echo "Hello, ".$_SESSION['name'];
+    echo "Hello, ".$_SESSION['name'].'<br>';
 ?>
 <b>Friend list</b>
 <br>
