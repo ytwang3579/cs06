@@ -25,11 +25,7 @@
     $sth=$dbh->prepare('select * from ?_friend order by name desc;');
 	$sth->execute( array($_SESSION['id']) );
 	while($row = $sth->fetch()){
-		echo "<tr><td>".$row['friend_name']."</td>";
-		if(!$row['confirm_friend']){
-			echo "<td>nf</td>";
-		}
-		echo "</tr>";
+		echo "<tr><td>".$row['friend_name']."</td></tr>";
 	}
 
 	$dsn = null;
