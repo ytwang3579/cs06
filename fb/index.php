@@ -1,5 +1,6 @@
 <?php
 require_once('vendor/autoload.php');
+require_once('../google/settings.php');
 
 session_start();
 ?>
@@ -27,7 +28,6 @@ echo '<div class="fb-login-button" data-width="" data-size="large" data-button-t
 echo '<button class="btn btn-facebook" onclick="reload();"><i class="fab fa-facebook-f"></i> | Log In</button>';
 echo '<script type="text/javascript">function reload(){location.href="'.$loginUrl.'"}</script>';
 echo '<script src="https://apis.google.com/js/platform.js" async defer></script>';
-echo '<meta name="google-signin-client_id" content="1018850453433-5jd0vekqvccss7ggjmm8vnp5nfboakiu.apps.googleusercontent.com">';
-echo '<div class="g-signin2" data-onsuccess="onSignIn"></div>';
 ?>
+<a class="g-signin2" id="login-button" href="<?= 'https://accounts.google.com/o/oauth2/auth?scope=' . urlencode('https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email') . '&redirect_uri=' . urlencode(CLIENT_REDIRECT_URL) . '&response_type=code&client_id=' . CLIENT_ID . '&access_type=online' ?>">Login with Google</a>
 </body>
