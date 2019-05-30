@@ -7,7 +7,8 @@
     }
 
     date_default_timezone_set('Asia/Taipei');
-    echo "Hello, ".$_SESSION['name'];
+	echo "Hello, ".$_SESSION['name'].'<br>';
+	echo "Your ID is ".$_SESSION['id'].'<br>';
 ?>
 
 <?php
