@@ -55,5 +55,6 @@
         $dsn = null;
 ?>
 </table>
-
+<button onclick="location.href='./create_private_chatroom.php';">Create Private Chat Room</button>
+<button onclick="location.href='./create_public_chatroom.php';">Create Public Chat Room</button>
 <button onclick="location.href='./add_friend.php';" >Add Friend</button>
