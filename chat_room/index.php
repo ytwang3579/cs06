@@ -49,6 +49,7 @@
 		$sth->execute( array($_SESSION['id']) );
 		while($friend = $sth->fetch()){
 			echo "<tr><td>".$row['chat_room_name']."</td><td>".$row['chat_room_displayname']."</td></tr>";
+			echo "<tr><td> <button>".$row['chat_room_displayname']."</button></td></tr>";//need to set onclick function to go into a chat room
 		}
 
         $dsn = null;
