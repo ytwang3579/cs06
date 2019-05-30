@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 *Feature(s) in development should be displayed here, with information of who is actively dealing with it.*  
 
 - Frontend login page design temporarily in *fb/tmp.html* and *fb/login.css* - 2019.05.28 ytwang
+## 0.0.13 - 2019-05-30 - s106062328
+### Added
+- basically done with google login, modify the main page
+
 
 ## 0.0.12 - 2019-05-30 - s106062129
 ### Remove
