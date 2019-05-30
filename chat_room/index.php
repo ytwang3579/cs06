@@ -58,3 +58,5 @@
         $dsn = null;
 ?>
 </table>
+
+<button onclick="location.href='./add_friend.php';" >Add Friend</button>
