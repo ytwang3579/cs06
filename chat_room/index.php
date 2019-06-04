@@ -22,7 +22,7 @@
     	echo 'connection failed: '.$e->getmessage();
     }
 
-    $sth=$dbh->prepare('select * from '.$_SESSION['id'].'_friend order by name desc;');
+    $sth=$dbh->prepare('select * from '.$_SESSION['id'].'_friend order by friend_name desc;');
 	$sth->execute();
 	while($row = $sth->fetch()){
 		echo "<tr><td>".$row['friend_name']."</td></tr>";
