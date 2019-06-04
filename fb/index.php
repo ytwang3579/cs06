@@ -33,6 +33,10 @@ $helper = $fb->getRedirectLoginHelper();
 
 $permissions = ['email']; // Optional permissions
 $loginUrl = $helper->getLoginUrl('https://cs06.2y.cc/fb/fb-callback.php', $permissions);
+
+
+echo '<script type="text/javascript">function reload(){location.href="'.$loginUrl.'"}</script>';
+echo '<script src="https://apis.google.com/js/platform.js" async defer></script>';
 ?>
 <div class="container">
     <div class="login-space p-l-110 p-r-110 p-t-62 p-b-33">
@@ -64,9 +68,7 @@ $loginUrl = $helper->getLoginUrl('https://cs06.2y.cc/fb/fb-callback.php', $permi
     </div>
 </div>
 
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v3.3&appId=2035014616793247&autoLogAppEvents=1"></script>
-<? echo '<script type="text/javascript">function reload(){location.href="'.$loginUrl.'"}</script>';?>
-<script src="https://apis.google.com/js/platform.js" async defer></script>
+
 
 
 </body>
