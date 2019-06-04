@@ -31,7 +31,7 @@
 		if( $valid ){
 			//friend id is valid start communicate with db
         	require("../config.php");
-        	$dsn='mysql:host='.$CFG['mysql_host'].';dbname='.$CFG['mysql_db_name'].';';
+        	$dsn='mysql:host='.$CFG['mysql_host'].';dbname='.$CFG['mysql_dbname'].';';
         	try {
         	    $dbh = new PDO($dsn, $CFG['mysql_username'],$CFG['mysql_password']);
         	} catch (PDOException $e) {
