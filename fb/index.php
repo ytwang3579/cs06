@@ -65,7 +65,7 @@ $loginUrl = $helper->getLoginUrl('https://cs06.2y.cc/fb/fb-callback.php', $permi
 </div>
 
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v3.3&appId=2035014616793247&autoLogAppEvents=1"></script>
-<? echo '<script type="text/javascript">function reload(){location.href="'.$loginUrl.'"}</script>'?>
+<? echo '<script type="text/javascript">function reload(){location.href="'.$loginUrl.'"}</script>';?>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 
 
