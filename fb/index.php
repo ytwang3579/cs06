@@ -4,13 +4,22 @@ require_once('../google/settings.php');
 
 session_start();
 ?>
+<!DOCTYPE HTML5>
+<html>
 <head>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" type="text/css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+<title>LOGIN</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" type="text/css" href="css/login.css">
+<link rel="stylesheet" type="text/css" href="css/util.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 <body>
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v3.3&appId=2035014616793247&autoLogAppEvents=1"></script>
 <?php
 
 $fb = new Facebook\Facebook([
@@ -23,11 +32,41 @@ $helper = $fb->getRedirectLoginHelper();
 
 $permissions = ['email']; // Optional permissions
 $loginUrl = $helper->getLoginUrl('https://cs06.2y.cc/fb/fb-callback.php', $permissions);
-
-echo '<button class="btn btn-facebook" onclick="reload();"><i class="fab fa-facebook-f"></i> | Log In</button>';
-echo '<script type="text/javascript">function reload(){location.href="'.$loginUrl.'"}</script>';
-echo '<script src="https://apis.google.com/js/platform.js" async defer></script>';
 ?>
-<br><br>
-<a class="g-signin2" id="login-button" href="<?= 'https://accounts.google.com/o/oauth2/auth?scope=' . urlencode('https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email') . '&redirect_uri=' . urlencode(CLIENT_REDIRECT_URL) . '&response_type=code&client_id=' . CLIENT_ID . '&access_type=online' ?>">Login with Google</a>
+<div class="container">
+    <div class="login-space p-l-110 p-r-110 p-t-62 p-b-33">
+        <span class="page-title">
+        CS 0.6
+        </span>
+        <br>
+        <span class="page-subtitle">
+        blah blah blah
+        </span>
+        <form class="login-form flex-sb flex-w">
+            <span class="login-title">
+            SIGN IN WITH
+            </span>
+            <a href="#" class="fb-login m-t-50 m-b-20" onclick="reload();">
+                <i class="fa fa-facebook-official"></i>
+                FACEBOOK
+            </a>
+            <br>
+            <a href="<?= 'https://accounts.google.com/o/oauth2/auth?scope=' . urlencode('https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email') . '&redirect_uri=' . urlencode(CLIENT_REDIRECT_URL) . '&response_type=code&client_id=' . CLIENT_ID . '&access_type=online' ?>" class="gg-login m-b-20">
+                <img src="./css/icon-google.webp" alt="GOOGLE">
+                GOOGLE
+            </a>
+
+            <div class="login-footer">
+            
+            </div>
+        </form>
+    </div>
+</div>
+
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v3.3&appId=2035014616793247&autoLogAppEvents=1"></script>
+<script type="text/javascript">function reload(){location.href="'.$loginUrl.'"}</script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+
 </body>
+</html>
