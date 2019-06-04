@@ -20,6 +20,7 @@ session_start();
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 <body>
+<div id="fb-root"></div>
 <?php
 
 $fb = new Facebook\Facebook([
