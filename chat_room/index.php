@@ -27,7 +27,7 @@
 	while($row = $sth->fetch()){
 		echo "<tr><td>".$row['friend_name']."</td></tr>";
 	}
-
+echo "hello<br>";
 	$dsn = null;
 ?>
 </table>
