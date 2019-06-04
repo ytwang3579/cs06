@@ -7,11 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]  
 *Feature(s) in development should be displayed here, with information of who is actively dealing with it.*  
 
-- Frontend login page design temporarily in *fb/tmp.html* and *fb/login.css* - 2019.05.28 ytwang
+## 0.0.15 - 2019-06-05 - ytwang
+### Changed
+- *fb\index.php* is now with frontend design
+
+### Deprecated
+- the original *fb\index.php* is temporarily saved as *fb\index_old.php*  
+  (if there is no problem, it will be removed soon)
 
 ## 0.0.14 - 2019-05-30 - s106062129
-
-
 ### Added
 - Add create button to chat\_room/index.php
 - Add chat\_room/create\_private\_chatroom.php (not finish yet)
