@@ -44,7 +44,7 @@
     	echo 'connection failed: '.$e->getmessage();
     }
 
-    $sth=$dbh->prepare('select * from ?_friend order by name desc;');
+    $sth=$dbh->prepare('select * from ?_friend order by friend_name desc;');
 	$sth->execute( array($_SESSION['id']) );
 	while($row = $sth->fetch()){//create chat room button to each friend
 		echo "<tr><td>".$row['friend_name']."</td><td>".
