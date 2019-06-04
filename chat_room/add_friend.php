@@ -42,7 +42,7 @@
         	$sth->execute( array( htmlentities($_POST['friend_id']) ) );
 			
 			$check_result = $sth->fetch();
-
+			var_dump($check_result);
 			if( count($check_result) != 0){//if exist
 				//add both to both friend list db
         		$sth=$dbh->prepare('insert into ?_friend (`friend_id`,`friend_name`,`confirm_friend`) VALUES ( ? , ? , ? ) ;');
