@@ -42,13 +42,13 @@
         	$sth->execute( array( htmlentities($_POST['friend_id']) ) );
 			
 			$check_result = $sth->fetch();
-			var_dump($check_result);
+			
 			if( count($check_result) != 0){//if exist
 				//add both to both friend list db
-        		$sth=$dbh->prepare('insert into ?_friend (`friend_id`,`friend_name`,`confirm_friend`) VALUES ( ? , ? , ? ) ;');
-				$sth->execute( array($_SESSION['id'], $_POST['friend_id'], $check_result['name'], true ) );
-				$sth=$dbh->prepare('insert into ?_friend (`friend_id`,`friend_name`,`confirm_friend`) VALUES ( ? , ? , ? ) ;');
-				$sth->execute( array($check_result['id'], $_SESSION['id'], $_SESSION['name'], false ) );
+        		$sth=$dbh->prepare('insert into '.$_SESSION['id'].'_friend (`friend_id`,`friend_name`,`confirm_friend`) VALUES ( ? , ? , ? ) ;');
+				$sth->execute( array( $_POST['friend_id'], $check_result['name'], true ) );
+				$sth=$dbh->prepare('insert into '.$check_result['id'].'_friend (`friend_id`,`friend_name`,`confirm_friend`) VALUES ( ? , ? , ? ) ;');
+				$sth->execute( array( $_SESSION['id'], $_SESSION['name'], false ) );
 				echo "add successful";
 			}
 
