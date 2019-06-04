@@ -8,7 +8,7 @@
 
     date_default_timezone_set('Asia/Taipei');
 	echo "Hello, ".$_SESSION['name'].'<br>';
-
+	//if post create private chat room
 	if( ($_SERVER['REQUEST_METHOD']=="POST") && !empty($_POST['chatroom_friend_id']) && !empty($_POST['chatroom_friend_name']) ){//create chat room	
     	require("../config.php");
     	$dsn='mysql:host='.$CFG['mysql_host'].';dbname='.$CFG['mysql_dbname'].';';

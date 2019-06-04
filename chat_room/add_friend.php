@@ -54,7 +54,14 @@
 
 			$dsn = null;
 		}
-    }
+	}
+   
+	function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+      }
 ?>
 <form method=POST>
 	<input type=text name=friend_id placeholder='type friend id'>
