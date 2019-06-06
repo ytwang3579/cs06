@@ -27,14 +27,30 @@
 
 		if( $valid ){
 			//dbchatroom_name
-			$dbchatroom_name = $chatroom_name.time();
+			$dbchatroom_name = $_SESSION['id'].time();
 
-			//add to chat_list
-				
+			//add to chat_list	
+			$sth=$dbh->prepare('insert into chat_list (name , private) value (? ,0)');
+			$sth->execute( array($dbchatroom_name) );
+
 			//add to each user_chatlist
-			
+			$member = $_POST['chatroom_friend'];
+			for($i=0; $i< count($member); $i++ ){
+				$sth=$dbh->prepare('insert into '.$member[$i].'_chatlist (chat_room_name, chat_room_displayname, private) value ( ?, ?, 0)');
+				$sth->execute( array($dbchatroom_name, $chatroom_name) );
+			}
+
+
 			//create chatroom database
-			
+			$sth=$dbh->prepare('CREATE TABLE '.$dbchatroom_name.'(
+				idx INT NOT NULL AUTO_INCREMENT,
+				sender VARCHAR(100) NOT NULL,
+				content VARCHAR(1000) NOT NULL,
+				time VARCHAR(20) NOT NULL,
+				PRIMARY KEY (idx)
+				)');
+			$sth->execute();
+
 			//go back to chat_room.php			
 			echo "<script> location.href='./index.php'; </script>";
 		}
