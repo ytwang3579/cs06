@@ -18,17 +18,30 @@
     		echo 'connection failed: '.$e->getmessage();
     	}
 
-    	$sth=$dbh->prepare('select form chat_list');//check if there is another private chat room created
-		$sth->execute( array($_SESSION['id']) );
+		
+		//check if there is another private chat room created
+		$sth=$dbh->prepare('select count(*) form chat_list where name='.$_SESSION['id'].'_'.$_POST['chatroom_friend_id'].' or name='.$_POST['chatroom_friend_id'].'_'.$_SESSION['id'].'');
+		$sth->execute();
 
-		//check chat_list db largest auto increment number
+		if($sth->fetch_column() ==0){//if no other chat room created
 		
-		//create chat room name
-		
-		//add chat room to both userid_chatlist
-		
-		//go back to chat_room.php
-		
+			//create chat room name
+			$chatroom_name=$_SESSION['id'].'_'.$_POST['chatroom_friend_id'];
+
+			//add chat room to both userid_chatlist and chat_list
+			$sth=$dbh->prepare('insert into chat_list (name , private) value (? , 1)');
+			$sth->execute( array($chatroom_name) );
+			$sth=$dbh->prepare('insert into '.$_SESSION['id'].'_chatlist (chat_room_name, chat_room_displayname, private) value ( ?, ?, 1)');
+			$sth->execute( array($chatroom_name, $_POST['chatroom_friend_name']) );
+			$sth=$dbh->prepare('insert into '.$_POST['chatroom_friend_id'].'_chatlist (chat_room_name, chat_room_displayname, private) value ( ?, ?, 1)');
+			$sth->execute( array($chatroom_name, $_SESSION['name']) );
+
+			//go back to chat_room.php	
+			echo "<script> location.href='./index.php'; </script>"
+		}
+		else{
+			echo "Chat room has already exist!!";
+		}
 	}
 ?>
 <b>Friend list</b>
