@@ -61,7 +61,7 @@
 				PRIMARY KEY (idx)
 				)');
 			$sth->execute();
-
+			echo "hello";
 			//go back to chat_room.php			
 			echo "<script> location.href='./index.php'; </script>";
 		}
