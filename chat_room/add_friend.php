@@ -28,7 +28,7 @@
        	 	}
 		}
 
-		if( $valid ){
+		if( $valid && ($_SESSION['id']!=$_POST['friend_id']) ){
 			//friend id is valid start communicate with db
         	require("../config.php");
         	$dsn='mysql:host='.$CFG['mysql_host'].';dbname='.$CFG['mysql_dbname'].';';

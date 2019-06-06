@@ -8,6 +8,11 @@
 
 	date_default_timezone_set('Asia/Taipei');
 	echo "Hello, ".$_SESSION['name'].'<br>';
+	
+	//if post create public chat room
+	if( ($_SERVER['REQUEST_METHOD']=="POST") && !empty($_POST['chatroom_name']) ){
+
+	}
 ?>	
 	
 <b>Friend list</b>
@@ -25,15 +30,15 @@
 
     $sth=$dbh->prepare('select * from '.$_SESSION['id'].'_friend order by friend_name desc;');
 	$sth->execute();
+	echo "<form method=POST>";
+	echo "<input type=text name=chatroom_name placeholder='type chat room name'>";
 	while($row = $sth->fetch()){//create chat room button to each friend
-		echo "<tr><td>".$row['friend_name']."</td><td>".
-			"<form method=POST>".
-				"<input type=hidden name=chatroom_friend_id value=".$row['friend_id']." style='display:none'>".
-				"<input type=hidden name=chatroom_friend_name value=".$row['friend_name']." style='display:none'>".
-				"<input type=submit value='Chat' >".
-			"</form>".
+		echo "<tr><td>".
+			"<input type=checkbox name=chatroom_friend[] value=".$row['friend_id'].">".$row['friend_name'].
 			" </td></tr>";
 	}
+	echo "<input type=submit value='Chat'>"
+	echo "</form>"
 
 	$dsn = null;
 ?>
