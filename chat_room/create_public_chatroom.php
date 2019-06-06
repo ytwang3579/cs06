@@ -27,10 +27,15 @@
 
 		if( $valid ){
 			//dbchatroom_name
+			
 			//add to chat_list
+			
 			//add to each user_chatlist
+			
 			//create chatroom database
+			
 			//go back to chat_room.php
+			
 		}
 	}
 
