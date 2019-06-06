@@ -72,9 +72,9 @@
 	while($row = $sth->fetch()){//create chat room button to each friend
 		echo "<tr><td>".$row['friend_name']."</td><td>".
 			"<form method=POST>".
-				"<input type=hidden name=chatroom_friend_id value=".$row['friend_id']." style='display:none'>".
-				"<input type=hidden name=chatroom_friend_name value=".$row['friend_name']." style='display:none'>".
-				"<input type=submit value='Chat' >".
+				"<input type='hidden' name=chatroom_friend_id value=".$row['friend_id']." style='display:none'>".
+				"<input type='hidden' name=chatroom_friend_name value=".$row['friend_name']." style='display:none'>".
+				"<input type='submit' value='Chat' >".
 			"</form>".
 			" </td></tr>";
 	}

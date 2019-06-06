@@ -69,6 +69,6 @@
 	echo $user_err;//print error message
 ?>
 <form method=POST>
-	<input type=text name=friend_id placeholder='type friend id'>
-	<input type=submit value="add friend">
+	<input type='text' name=friend_id placeholder='type friend id'>
+	<input type='submit' value="add friend">
 </form>
