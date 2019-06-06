@@ -48,7 +48,7 @@
 			$sth->execute();
 			
 			//go back to chat_room.php	
-			//echo "<script> location.href='./index.php'; </script>";
+			echo "<script> location.href='./index.php'; </script>";
 		}
 		else{
 			echo "Chat room has already exist!!";
