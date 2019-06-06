@@ -9,9 +9,16 @@
     date_default_timezone_set('Asia/Taipei');
     echo "Hello, ".$_SESSION['name'].'<br>';
 ?>
+
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+</head>
+
+<body>
 <b>Friend list</b>
 <br>
-<table>
+<table id = "friend_list">
 <?php
 //list friend list
     require("../config.php");
@@ -34,7 +41,7 @@
 <br>
 <b>Chat room list</b>
 <br>
-<table>
+<table id= "chat_list">
 <?php
 //list chat room
         require("../config.php");
@@ -58,3 +65,35 @@
 <button onclick="location.href='./create_private_chatroom.php';">Create Private Chat Room</button>
 <button onclick="location.href='./create_public_chatroom.php';">Create Public Chat Room</button>
 <button onclick="location.href='./add_friend.php';" >Add Friend</button>
+<iframe id = "chat_window"></iframe>
+
+
+<script>
+	//init variable
+	var chat_list = $('#chat_list');
+	var friend_list = $("#friend_list");
+	var now_room = "";
+	var chat_window = $("#chat_window");
+	
+	//
+	
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
