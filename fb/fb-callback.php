@@ -9,11 +9,11 @@ $fb = new Facebook\Facebook([
   ]);
 $helper = $fb->getRedirectLoginHelper();
 
-/*if(isset($_GET['state'])) {
+if(isset($_GET['state'])) {
       if($_SESSION['FBRLH_' . 'state']) {
           $_SESSION['FBRLH_' . 'state'] = $_GET['state'];
       }
-}*/
+}
 
 try {
   $accessToken = $helper->getAccessToken();
