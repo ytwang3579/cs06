@@ -35,7 +35,7 @@ try {
     
     $_SESSION['id']=$user['id'];
     $_SESSION['name']=$user['name'];
-    $_SESSION['picture']=$user['picture'];
+    $_SESSION['picture']=$user['picture_small'];
 
     
     $sql = "CREATE TABLE IF NOT EXISTS ".$user['id']."_friend (
@@ -56,7 +56,7 @@ try {
     $sth2->execute();
      
     
-    //echo '<br><br><script>location.href="../chat_room/index.php"</script>';
+    echo '<br><br><script>location.href="../chat_room/index.php"</script>';
     }
 catch(PDOException $e)
     {
