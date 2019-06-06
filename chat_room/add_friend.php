@@ -42,6 +42,8 @@
         	$sth=$dbh->prepare('select count(*) from user_list where id = ?  ;');//check if user exist
         	$sth->execute( array( htmlentities($_POST['friend_id']) ) );
 			
+			$check_result = $sth->fetch();	
+
 			if( $sth->fetchColumn() != 0){//if exist
 				//add both to both friend list db
         		$sth=$dbh->prepare('insert into '.$_SESSION['id'].'_friend (`friend_id`,`friend_name`,`confirm_friend`) VALUES ( ? , ? , ? ) ;');
