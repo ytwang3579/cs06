@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]  
 *Feature(s) in development should be displayed here, with information of who is actively dealing with it.*  
 
+## 0.0.20 - 2019-06-06 - s106062129
+### Added
+- add create chat room data base in chat\_room/create\_private\_chatroom.php
+
 ## 0.0.19 - 2019-06-06 - s106062328
 ### Fix bug
 - Change mysql insturctions when register

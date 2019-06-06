@@ -35,7 +35,16 @@
 			$sth->execute( array($chatroom_name, $_POST['chatroom_friend_name']) );
 			$sth=$dbh->prepare('insert into '.$_POST['chatroom_friend_id'].'_chatlist (chat_room_name, chat_room_displayname, private) value ( ?, ?, 1)');
 			$sth->execute( array($chatroom_name, $_SESSION['name']) );
-
+			
+			//create chat room data base
+			$sth=$dbh->prepare('create table '.$chatroom_name.'('.
+				.'idx int not null auto-increment'.
+				.'sender varchar(100) not null'.
+				.'content varchar(1000) not null'.
+				.'time varchar(20) not null'.
+				.')');
+			$sth->execute();
+			
 			//go back to chat_room.php	
 			echo "<script> location.href='./index.php'; </script>";
 		}
