@@ -36,7 +36,7 @@
     		}
 
 			//dbchatroom_name
-			$dbchatroom_name = $_SESSION['id'].time();
+			$dbchatroom_name = $_SESSION['id'].'_'.time();
 
 			//add to chat_list	
 			$sth=$dbh->prepare('insert into chat_list (name , private) value (? ,0)');
