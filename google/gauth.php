@@ -33,7 +33,8 @@ if(isset($_GET['code'])) {
     
 		$sql = "CREATE TABLE ".$user_info['id']."_friend (
 			friend_name VARCHAR(45) PRIMARY KEY NOT NULL,
-			confirm_friend VARCHAR(45) NOT NULL
+			confirm_friend VARCHAR(45) NOT NULL,
+			friend_id VARCHAR(45) NOT NULL
 			)";
     
 		$sql2 = "CREATE TABLE ".$user_info['id']."_chatlist (
