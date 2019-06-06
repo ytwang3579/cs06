@@ -37,7 +37,7 @@
 			$sth->execute( array($chatroom_name, $_SESSION['name']) );
 			
 			//create chat room data base
-			$sth=$dbh->prepare('create table '.$chatroom_name.'('.
+			$sth=$dbh->prepare('create table '.$chatroom_name.'('
 				.'idx int not null auto-increment'.
 				.'sender varchar(100) not null'.
 				.'content varchar(1000) not null'.
