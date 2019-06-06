@@ -22,8 +22,8 @@
 		//check if there is another private chat room created
 		$sth=$dbh->prepare('select count(*) from chat_list where name='.$_SESSION['id'].'_'.$_POST['chatroom_friend_id'].' or name='.$_POST['chatroom_friend_id'].'_'.$_SESSION['id'].'');
 		$sth->execute();
-
-		if($sth->fetchColumn() ==0){//if no other chat room created
+		$count = $sth->fetchColumn();
+		if( $count ==0 ){//if no other chat room created
 		
 			//create chat room name
 			$chatroom_name=$_SESSION['id'].'_'.$_POST['chatroom_friend_id'];
