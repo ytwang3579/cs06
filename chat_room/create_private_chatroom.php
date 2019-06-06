@@ -37,7 +37,7 @@
 			$sth->execute( array($chatroom_name, $_SESSION['name']) );
 
 			//go back to chat_room.php	
-			echo "<script> location.href='./index.php'; </script>"
+			echo "<script> location.href='./index.php'; </script>";
 		}
 		else{
 			echo "Chat room has already exist!!";
