@@ -10,6 +10,7 @@ $fb = new Facebook\Facebook([
 $helper = $fb->getRedirectLoginHelper();
 
 try {
+  die($_SESSION['FBRLH_' . 'state']);
   $accessToken = $helper->getAccessToken();
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
   // When Graph returns an error
