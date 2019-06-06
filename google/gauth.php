@@ -31,13 +31,13 @@ if(isset($_GET['code'])) {
 		$_SESSION['id']=$user_info['id'];
 		$_SESSION['name']=$user_info['name'];
     
-		$sql = "CREATE TABLE ".$user_info['id']."_friend (
+		$sql = "CREATE TABLE IF NOT EXISTS ".$user_info['id']."_friend (
 			friend_name VARCHAR(45) PRIMARY KEY NOT NULL,
 			confirm_friend VARCHAR(45) NOT NULL,
 			friend_id VARCHAR(45) NOT NULL
 			)";
     
-		$sql2 = "CREATE TABLE ".$user_info['id']."_chatlist (
+		$sql2 = "CREATE TABLE IF NOT EXISTS ".$user_info['id']."_chatlist (
 			chat_room_name VARCHAR(100) PRIMARY KEY NOT NULL,
 			chat_room_displayname VARCHAR(100) NOT NULL,
 			private INT NOT NULL
