@@ -74,7 +74,7 @@
 	var friend_list = $("#friend_list");
 	var now_room = "";
 	var chat_window = $("#chat_window");
-	var name = <?php echo "$_SESSION['name']"?>;
+	var name = <?php echo $_SESSION['name'];?>;
 	
 	//click to open chat window (put in iframe)
 	function open_chat_window(chat_name){
