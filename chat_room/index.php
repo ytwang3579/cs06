@@ -56,7 +56,7 @@
 		$sth->execute();
 		while($friend = $sth->fetch()){
 			echo "<tr><td>".$friend['chat_room_name']."</td><td>".$friend['chat_room_displayname']."</td></tr>";
-			echo "<tr><td> <button onclick = \"open_chat_window(".$friend['chat_room_name'].")\">".$friend['chat_room_displayname']."</button></td></tr>";//need to set onclick function to go into a chat room
+			echo "<tr><td> <button onclick = \"open_chat_window(\'".$friend['chat_room_name']."\.)\">".$friend['chat_room_displayname']."</button></td></tr>";//need to set onclick function to go into a chat room
 		}
 
         $dsn = null;
@@ -77,7 +77,7 @@
 	
 	//click to open chat window (put in iframe)
 	function open_chat_window(chat_name){
-		
+		chat_window.src = "http://cs06.2y.cc:25565";
 	}
 	
 </script>
