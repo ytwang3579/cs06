@@ -77,7 +77,7 @@
 	
 	//click to open chat window (put in iframe)
 	function open_chat_window(chat_name){
-		chat_window.attr("src", "https://cs06.2y.cc:25565");
+		chat_window.attr("src", "http://cs06.2y.cc:25565");
 	}
 	
 </script>
