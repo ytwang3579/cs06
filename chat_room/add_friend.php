@@ -42,7 +42,7 @@
         	$sth=$dbh->prepare('select * from user_list where id = ?  ;');//check if user exist
         	$sth->execute( array( htmlentities($_POST['friend_id']) ) );
 			
-			$check_result = $sth->fetch(PDO::FETCH_ASSOC);	
+			$check_result = $sth->fetch();	
 
 			if( count($check_result) !=0 ){//if exist
 				//add both to both friend list db
