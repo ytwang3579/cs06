@@ -56,7 +56,7 @@ try {
     $sth2->execute();
      
     
-    echo '<br><br><script>location.href="../chat_room/index.php"</script>';
+    //echo '<br><br><script>location.href="../chat_room/index.php"</script>';
     }
 catch(PDOException $e)
     {
