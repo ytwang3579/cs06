@@ -12,7 +12,6 @@
       .messages { list-style-type: none; margin: 0; padding: 0; margin-bottom:45px}
       .messages li { padding: 5px 10px; }
       .messages li:nth-child(odd) { background: #e8eef5; }
-	  .highlight {background: #fdfdba;}
     </style>
   </head>
   
@@ -40,7 +39,7 @@
 		  var new_message = $('<li>').text(name+' '+msg+' '+time_string);
 		  console.log(is_tag(msg));
 		  if(is_tag(msg)){
-			new_message.addClass("highlight");
+			new_message.css("background", "#fdfdba");
 		  }
 		  $('#messages').append(new_message);
 		  window.scroll(0,document.body.scrollHeight);
