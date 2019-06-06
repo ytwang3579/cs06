@@ -39,12 +39,10 @@
         	    echo 'Connection failed: ' . $e->getMessage();
         	}
 
-        	$sth=$dbh->prepare('select count(*) from user_list where id = ?  ;');//check if user exist
+        	$sth=$dbh->prepare('select * from user_list where id = ?  ;');//check if user exist
         	$sth->execute( array( htmlentities($_POST['friend_id']) ) );
 			
-			$check_result = $sth->fetch();	
-
-			if( $sth->fetchColumn() != 0){//if exist
+			if( $check_result = $sth->fetch() ){//if exist
 				//add both to both friend list db
         		$sth=$dbh->prepare('insert into '.$_SESSION['id'].'_friend (`friend_id`,`friend_name`,`confirm_friend`) VALUES ( ? , ? , ? ) ;');
 				$sth->execute( array( $_POST['friend_id'], $check_result['name'], true ) );
