@@ -26,6 +26,15 @@
 		}
 
 		if( $valid ){
+			//connect to database
+			require("../config.php");
+    		$dsn='mysql:host='.$CFG['mysql_host'].';dbname='.$CFG['mysql_dbname'].';';
+    		try {
+    			$dbh = new pdo($dsn, $CFG['mysql_username'],$CFG['mysql_password']);
+    		}catch (pdoexception $e) {
+    			echo 'connection failed: '.$e->getmessage();
+    		}
+
 			//dbchatroom_name
 			$dbchatroom_name = $_SESSION['id'].time();
 
