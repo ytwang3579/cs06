@@ -38,10 +38,10 @@
 			
 			//create chat room data base
 			$sth=$dbh->prepare('create table '.$chatroom_name.'('
-				.'idx int not null auto-increment'.
-				.'sender varchar(100) not null'.
-				.'content varchar(1000) not null'.
-				.'time varchar(20) not null'.
+				.'idx int not null auto-increment'
+				.'sender varchar(100) not null'
+				.'content varchar(1000) not null'
+				.'time varchar(20) not null'
 				.')');
 			$sth->execute();
 			
