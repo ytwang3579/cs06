@@ -48,7 +48,9 @@
 				$sth=$dbh->prepare('insert into '.$member[$i].'_chatlist (chat_room_name, chat_room_displayname, private) value ( ?, ?, 0)');
 				$sth->execute( array($dbchatroom_name, $chatroom_name) );
 			}
-
+			//add to self chatlist
+			$sth=$dbh->prepare('insert into '.$_SESSION['id'].'_chatlist (chat_room_name, chat_room_displayname, private) value ( ?, ?, 0)');
+			$sth->execute( array($dbchatroom_name, $chatroom_name) );
 
 			//create chatroom database
 			$sth=$dbh->prepare('CREATE TABLE '.$dbchatroom_name.'(
