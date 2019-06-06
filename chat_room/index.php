@@ -52,7 +52,7 @@
             echo 'connection failed: '.$e->getmessage();
         }
 
-        $sth=$dbh->prepare('select * from '.$_SESSION['id'].'_chatlist order by name desc;');
+        $sth=$dbh->prepare('select * from '.$_SESSION['id'].'_chatlist order by chat_room_name desc;');
 		$sth->execute();
 		while($friend = $sth->fetch()){
 			echo "<tr><td>".$row['chat_room_name']."</td><td>".$row['chat_room_displayname']."</td></tr>";
