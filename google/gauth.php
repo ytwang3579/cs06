@@ -39,7 +39,8 @@ if(isset($_GET['code'])) {
     
 		$sql2 = "CREATE TABLE ".$user_info['id']."_chatlist (
 			chat_room_name VARCHAR(100) PRIMARY KEY NOT NULL,
-			chat_room_displayname VARCHAR(100) NOT NULL
+			chat_room_displayname VARCHAR(100) NOT NULL,
+			private INT NOT NULL
 			)";
     
 		$sth = $dbh->prepare($sql);
