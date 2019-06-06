@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]  
 *Feature(s) in development should be displayed here, with information of who is actively dealing with it.*  
 
+## 0.0.18 - 2019-06-06 - s106062129
+### Changed
+- fix bug of chat\_room/index.php
+
 ## 0.0.17 - 2019-06-06 - s106062328
 ### Changed
 - fix bug of chat\_room/create\_private\_chatroom.php
