@@ -8,6 +8,7 @@
 
     date_default_timezone_set('Asia/Taipei');
     echo "Hello, ".$_SESSION['name'].'<br>';
+    var_dump($_SESSION['picture']);
 ?>
 
 <html>
