@@ -20,7 +20,7 @@
 
 		
 		//check if there is another private chat room created
-		$sth=$dbh->prepare('select * from chat_list where name='.$_SESSION['id'].'_'.$_POST['chatroom_friend_id'].' or name='.$_POST['chatroom_friend_id'].'_'.$_SESSION['id'].'');
+		$sth=$dbh->prepare('select * from chat_list where name="'.$_SESSION['id'].'_'.$_POST['chatroom_friend_id'].'" or name="'.$_POST['chatroom_friend_id'].'_'.$_SESSION['id'].'"');
 		$sth->execute();
 		$count = $sth->fetch();
 		var_dump( $count );
