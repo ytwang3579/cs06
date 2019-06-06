@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]  
 *Feature(s) in development should be displayed here, with information of who is actively dealing with it.*  
 
+## 0.1.0 - 2019-06-06 -s106062128
+###Added
+- add node\_server, now we can start a server and acheive real time chat(by socket.io)
+
 ## 0.0.20 - 2019-06-06 - s106062129
 ### Added
 - add create chat room data base in chat\_room/create\_private\_chatroom.php
