@@ -14,6 +14,7 @@
 <?php
 	//add friend to both people's friend list'
 	if($_SERVER['REQUEST_METHOD']=="POST"){
+		$user_err = '';
 		$valid = 1;
     	if (empty($_POST['friend_id'])) {//check user id
     	    $user_err = "<br>Friend ID is required";
@@ -62,7 +63,8 @@
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
         return $data;
-      }
+	}
+	echo $user_err;//print error message
 ?>
 <form method=POST>
 	<input type=text name=friend_id placeholder='type friend id'>
