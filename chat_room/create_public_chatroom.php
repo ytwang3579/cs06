@@ -27,15 +27,16 @@
 
 		if( $valid ){
 			//dbchatroom_name
-			
+			$dbchatroom_name = $chatroom_name.time();
+
 			//add to chat_list
-			
+				
 			//add to each user_chatlist
 			
 			//create chatroom database
 			
-			//go back to chat_room.php
-			
+			//go back to chat_room.php			
+			echo "<script> location.href='./index.php'; </script>";
 		}
 	}
 
