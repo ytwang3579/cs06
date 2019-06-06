@@ -17,14 +17,14 @@
 	if($_SERVER['REQUEST_METHOD']=="POST"){
 		$valid = 1;
     	if (empty($_POST['friend_id'])) {//check user id
-    	    $user_err = "<br>Friend ID is required";
+    	    $user_err = "Friend ID is required<br>";
     	    $valid = 0;
     	}
     	else{
     	    $user_id = test_input($_POST["friend_id"]);
     	    // check if name only contains letters and whitespace
     	    if (!preg_match("/^[0-9]*$/",$user_id)) {
-    	    	$user_err = "<br>Only number allowed";
+    	    	$user_err = "Only number allowed<br>";
 				$valid = 0;
        	 	}
 		}
