@@ -55,7 +55,6 @@
         $sth=$dbh->prepare('select * from '.$_SESSION['id'].'_chatlist order by chat_room_name desc;');
 		$sth->execute();
 		while($friend = $sth->fetch()){
-			var_dump($friend);
 			echo "<tr><td>".$friend['chat_room_name']."</td><td>".$friend['chat_room_displayname']."</td></tr>";
 			echo "<tr><td> <button>".$friend['chat_room_displayname']."</button></td></tr>";//need to set onclick function to go into a chat room
 		}
