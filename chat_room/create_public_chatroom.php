@@ -10,9 +10,37 @@
 	echo "Hello, ".$_SESSION['name'].'<br>';
 	
 	//if post create public chat room
-	if( ($_SERVER['REQUEST_METHOD']=="POST") && !empty($_POST['chatroom_name']) ){
+	if( ($_SERVER['REQUEST_METHOD']=="POST") && !empty($_POST['chatroom_name']) && !empty($_POST['chatroom_friend']) ){	
+		$valid = 1;
+    	if (empty($_POST['chatroom_name'])) {//check chatroom name
+    	    $chatroom_name_err = "<br>chatroom name is required";
+    	    $valid = 0;
+    	}
+    	else{
+    	    $chatroom_name = test_input($_POST["chatroom_name"]);
+    	    // check if name only contains letters
+    	    if (!preg_match("/^[0-9A-Za-z]*$/",$chatroom_name)) {
+    	    	$chatroom_name_err = "<br>Only number or alphabet is allowed";
+				$valid = 0;
+       	 	}
+		}
 
+		if( $valid ){
+			//dbchatroom_name
+			//add to chat_list
+			//add to each user_chatlist
+			//create chatroom database
+			//go back to chat_room.php
+		}
 	}
+
+
+	function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+      }
 ?>	
 	
 <b>Friend list</b>

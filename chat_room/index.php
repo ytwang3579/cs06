@@ -45,8 +45,8 @@
             echo 'connection failed: '.$e->getmessage();
         }
 
-        $sth=$dbh->prepare('select * from ?_chatlist order by name desc;');
-		$sth->execute( array($_SESSION['id']) );
+        $sth=$dbh->prepare('select * from '.$_SESSION['id'].'_chatlist order by name desc;');
+		$sth->execute();
 		while($friend = $sth->fetch()){
 			echo "<tr><td>".$row['chat_room_name']."</td><td>".$row['chat_room_displayname']."</td></tr>";
 			echo "<tr><td> <button>".$row['chat_room_displayname']."</button></td></tr>";//need to set onclick function to go into a chat room
