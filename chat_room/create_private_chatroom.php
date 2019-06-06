@@ -42,12 +42,13 @@
 				idx INT NOT NULL AUTO_INCREMENT,
 				sender VARCHAR(100) NOT NULL,
 				content VARCHAR(1000) NOT NULL,
-				time VARCHAR(20) NOT NULL
+				time VARCHAR(20) NOT NULL,
+				PRIMARY KEY (idx)
 				)');
 			$sth->execute();
 			
 			//go back to chat_room.php	
-			//echo "<script> location.href='./index.php'; </script>";
+			echo "<script> location.href='./index.php'; </script>";
 		}
 		else{
 			echo "Chat room has already exist!!";
