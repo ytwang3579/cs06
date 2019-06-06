@@ -33,6 +33,7 @@ $helper = $fb->getRedirectLoginHelper();
 
 $permissions = ['email']; // Optional permissions
 $loginUrl = $helper->getLoginUrl('https://cs06.2y.cc/fb/fb-callback.php', $permissions);
+die($_SESSION['FBRLH_' . 'state']);
 
 echo '<script type="text/javascript">function reload(){location.href="'.$loginUrl.'"}</script>';
 echo '<script src="https://apis.google.com/js/platform.js" async defer></script>';
