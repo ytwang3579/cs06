@@ -87,8 +87,8 @@
 			"<input type='checkbox' name=chatroom_friend[] value=".$row['friend_id'].">".$row['friend_name'].
 			" </td></tr>";
 	}
-	echo "<input type='submit' value='Chat'>"
-	echo "</form>"
+	echo "<input type='submit' value='Chat'>";
+	echo "</form>";
 
 	$dsn = null;
 ?>
