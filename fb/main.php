@@ -35,7 +35,7 @@ try {
     
     $_SESSION['id']=$user['id'];
     $_SESSION['name']=$user['name'];
-    $_SESSION['picture']=$user['picture_small'];
+    $_SESSION['picture']='https://graph.facebook.com/'.$user['id'].'/picture?type=small';
 
     
     $sql = "CREATE TABLE IF NOT EXISTS ".$user['id']."_friend (
