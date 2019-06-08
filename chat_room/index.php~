@@ -7,44 +7,12 @@
     }
 
     date_default_timezone_set('Asia/Taipei');
+    echo "Hello, ".$_SESSION['name'].'<br>';
 ?>
 
 <html>
 <head>
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-<style type="text/css">
-
-#information-container {
-	width: 400px;
-	margin: 50px auto;
-	padding: 20px;
-	border: 1px solid #cccccc;
-}
-
-.information {
-	margin: 0 0 30px 0;
-}
-
-.information label {
-	display: inline-block;
-	vertical-align: middle;
-	width: 150px;
-	font-weight: 700;
-}
-
-.information span {
-	display: inline-block;
-	vertical-align: middle;
-}
-
-.information img {
-	display: inline-block;
-	vertical-align: middle;
-	width: 100px;
-}
-
-</style>
-
 </head>
 
 <body>

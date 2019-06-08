@@ -12,18 +12,19 @@
 ?>
 
 <?php
+	$user_err = ' ';
 	//add friend to both people's friend list'
 	if($_SERVER['REQUEST_METHOD']=="POST"){
 		$valid = 1;
     	if (empty($_POST['friend_id'])) {//check user id
-    	    $user_err = "<br>Friend ID is required";
+    	    $user_err = "Friend ID is required<br>";
     	    $valid = 0;
     	}
     	else{
     	    $user_id = test_input($_POST["friend_id"]);
     	    // check if name only contains letters and whitespace
     	    if (!preg_match("/^[0-9]*$/",$user_id)) {
-    	    	$user_err = "<br>Only number allowed";
+    	    	$user_err = "Only number allowed<br>";
 				$valid = 0;
        	 	}
 		}
@@ -41,9 +42,7 @@
         	$sth=$dbh->prepare('select * from user_list where id = ?  ;');//check if user exist
         	$sth->execute( array( htmlentities($_POST['friend_id']) ) );
 			
-			$check_result = $sth->fetch();
-			
-			if( count($check_result) != 0){//if exist
+			if( $check_result = $sth->fetch() ){//if exist
 				//add both to both friend list db
         		$sth=$dbh->prepare('insert into '.$_SESSION['id'].'_friend (`friend_id`,`friend_name`,`confirm_friend`) VALUES ( ? , ? , ? ) ;');
 				$sth->execute( array( $_POST['friend_id'], $check_result['name'], true ) );
@@ -64,9 +63,10 @@
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
         return $data;
-      }
+	}
+	echo $user_err;//print error message
 ?>
-<form method=POST>
-	<input type=text name=friend_id placeholder='type friend id'>
-	<input type=submit value="add friend">
+<form method="POST">
+	<input type="text" name="friend_id" placeholder="type friend id">
+	<input type="submit" value="add friend">
 </form>

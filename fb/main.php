@@ -10,7 +10,7 @@ $fb = new Facebook\Facebook([
   
 try {
   // Returns a `Facebook\FacebookResponse` object
-  $response = $fb->get('/me?fields=id,name', $_SESSION['fb_access_token']);
+  $response = $fb->get('/me?fields=id,name,picture.width(100).height(100).as(picture_small)', $_SESSION['fb_access_token']);
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
     echo 'Graph returned an error: ' . $e->getMessage();
     exit;
@@ -35,16 +35,19 @@ try {
     
     $_SESSION['id']=$user['id'];
     $_SESSION['name']=$user['name'];
+    $_SESSION['picture']='https://graph.facebook.com/'.$user['id'].'/picture?type=small';
+
     
-    $sql = "CREATE TABLE ".$user['id']."_friend (
+    $sql = "CREATE TABLE IF NOT EXISTS ".$user['id']."_friend (
             friend_name VARCHAR(45) PRIMARY KEY NOT NULL,
             confirm_friend VARCHAR(45) NOT NULL,
             friend_id VARCHAR(45) NOT NULL
     )";
     
-    $sql2 = "CREATE TABLE ".$user['id']."_chatlist (
+    $sql2 = "CREATE TABLE IF NOT EXISTS ".$user['id']."_chatlist (
             chat_room_name VARCHAR(100) PRIMARY KEY NOT NULL,
-            chat_room_displayname VARCHAR(100) NOT NULL
+            chat_room_displayname VARCHAR(100) NOT NULL,
+            private INT NOT NULL
     )";
     
     $sth = $dbh->prepare($sql);

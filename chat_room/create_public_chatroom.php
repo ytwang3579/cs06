@@ -26,11 +26,44 @@
 		}
 
 		if( $valid ){
+			//connect to database
+			require("../config.php");
+    		$dsn='mysql:host='.$CFG['mysql_host'].';dbname='.$CFG['mysql_dbname'].';';
+    		try {
+    			$dbh = new pdo($dsn, $CFG['mysql_username'],$CFG['mysql_password']);
+    		}catch (pdoexception $e) {
+    			echo 'connection failed: '.$e->getmessage();
+    		}
+
 			//dbchatroom_name
-			//add to chat_list
+			$dbchatroom_name = $_SESSION['id'].'_'.time();
+
+			//add to chat_list	
+			$sth=$dbh->prepare('insert into chat_list (name , private) value (? ,0)');
+			$sth->execute( array($dbchatroom_name) );
+
 			//add to each user_chatlist
+			$member = $_POST['chatroom_friend'];
+			for($i=0; $i< count($member); $i++ ){
+				$sth=$dbh->prepare('insert into '.$member[$i].'_chatlist (chat_room_name, chat_room_displayname, private) value ( ?, ?, 0)');
+				$sth->execute( array($dbchatroom_name, $chatroom_name) );
+			}
+			//add to self chatlist
+			$sth=$dbh->prepare('insert into '.$_SESSION['id'].'_chatlist (chat_room_name, chat_room_displayname, private) value ( ?, ?, 0)');
+			$sth->execute( array($dbchatroom_name, $chatroom_name) );
+
 			//create chatroom database
-			//go back to chat_room.php
+			$sth=$dbh->prepare('CREATE TABLE '.$dbchatroom_name.'(
+				idx INT NOT NULL AUTO_INCREMENT,
+				sender VARCHAR(100) NOT NULL,
+				content VARCHAR(1000) NOT NULL,
+				time VARCHAR(20) NOT NULL,
+				PRIMARY KEY (idx)
+				)');
+			$sth->execute();
+			
+			//go back to chat_room.php			
+			echo "<script> location.href='./index.php'; </script>";
 		}
 	}
 
@@ -59,14 +92,14 @@
     $sth=$dbh->prepare('select * from '.$_SESSION['id'].'_friend order by friend_name desc;');
 	$sth->execute();
 	echo "<form method=POST>";
-	echo "<input type=text name=chatroom_name placeholder='type chat room name'>";
+	echo "<input type='text' name=chatroom_name placeholder='type chat room name'>";
 	while($row = $sth->fetch()){//create chat room button to each friend
 		echo "<tr><td>".
-			"<input type=checkbox name=chatroom_friend[] value=".$row['friend_id'].">".$row['friend_name'].
+			"<input type='checkbox' name=chatroom_friend[] value=".$row['friend_id'].">".$row['friend_name'].
 			" </td></tr>";
 	}
-	echo "<input type=submit value='Chat'>"
-	echo "</form>"
+	echo "<input type='submit' value='Chat'>";
+	echo "</form>";
 
 	$dsn = null;
 ?>

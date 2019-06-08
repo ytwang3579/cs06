@@ -20,10 +20,11 @@
 
 		
 		//check if there is another private chat room created
-		$sth=$dbh->prepare('select count(*) form chat_list where name='.$_SESSION['id'].'_'.$_POST['chatroom_friend_id'].' or name='.$_POST['chatroom_friend_id'].'_'.$_SESSION['id'].'');
+		$sth=$dbh->prepare('select * from chat_list where name="'.$_SESSION['id'].'_'.$_POST['chatroom_friend_id'].'" or name="'.$_POST['chatroom_friend_id'].'_'.$_SESSION['id'].'"');
 		$sth->execute();
-
-		if($sth->fetchColumn() ==0){//if no other chat room created
+		$count = $sth->fetch();
+		
+		if( !($count) ){//if no other chat room created
 		
 			//create chat room name
 			$chatroom_name=$_SESSION['id'].'_'.$_POST['chatroom_friend_id'];
@@ -37,7 +38,6 @@
 			$sth->execute( array($chatroom_name, $_SESSION['name']) );
 			
 			//create chat room data base
-			var_dump($chatroom_name);
 			$sth=$dbh->prepare('CREATE TABLE '.$chatroom_name.'(
 				idx INT NOT NULL AUTO_INCREMENT,
 				sender VARCHAR(100) NOT NULL,
@@ -73,9 +73,9 @@
 	while($row = $sth->fetch()){//create chat room button to each friend
 		echo "<tr><td>".$row['friend_name']."</td><td>".
 			"<form method=POST>".
-				"<input type=hidden name=chatroom_friend_id value=".$row['friend_id']." style='display:none'>".
-				"<input type=hidden name=chatroom_friend_name value=".$row['friend_name']." style='display:none'>".
-				"<input type=submit value='Chat' >".
+				"<input type='hidden' name=chatroom_friend_id value=".$row['friend_id']." style='display:none'>".
+				"<input type='hidden' name=chatroom_friend_name value=".$row['friend_name']." style='display:none'>".
+				"<input type='submit' value='Chat' >".
 			"</form>".
 			" </td></tr>";
 	}
