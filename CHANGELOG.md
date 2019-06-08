@@ -12,11 +12,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Change chatroom/index.php to show chatroom list
 
 ## 0.1.1 - 2019-06-06 - s106062129
-###Changed
+### Changed
 - change chatroom/addfriend.php to prevent add yourself
 
 ## 0.1.0 - 2019-06-06 -s106062128
-###Added
+### Added
 - add node\_server, now we can start a server and acheive real time chat(by socket.io)
 
 ## 0.0.20 - 2019-06-06 - s106062129
@@ -24,15 +24,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - add create chat room data base in chat\_room/create\_private\_chatroom.php
 
 ## 0.0.19 - 2019-06-06 - s106062328
-### Fix bug
+### Fixed
 - Change mysql insturctions when register
 
 ## 0.0.18 - 2019-06-06 - s106062129
-### Changed
+### Fixed
 - fix bug of chat\_room/index.php
 
 ## 0.0.17 - 2019-06-06 - s106062328
-### Changed
+### Fixed
 - fix bug of chat\_room/create\_private\_chatroom.php
 
 
