@@ -11,7 +11,10 @@ var con = mysql.createConnection({
   database: "cs06"
 });
 
-
+con.connect(function(err) {
+	if (err) throw err;
+	console.log("sql Connected!");
+	});
 
 app.get('/*', function(req, res){
   //res.send('<h1>Hello world</h1>');
@@ -29,15 +32,14 @@ io.on('connection', function(socket){
 	 }
 	 else{
 	 	io.in(room).emit('chat message', msg, name, time_string);
-		con.connect(function(err) {
-			if (err) throw err;
-			console.log("sql Connected!");
-			var sql = "INSERT INTO "+ mysql.escape(room) +" (sender, content, time) VALUES ("+ mysql.escape(name)+"," + mysql.escape(msg) +"," + mysql.escape(time_string)+")";
-			con.query(sql, function (err, result) {
-			  if (err) throw err;
-			  console.log("1 record inserted");
-			});
+
+		var sql = "INSERT INTO ? (sender, content, time) VALUES (?, ?, ?)";
+		console.log([room, name, msg, time_string ]);
+		con.query(sql, [room, name, msg, time_string ], function (err, result) {
+		  if (err) throw err;
+		  console.log("1 record inserted");
 		});
+		
 	 }
 
   });
