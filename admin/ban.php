@@ -19,4 +19,5 @@
         $sth->execute();
        
     }
+    header(Location:'admin/');
 ?>
