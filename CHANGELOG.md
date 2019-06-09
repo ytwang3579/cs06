@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]  
 *Feature(s) in development should be displayed here, with information of who is actively dealing with it.*  
 
-## 0.1.7 - 2019-06-09 - s106062328
+## 0.1.8 - 2019-06-09 - s106062328
 ### Fixed
 - synchronize google and fb url as cs06.2y.cc
 
