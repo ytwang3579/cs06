@@ -29,7 +29,7 @@
       </div>
     </button>
     <div class="profile">
-      <img src="<?= $_SESSION['picture'] ?>" style="width:200px height:200px"/>
+      <img src="<?= $_SESSION['picture'] ?>" style="width:200px; height:200px;"/>
     </div>
     
     <div class="chatroomlist">
