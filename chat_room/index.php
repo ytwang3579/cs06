@@ -52,7 +52,7 @@
 
 <br>
 
-<div class="chat_list">
+<div class="room_list">
 <b>Chat room list</b>
 <br>
 <table id= "chat_list">
