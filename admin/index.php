@@ -53,8 +53,15 @@
 
         $sth=$dbh->prepare('select * from chat_list order by name desc;');
 		$sth->execute();
+		$privacy="";
+		if($info['private']==1)$privacy="private";
+		else if($info['private']==0)$privacy="public";
 		while($info = $sth->fetch()){
-			echo "<tr><td>".$info['name']."</td><td>".$info['id']."</td><td>".$info['private']."</td></tr>";
+		       $privacy="";
+		       if($info['private']==1)$privacy="private";
+                       else if($info['private']==0)$privacy="public";
+		
+                       echo "<tr><td>".$info['name']."</td><td>".$info['idx']."</td><td>".$privacy."</td></tr>";
 		}
 
         $dsn = null;
