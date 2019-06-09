@@ -44,11 +44,7 @@
 		  window.scroll(0,document.body.scrollHeight);
 		});
 		
-		$("#myroom").click(function(){
-			socket.emit('join', 'myroom');
-			room = 'myroom';
-			$('#myroom').after('<span>you are in "myroom"</span>')
-		});
+		socket.emit('join', room);
 		
 		socket.on('disconnect', function(){
 			alert('server is down.');
