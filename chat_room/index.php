@@ -2,7 +2,7 @@
     // Start the session
     session_start();
     if( !isset($_SESSION['id']) | empty($_SESSION['id']) | !isset($_SESSION['name']) | empty($_SESSION['name']) ){
-        echo "<script> location.href='../fb/index.php'; </script>";
+        echo "<script> location.href='../fb/'; </script>";
         exit();
     }
 
