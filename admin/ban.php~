@@ -17,7 +17,7 @@
         
         $sth=$dbh->prepare(' update user_list set silence=1  where id = '.$_POST['id'].';');
         $sth->execute();
-    }
-    echo "<script> location.href='../admin'; </script>";
        
+    }
+    header(Location:'admin/');
 ?>
