@@ -5,87 +5,152 @@
         echo "<script> location.href='../fb/'; </script>";
         exit();
     }
-    else if($_SESSION['id']=='admin'&&$_SESSION['name']=='Admin'){
-        echo "<script> location.href='../admin';</script>";
-    }
 
     date_default_timezone_set('Asia/Taipei');
 ?>
-
+<!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<title>CHATROOM-index</title>
+<link rel='stylesheet' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
+<link rel="stylesheet" href="./style.css">
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-<link rel="stylesheet" href="main.css">
 </head>
-
 <body>
-
-<div class="nav">
-	<div class="information">
-		<label>Hello</label><span><?= $_SESSION['name'] ?></span>
-		<label style="overflow:hidden;">ID</label><span style="overflow:hidden;"><?= $_SESSION['id'] ?></span>
-		<label style="overflow:hidden;">Picture</label><img src="<?= $_SESSION['picture'] ?>" />
-	</div>
-</div>
-
-<div class="friend_list">
-<b>Friend list</b>
-<br>
-<table id = "friend_list">
-<?php
-//list friend list
-    require("../config.php");
-    $dsn='mysql:host='.$CFG['mysql_host'].';dbname='.$CFG['mysql_dbname'].';';
-    try {
-    	$dbh = new pdo($dsn, $CFG['mysql_username'],$CFG['mysql_password']);
-    }catch (pdoexception $e) {
-    	echo 'connection failed: '.$e->getmessage();
-    }
-
-    $sth=$dbh->prepare('select * from '.$_SESSION['id'].'_friend order by friend_name desc;');
-	$sth->execute();
-	while($row = $sth->fetch()){
-		echo "<tr><td>".$row['friend_name']."</td></tr>";
-	}
-
-	$dsn = null;
-?>
-</table>
-</div>
-
-<br>
-
-<div class="room_list">
-<b>Chat room list</b>
-<br>
-<table id= "chat_list">
+<div class="slack">
+  <div class="sidebar">
+    <button class="profile">
+      <div class="team-menu-info">
+        <h1 class="pagetitle">CS 0.6</h1>
+        <img src="<?= $_SESSION['picture'] ?>"/>
+        <span class="username"><?= $_SESSION['name'] ?></span>
+        <span class="userid"><?= $_SESSION['id'] ?></span>
+      </div>
+    </button>
+    
+    <div class="chatroomlist">
+      <h2 class="chatroomlist-title">
+        <span>
+          PUBLIC CHATROOM
+        </span>
+        <button class="ion-ios-plus-outline chatroomlist-add" onclick="location.href='./create_public_chatroom.php';"></button>
+      </h2>
+      <ul class="chatroomlist-list">
 <?php
 //list chat room
         require("../config.php");
         $dsn='mysql:host='.$CFG['mysql_host'].';dbname='.$CFG['mysql_dbname'].';';
         try {
-			$dbh = new pdo($dsn, $CFG['mysql_username'],$CFG['mysql_password']);
+			      $dbh = new pdo($dsn, $CFG['mysql_username'],$CFG['mysql_password']);
         } catch (PDOExpection $e) {
             echo 'connection failed: '.$e->getmessage();
         }
 
         $sth=$dbh->prepare('select * from '.$_SESSION['id'].'_chatlist order by chat_room_name desc;');
-		$sth->execute();
-		while($friend = $sth->fetch()){
-			echo "<tr><td>".$friend['chat_room_name']."</td><td>".$friend['chat_room_displayname']."</td></tr>";
-			echo "<tr><td> <button onclick = \"open_chat_window('".$friend['chat_room_name']."')\">".$friend['chat_room_displayname']."</button></td></tr>";//need to set onclick function to go into a chat room
-		}
+		    $sth->execute();
+		    while($friend = $sth->fetch()){
+          if($friend['private']==0){
+            echo '<li class="chatroomlist-item"><button class="chatroomlist-button" onclick="OpenChatRoom('.$friend['chat_room_name'].')"><span>'.$friend['chat_room_displayname'].'</span></button></li>';
+          }
+        }
 
         $dsn = null;
 ?>
-</table>
+        <!-- ONLY FOR DEBUG -->
+        <li class="chatroomlist-item">
+          <button class="chatroomlist-button">
+            <span>general public</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="chatroomlist">
+      <h2 class="chatroomlist-title">
+        <span>
+          PRIVATE CHATROOM
+        </span>
+        <button class="ion-ios-plus-outline chatroomlist-add" onclick="location.href='./create_private_chatroom.php';"></button>
+      </h2>
+      <ul class="chatroomlist-list">
+<?php
+//list chat room
+        require("../config.php");
+        $dsn='mysql:host='.$CFG['mysql_host'].';dbname='.$CFG['mysql_dbname'].';';
+        try {
+			      $dbh = new pdo($dsn, $CFG['mysql_username'],$CFG['mysql_password']);
+        } catch (PDOExpection $e) {
+            echo 'connection failed: '.$e->getmessage();
+        }
+
+        $sth=$dbh->prepare('select * from '.$_SESSION['id'].'_chatlist order by chat_room_name desc;');
+		    $sth->execute();
+		    while($friend = $sth->fetch()){
+          if($friend['private']==1){
+            echo '<li class="chatroomlist-item"><button class="chatroomlist-button" onclick="OpenChatRoom('.$friend['chat_room_name'].')"><span>'.$friend['chat_room_displayname'].'</span></button></li>';
+          }
+        }
+
+        $dsn = null;
+?>
+        <!-- ONLY FOR DEBUG -->
+        <li class="chatroomlist-item">
+          <button class="chatroomlist-button">
+            <span>general</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="friendlist">
+      <h2 class="friendlist-heading">
+        <span>
+          FRIEND
+        </span>
+        <button class="ion-ios-plus-outline friendlist-add" onclick="location.href='./add_friend.php';"></button>
+      </h2>
+      <ul class="friendlist-list">
+<?php
+//list friend list
+          require("../config.php");
+          $dsn='mysql:host='.$CFG['mysql_host'].';dbname='.$CFG['mysql_dbname'].';';
+          try {
+            $dbh = new pdo($dsn, $CFG['mysql_username'],$CFG['mysql_password']);
+          }catch (pdoexception $e) {
+            echo 'connection failed: '.$e->getmessage();
+          }
+
+          $sth=$dbh->prepare('select * from '.$_SESSION['id'].'_friend order by friend_name desc;');
+        $sth->execute();
+        while($row = $sth->fetch()){
+          echo '<li class="friendlist-item"><button class="friendlist-button"><span>'.$row['friend_name'].'</span></button></li>';
+        }
+
+        $dsn = null;
+?>
+        <!-- ONLY FOR DEBUG -->
+        <li class="friendlist-item">
+          <button class="friendlist-button friendlist-button--online">
+            <span>Harry Potter</span>
+          </button>
+        </li>
+        <li class="friendlist-item">
+            <button class="friendlist-button">
+              <span>Ginny Weasley</span>
+            </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="main">
+
+  <iframe id = "chat_window"></iframe>
+
+  </div>
 </div>
-<button onclick="location.href='./create_private_chatroom.php';">Create Private Chat Room</button>
-<button onclick="location.href='./create_public_chatroom.php';">Create Public Chat Room</button>
-<button onclick="location.href='./add_friend.php';" >Add Friend</button>
-<iframe id = "chat_window"></iframe>
 
-
+<!-- script for iframe -->
 <script>
 	//init variable
 	var chat_list = $('#chat_list');
@@ -101,5 +166,12 @@
 	}
 	
 </script>
+
+<script>
+  function OpenChatRoom(chatroomid){
+    // TODO: Open chatroom based on chatroomid
+  }
+</script>
+
 </body>
 </html>
