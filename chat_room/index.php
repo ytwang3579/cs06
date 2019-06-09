@@ -14,11 +14,14 @@
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 <style type="text/css">
 
-#information-container {
-	width: 400px;
-	margin: 50px auto;
-	padding: 20px;
-	border: 1px solid #cccccc;
+
+.nav {
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    background: #ffd5d2;
+    box-shadow: 0 0 10px #00000070;
+    z-index: 9999;
 }
 
 .information {
@@ -29,6 +32,7 @@
 	display: inline-block;
 	vertical-align: middle;
 	width: 150px;
+	padding-left:30px;
 	font-weight: 700;
 }
 
@@ -39,8 +43,10 @@
 
 .information img {
 	display: inline-block;
+	position:relative;
 	vertical-align: middle;
-	width: 100px;
+	horizonal-align: right;
+	width: 50px;
 }
 
 </style>
@@ -49,15 +55,11 @@
 
 <body>
 
-<div id="information-container">
+<div class="nav">
 	<div class="information">
-		<label>Name</label><span><?= $_SESSION['name'] ?></span>
-	</div>
-	<div class="information">
-		<label>ID</label><span><?= $_SESSION['id'] ?></span>
-	</div>
-	<div class="information">
-		<label>Picture</label><img src="<?= $_SESSION['picture'] ?>" />
+		<label>Hello</label><span><?= $_SESSION['name'] ?></span>
+		<label style="overflow:hidden;">ID</label><span style="overflow:hidden;"><?= $_SESSION['id'] ?></span>
+		<label style="overflow:hidden;">Picture</label><img src="<?= $_SESSION['picture'] ?>" />
 	</div>
 </div>
 
