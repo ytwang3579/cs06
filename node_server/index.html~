@@ -23,7 +23,7 @@
 	
 	<script src="resource/socket.io.js"></script>
 	<script src="resource/create_vote.js"></script>
-	<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 	<script>
 		var room = window.parent.now_room;
 	  $(function () {
