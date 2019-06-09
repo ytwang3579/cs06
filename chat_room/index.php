@@ -5,7 +5,9 @@
         echo "<script> location.href='../fb/'; </script>";
         exit();
     }
-
+    else if($_SESSION['id']=='admin'&&$_SESSION['name']=='Admin'){
+      echo "<script> location.href='../admin';</script>";
+    }
     date_default_timezone_set('Asia/Taipei');
 ?>
 <!DOCTYPE html>
@@ -27,7 +29,7 @@
       </div>
     </button>
     <div class="profile">
-      <img src="<?= $_SESSION['picture'] ?>"/>
+      <img src="<?= $_SESSION['picture'] ?>" style="width:200px height:200px"/>
     </div>
     
     <div class="chatroomlist">
@@ -58,12 +60,13 @@
 
         $dsn = null;
 ?>
-        <!-- ONLY FOR DEBUG -->
+        <!-- ONLY FOR DEBUG
         <li class="chatroomlist-item">
           <button class="chatroomlist-button">
             <span>general public</span>
           </button>
-        </li>
+        </li> 
+        -->
       </ul>
     </div>
 
@@ -95,12 +98,13 @@
 
         $dsn = null;
 ?>
-        <!-- ONLY FOR DEBUG -->
+        <!-- ONLY FOR DEBUG 
         <li class="chatroomlist-item">
           <button class="chatroomlist-button">
             <span>general</span>
           </button>
         </li>
+        -->
       </ul>
     </div>
 
@@ -130,7 +134,7 @@
 
         $dsn = null;
 ?>
-        <!-- ONLY FOR DEBUG -->
+        <!-- ONLY FOR DEBUG 
         <li class="friendlist-item">
           <button class="friendlist-button friendlist-button--online">
             <span>Harry Potter</span>
@@ -141,6 +145,7 @@
               <span>Ginny Weasley</span>
             </button>
         </li>
+        -->
       </ul>
     </div>
   </div>
