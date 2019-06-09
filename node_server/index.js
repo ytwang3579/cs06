@@ -1,5 +1,5 @@
 var app = require('express')();
-var http = require('http').createServer(app);
+var https = require('https').createServer(app);
 var io = require('socket.io')(https);
 
 var mysql = require('mysql');
@@ -72,6 +72,6 @@ io.on('connection', function(socket){
   });
 });
 
-http.listen(25565, function(){
+https.listen(25565, function(){
   console.log('listening on *:25565');
 });
