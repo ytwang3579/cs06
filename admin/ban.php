@@ -1,7 +1,7 @@
 <?php
     session_start();
     
-    if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['someAction']))
+    if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['ban']))
     {
         func();
     }
@@ -14,8 +14,10 @@
         } catch (PDOExpection $e) {
             echo 'connection failed: '.$e->getmessage();
         }
-        
-        $sth=$dbh->prepare(' update user_list set silence=1  where id = '.$_POST['id'].';');
+        if($_POST['ban']=="ban")
+          $sth=$dbh->prepare(' update user_list set silence=1  where id = '.$_POST['id'].';');
+        else
+          $sth=$dbh->prepare(' update user_list set silence=0  where id = '.$_POST['id'].';');
         $sth->execute();
     }
     echo "<script> location.href='../admin'; </script>";

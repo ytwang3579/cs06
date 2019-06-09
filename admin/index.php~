@@ -28,11 +28,11 @@
     $sth=$dbh->prepare('select * from user_list order by id desc;');
 	$sth->execute();
 	while($row = $sth->fetch()){
-		echo "<tr><td>".$row['id']."</td><td>".$row['name']."</td></tr>";
-                echo "<form action='ban.php' method='post'>
+		echo "<tr><td>".$row['id']."</td><td>".$row['name']."</td>";
+                echo "<td><form action='ban.php' method='post'>
                         <input type='hidden' name='id' value='".$row['id']."'>
                         <input type='submit' name='someAction' value='ban'>
-                      </form>";
+                      </form></td></tr>";
 	}
 
 	$dsn = null;

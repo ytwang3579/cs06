@@ -29,10 +29,19 @@
 	$sth->execute();
 	while($row = $sth->fetch()){
 		echo "<tr><td>".$row['id']."</td><td>".$row['name']."</td>";
-                echo "<td><form action='ban.php' method='post'>
-                        <input type='hidden' name='id' value='".$row['id']."'>
-                        <input type='submit' name='someAction' value='ban'>
-                      </form></td></tr>";
+		if($row['silence']==0){
+                  echo "<td><form action='ban.php' method='post'>
+                          <input type='hidden' name='id' value='".$row['id']."'>
+                          <input type='submit' name='ban' value='ban'>
+                        </form></td></tr>";
+                }
+                else{
+                  echo "<td><form action='ban.php' method='post'>
+                          <input type='hidden' name='id' value='".$row['id']."'>
+                          <input type='submit' name='ban' value='unban'>
+                        </form></td></tr>";
+                
+                }
 	}
 
 	$dsn = null;
