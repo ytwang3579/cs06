@@ -57,6 +57,10 @@ io.on('connection', function(socket){
 	  socket.join(room);
   });
   
+  socket.on('rejoin', function(room){
+	  socket.join(room);
+  });
+	 
   socket.on('disconnect', function(){
     console.log('user disconnected');
   });

@@ -49,7 +49,7 @@
 		});
 		
 		socket.on('reconnect',function(){
-			console.log('reconn!!');
+			socket.emit('rejoin', room);
 		});
 	  });
 	  
