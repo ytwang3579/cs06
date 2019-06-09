@@ -105,3 +105,5 @@
 ?>
 </table>
 <br>
+
+<button onclick=" location.href='./index.php'; ">Back to Chat Room</button>

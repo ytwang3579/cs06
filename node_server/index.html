@@ -15,7 +15,6 @@
   </head>
   
   <body>
-	<button id='myroom'></button>
     <ul id="messages" class = "messages"></ul>
     <form action="">
       <input id="m" autocomplete="off" /><button>Send</button>
@@ -25,7 +24,6 @@
 	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 	<script>
 		var room = window.parent.now_room;
-		document.getElementById("myroom").value=room;
 	  $(function () {
 		var socket = io('http://cs06.2y.cc:25565');
 		$('form').submit(function(e){
@@ -47,7 +45,11 @@
 		socket.emit('join', room);
 		
 		socket.on('disconnect', function(){
-			alert('server is down.');
+			console.log('server is down.');
+		});
+		
+		socket.on('reconnect',function(){
+			socket.emit('rejoin', room);
 		});
 	  });
 	  
