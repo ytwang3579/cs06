@@ -33,9 +33,9 @@ io.on('connection', function(socket){
 	 else{
 	 	io.in(room).emit('chat message', msg, name, time_string);
 
-		var sql = "INSERT INTO ? (sender, content, time) VALUES (?, ?, ?)";
+		var sql = "INSERT INTO "+ room +" (sender, content, time) VALUES (?, ?, ?)";
 		console.log([room, name, msg, time_string ]);
-		con.query(sql, [room, name, msg, time_string ], function (err, result) {
+		con.query(sql, [name, msg, time_string ], function (err, result) {
 		  if (err) throw err;
 		  console.log("1 record inserted");
 		});
