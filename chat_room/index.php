@@ -5,6 +5,9 @@
         echo "<script> location.href='../fb/'; </script>";
         exit();
     }
+    else if($_SESSION['id']=='admin'&&$_SESSION['name']=='Admin'){
+        echo "<script> location.href='../admin';</script>";
+    }
 
     date_default_timezone_set('Asia/Taipei');
 ?>
