@@ -51,7 +51,7 @@
             echo 'connection failed: '.$e->getmessage();
         }
 
-        $sth=$dbh->prepare('select * from chatlist order by name desc;');
+        $sth=$dbh->prepare('select * from chat_list order by name desc;');
 		$sth->execute();
 		while($info = $sth->fetch()){
 			echo "<tr><td>".$info['name']."</td><td>".$info['id']."</td><td>".$info['private']."</td></tr>";
