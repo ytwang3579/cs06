@@ -23,11 +23,12 @@
     <button class="profile">
       <div class="team-menu-info">
         <h1 class="pagetitle">CS 0.6</h1>
-        <img src="<?= $_SESSION['picture'] ?>" style="width:100%; height:100%;"/>
-        <span class="username"><?= $_SESSION['name'] ?></span>
-        <span class="userid"><?= $_SESSION['id'] ?></span>
       </div>
     </button>
+    <img src="<?= $_SESSION['picture'] ?>" style="width:100%; height:100%;"/>
+    <span class="username"><?= $_SESSION['name'] ?></span>
+    <span class="userid"><?= $_SESSION['id'] ?></span>
+      
     
     <div class="chatroomlist">
       <h2 class="chatroomlist-title">
