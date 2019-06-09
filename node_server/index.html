@@ -35,7 +35,7 @@
 			});
 		socket.on('chat message', function(msg, name, time_string){//receive server pushed message
 		  var new_message = $('<li>').text(name+' '+msg+' '+time_string);
-		  console.log(is_tag(msg));
+		  
 		  if(is_tag(msg)){
 			new_message.css("background", "#fdfdba");
 		  }
