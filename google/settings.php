@@ -7,6 +7,6 @@ define('CLIENT_ID', '1018850453433-5jd0vekqvccss7ggjmm8vnp5nfboakiu.apps.googleu
 define('CLIENT_SECRET','1QXv74Kef0J96konsz7go6UL');
 
 /* Google App Redirect Url */
-define('CLIENT_REDIRECT_URL', 'https://softwarestudio.2y.idv.tw/~cs06/google/gauth.php');
+define('CLIENT_REDIRECT_URL', 'https://cs06.2y.cc/google/gauth.php');
 
 ?>
