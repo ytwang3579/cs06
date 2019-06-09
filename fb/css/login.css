@@ -44,12 +44,14 @@ a {
 
 .page-title {
     font-size: 60px;
-    color: red;
+    font-family: 'Indie Flower', cursive;
+    color: #00ffd666;
     
 }
 
 .page-subtitle {
     font-size: 20px;
+    font-family: 'Schoolbell', cursive;
     color: blue;
 }
 

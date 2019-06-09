@@ -12,6 +12,9 @@ session_start();
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link href='https://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Schoolbell' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
 
 <link rel="stylesheet" type="text/css" href="css/login.css">
 <link rel="stylesheet" type="text/css" href="css/util.css">
@@ -46,7 +49,7 @@ echo '<script src="https://apis.google.com/js/platform.js" async defer></script>
         </span>
         <br>
         <span class="page-subtitle">
-        blah blah blah
+        
         </span>
         <form class="login-form flex-sb flex-w">
             <span class="login-title">
