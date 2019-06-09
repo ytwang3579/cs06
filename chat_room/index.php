@@ -25,6 +25,7 @@
 	</div>
 </div>
 
+<div class="friend_list">
 <b>Friend list</b>
 <br>
 <table id = "friend_list">
@@ -47,7 +48,11 @@
 	$dsn = null;
 ?>
 </table>
+</div>
+
 <br>
+
+<div class="chat_list">
 <b>Chat room list</b>
 <br>
 <table id= "chat_list">
@@ -71,6 +76,7 @@
         $dsn = null;
 ?>
 </table>
+</div>
 <button onclick="location.href='./create_private_chatroom.php';">Create Private Chat Room</button>
 <button onclick="location.href='./create_public_chatroom.php';">Create Public Chat Room</button>
 <button onclick="location.href='./add_friend.php';" >Add Friend</button>
