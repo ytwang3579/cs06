@@ -30,7 +30,6 @@
 		$('form').submit(function(e){
 		  e.preventDefault(); // prevents page reloading
 		  socket.emit('chat message', $('#m').val(), window.parent.name, room);//emit chat message
-		  console.log(room);
 		  $('#m').val('');
 		  return false;
 			});
