@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]  
 *Feature(s) in development should be displayed here, with information of who is actively dealing with it.*  
 
+## 0.1.10 - 2019-06-09 - s106062129
+### Added
+- Add button to go back to chatroom/index.php in addfriend.php create private chatroom.php create public chatroom.php
+
 ## 0.1.9 - 2019-06-09 - s106062128
 ### Added
 - now we have chat history

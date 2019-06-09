@@ -15,6 +15,10 @@
   </head>
   
   <body>
+<<<<<<< HEAD
+=======
+	<button id='myroom'></button>
+>>>>>>> aca47ceef2a810ddebbdbc6c51df8c778fb85a7f
     <ul id="messages" class = "messages"></ul>
     <form action="">
       <input id="m" autocomplete="off" /><button>Send</button>
@@ -24,6 +28,7 @@
 	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 	<script>
 		var room = window.parent.now_room;
+		document.getElementById("myroom").value=room;
 	  $(function () {
 		var socket = io('http://cs06.2y.cc:25565');
 		$('form').submit(function(e){
