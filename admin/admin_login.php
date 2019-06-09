@@ -4,6 +4,14 @@ session_start();
 
 $user_err = $password_err = "";
 
+
+function test_input($data) {//check valid input avoid pwn
+	$data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
 if($_SERVER['REQUEST_METHOD']=="POST"){//if post check information
 	$valid = 1;
     if (empty($_POST["user"])) {//check user id
@@ -41,12 +49,6 @@ if($_SERVER['REQUEST_METHOD']=="POST"){//if post check information
 		}
 	}
 	
-	function test_input($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-   	}
 }
 ?>
 
