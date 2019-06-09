@@ -11,7 +11,7 @@
 
 <body>
 <div class="friend_list">
-<b>Friend list</b>
+<b>User list</b>
 <br>
 <table id = "friend_list">
 <?php
@@ -54,8 +54,6 @@
         $sth=$dbh->prepare('select * from chat_list order by name desc;');
 		$sth->execute();
 		$privacy="";
-		if($info['private']==1)$privacy="private";
-		else if($info['private']==0)$privacy="public";
 		while($info = $sth->fetch()){
 		       $privacy="";
 		       if($info['private']==1)$privacy="private";
