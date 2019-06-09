@@ -32,7 +32,7 @@
                 echo "<form action='ban.php' method='post'>
                         <input type='hidden' name='id' value='".$row['id']."'>
                         <input type='submit' name='someAction' value='ban'>
-                      </form>"
+                      </form>";
 	}
 
 	$dsn = null;
