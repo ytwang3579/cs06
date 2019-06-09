@@ -1,3 +1,3 @@
 function create_vote_area(){
-	return "<div id = 'vote_area' style='position:absolute;left:0px;top:0px;z-index:1;height:100px;border:1px;'> <form id='form_vote' action=''> <input type = 'text' id = 'theme' autocomplete='off'><br><input type = 'text' id = 'a1' autocomplete='off'><br><input type = 'text' id = 'a2' autocomplete='off'><br><input type = 'text' id = 'a3' autocomplete='off'><br><button>confirm</button><button id = 'cancel'>cancel</button></form></div>"
+	return "<div id = 'vote_area' style='position:absolute;left:0px;top:0px;z-index:1;height:20%;width:100%;border:1px;background-color:blue'> <form id='form_vote' action=''> <input type = 'text' id = 'theme' autocomplete='off'><br><input type = 'text' id = 'a1' autocomplete='off'><br><input type = 'text' id = 'a2' autocomplete='off'><br><input type = 'text' id = 'a3' autocomplete='off'><br><button>confirm</button><button id = 'cancel'>cancel</button></form></div>"
 }
