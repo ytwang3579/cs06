@@ -12,45 +12,7 @@
 <html>
 <head>
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-<style type="text/css">
-
-
-.nav {
-    position: fixed;
-    width: 100%;
-    height: 60px;
-    background: #ffd5d2;
-    box-shadow: 0 0 10px #00000070;
-    z-index: 9999;
-}
-
-.information {
-	margin: 0 0 30px 0;
-}
-
-.information label {
-	display: inline-block;
-	vertical-align: middle;
-	width: 150px;
-	padding-left:30px;
-	font-weight: 700;
-}
-
-.information span {
-	display: inline-block;
-	vertical-align: middle;
-}
-
-.information img {
-	display: inline-block;
-	position:relative;
-	vertical-align: middle;
-	horizonal-align: right;
-	width: 50px;
-}
-
-</style>
-
+<link rel="stylesheet" href="main.css">
 </head>
 
 <body>
