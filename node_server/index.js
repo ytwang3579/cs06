@@ -44,6 +44,7 @@ io.on('connection', function(socket){
   });
   
   socket.on('join', function(room){
+          //console.log("join");
 	  if(room!=null){
 	  var sql = "SELECT * FROM " + room;
 	  con.query(sql, function (err, result) {
