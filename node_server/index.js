@@ -44,6 +44,7 @@ io.on('connection', function(socket){
   });
   
   socket.on('join', function(room){
+	  if(room!=null){
 	  var sql = "SELECT * FROM " + room;
 	  con.query(sql, function (err, result) {
 		if (err) throw err;
@@ -55,6 +56,11 @@ io.on('connection', function(socket){
 		
 	  });
 	  socket.join(room);
+	  }
+  });
+  
+  socket.on('voting', function(theme, a1, a2, a3){
+	  console.log([theme, a1, a2, a3]);
   });
   
   socket.on('rejoin', function(room){
