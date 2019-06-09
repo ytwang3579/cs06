@@ -23,11 +23,11 @@
     <button class="titlebtn" onclick="window.location.reload();">
       <div class="team-menu-info">
         <h1 class="pagetitle">CS 0.6</h1>
+        <span class="username"><?= $_SESSION['name'] ?></span>
       </div>
     </button>
     <div class="profile">
       <img src="<?= $_SESSION['picture'] ?>"/>
-      <span class="username"><?= $_SESSION['name'] ?></span>
     </div>
     
     <div class="chatroomlist">
