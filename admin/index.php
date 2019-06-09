@@ -1,6 +1,7 @@
 <?php
     // Start the session
     session_start();
+    if( $_SESSION['id']=='admin' &&  $_SESSION['name']=='Admin'){
 ?>
 
 <html>
@@ -67,3 +68,9 @@
 </table> 
 </body>
 </html>
+<?php
+ }
+ else{
+    echo 'curiosity kills the cat';
+ } 
+?>
