@@ -3,13 +3,12 @@
 session_start();
 
 $user_err = $password_err = "";
-
-
-function test_input($data) {//check valid input avoid pwn
+	
+function test_input($data) {//check input to avoid pwn
 	$data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
+	$data = stripslashes($data);
+	$data = htmlspecialchars($data);
+	return $data;
 }
 
 if($_SERVER['REQUEST_METHOD']=="POST"){//if post check information
@@ -45,10 +44,10 @@ if($_SERVER['REQUEST_METHOD']=="POST"){//if post check information
 		if( $CFG['admin'] == $user && $CFG['admin_pw'] == $password ){
 			$_SESSION['id']='admin';
 			$_SESSION['name']='Admin';
-			echo "<script> location.href='./admin.php'; </script>";
+			echo "<script> location.href='./index.php'; </script>";
 		}
 	}
-	
+
 }
 ?>
 
