@@ -2,6 +2,17 @@ var app = require('express')();
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "cs06",
+  password: "Hbds43RV5",
+  database: "cs06"
+});
+
+
+
 app.get('/*', function(req, res){
   //res.send('<h1>Hello world</h1>');
   //res.sendfile('/export/home/team6/public_html/node_server/index.html');
@@ -18,6 +29,15 @@ io.on('connection', function(socket){
 	 }
 	 else{
 	 	io.in(room).emit('chat message', msg, name, time_string);
+		con.connect(function(err) {
+			if (err) throw err;
+			console.log("sql Connected!");
+			var sql = "INSERT INTO "+ mysql.escape(room) +" (sender, content, time) VALUES ("+ mysql.escape(name)+"," + mysql.escape(msg) +"," + mysql.escape(time_string)+")";
+			con.query(sql, function (err, result) {
+			  if (err) throw err;
+			  console.log("1 record inserted");
+			});
+		});
 	 }
 
   });
