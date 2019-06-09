@@ -25,7 +25,7 @@
         <h1 class="pagetitle">CS 0.6</h1>
       </div>
     </button>
-    <img src="<?= $_SESSION['picture'] ?>" style="width:100%; height:100%;"/>
+    <img src="<?= $_SESSION['picture'] ?>" style="width:150px;"/>
     <span class="username"><?= $_SESSION['name'] ?></span>
     <span class="userid"><?= $_SESSION['id'] ?></span>
       
