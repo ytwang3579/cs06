@@ -33,8 +33,7 @@ io.on('connection', function(socket){
 	 else{
 	 	io.in(room).emit('chat message', msg, name, time_string);
 
-		var sql = "INSERT INTO "+ room +" (sender, content, time) VALUES (?, ?, ?)";
-		console.log([room, name, msg, time_string ]);
+		var sql = "INSERT INTO "+room +" (sender, content, time) VALUES (?, ?, ?)";
 		con.query(sql, [name, msg, time_string ], function (err, result) {
 		  if (err) throw err;
 		  console.log("1 record inserted");
@@ -45,6 +44,16 @@ io.on('connection', function(socket){
   });
   
   socket.on('join', function(room){
+	  var sql = "SELECT * FROM " + room;
+	  con.query(sql, function (err, result) {
+		if (err) throw err;
+		console.log("selected");
+		result.forEach(function(item){
+			socket.emit('chat message', item.content, item.sender, item.time);
+		});
+			
+		
+	  });
 	  socket.join(room);
   });
   
