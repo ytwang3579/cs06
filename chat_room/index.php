@@ -20,7 +20,7 @@
 <body>
 <div class="slack">
   <div class="sidebar">
-    <button class="profile">
+    <button class="titlebtn" onclick="window.location.reload();">
       <div class="team-menu-info">
         <h1 class="pagetitle">CS 0.6</h1>
       </div>

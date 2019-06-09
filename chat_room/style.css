@@ -66,13 +66,13 @@ iframe {
   display: flex;
 }
 
-.profile {
+.titlebtn, .profile {
   width: 100%;
   display: flex;
   justify-content: space-between;
   padding: 18px 18px 0;
 }
-.profile:hover {
+.titlebtn:hover {
   background: #3e313c
 }
 .pagetitle {
