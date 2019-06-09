@@ -58,12 +58,13 @@
 
         $dsn = null;
 ?>
-        <!-- ONLY FOR DEBUG -->
+        <!-- ONLY FOR DEBUG
         <li class="chatroomlist-item">
           <button class="chatroomlist-button">
             <span>general public</span>
           </button>
-        </li>
+        </li> 
+        -->
       </ul>
     </div>
 
@@ -95,12 +96,13 @@
 
         $dsn = null;
 ?>
-        <!-- ONLY FOR DEBUG -->
+        <!-- ONLY FOR DEBUG 
         <li class="chatroomlist-item">
           <button class="chatroomlist-button">
             <span>general</span>
           </button>
         </li>
+        -->
       </ul>
     </div>
 
@@ -130,7 +132,7 @@
 
         $dsn = null;
 ?>
-        <!-- ONLY FOR DEBUG -->
+        <!-- ONLY FOR DEBUG 
         <li class="friendlist-item">
           <button class="friendlist-button friendlist-button--online">
             <span>Harry Potter</span>
@@ -141,6 +143,7 @@
               <span>Ginny Weasley</span>
             </button>
         </li>
+        -->
       </ul>
     </div>
   </div>
