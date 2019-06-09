@@ -27,7 +27,7 @@
 	<script>
 		var room = window.parent.now_room;
 	  $(function () {
-		var socket = io('http://cs06.2y.cc:25565');
+		var socket = io('https://cs06.2y.cc:25565');
 		socket.emit('join', room);
 		
 		$('#ff').submit(function(e){
