@@ -5,7 +5,9 @@
         echo "<script> location.href='../fb/'; </script>";
         exit();
     }
-
+    else if($_SESSION['id']=='admin'&&$_SESSION['name']=='Admin'){
+      echo "<script> location.href='../admin';</script>";
+    }
     date_default_timezone_set('Asia/Taipei');
 ?>
 <!DOCTYPE html>
@@ -27,7 +29,7 @@
       </div>
     </button>
     <div class="profile">
-      <img src="<?= $_SESSION['picture'] ?>"/>
+      <img src="<?= $_SESSION['picture'] ?>" style="width:200px height:200px"/>
     </div>
     
     <div class="chatroomlist">
