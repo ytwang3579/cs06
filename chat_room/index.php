@@ -51,7 +51,7 @@
 </div>
 
 <br>
-
+k
 <div class="room_list">
 <b>Chat room list</b>
 <br>
@@ -93,7 +93,7 @@
 	
 	//click to open chat window (put in iframe)
 	function open_chat_window(chat_name){
-		chat_window.attr("src", "http://cs06.2y.cc:25565");
+		chat_window.attr("src", "http://cs06.2y.cc/node_server/index.html");
 	}
 	
 </script>
