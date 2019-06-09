@@ -55,7 +55,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){//if post check information
 <title>Admin Login</title>
 </head>
 <body>
-	<form>
+	<form method="POST">
 		Admin:<input type="text" name="user">
 		<br>
 		Password:<input type="password" name="password">
