@@ -15,18 +15,22 @@
   </head>
   
   <body>
+    <button id='vote'>vote</button>
     <ul id="messages" class = "messages"></ul>
-    <form action="">
+    <form id = "ff" action="">
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
 	
 	<script src="resource/socket.io.js"></script>
+	<script src="resource/create_vote.js"></script>
 	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 	<script>
 		var room = window.parent.now_room;
 	  $(function () {
 		var socket = io('http://cs06.2y.cc:25565');
-		$('form').submit(function(e){
+		socket.emit('join', room);
+		
+		$('#ff').submit(function(e){
 		  e.preventDefault(); // prevents page reloading
 		  socket.emit('chat message', $('#m').val(), window.parent.name, room);//emit chat message
 		  $('#m').val('');
@@ -42,7 +46,21 @@
 		  window.scroll(0,document.body.scrollHeight);
 		});
 		
-		socket.emit('join', room);
+		$('#vote').click(function(){
+			var vote_area =  create_vote_area();
+			$('#vote').after(vote_area);
+			vote_area = $('#vote_area');
+			$('#form_vote').submit(function(e){
+				e.preventDefault(); // prevents page reloading
+				socket.emit('voting', $('#theme').val(),  $('#a1').val(),  $('#a2').val(),  $('#a3').val());
+			});
+			$('#cancel').click(function(e){
+				e.preventDefault();
+				vote_area.fadeout(normal, function(){
+					vote_area.remove();
+				});
+			});
+		});
 		
 		socket.on('disconnect', function(){
 			console.log('server is down.');
