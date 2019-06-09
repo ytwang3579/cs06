@@ -1,4 +1,15 @@
+<?php
+    // Start the session
+    session_start();
+?>
 
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<link rel="stylesheet" href="main.css">
+</head>
+
+<body>
 <div class="friend_list">
 <b>Friend list</b>
 <br>
@@ -13,10 +24,10 @@
     	echo 'connection failed: '.$e->getmessage();
     }
 
-    $sth=$dbh->prepare('select * from '.$_SESSION['id'].'_friend order by friend_name desc;');
+    $sth=$dbh->prepare('select * from user_list order by id desc;');
 	$sth->execute();
 	while($row = $sth->fetch()){
-		echo "<tr><td>".$row['friend_name']."</td></tr>";
+		echo "<tr><td>".$row['id']."</td><td>".$row['name']."</td></tr>";
 	}
 
 	$dsn = null;
@@ -40,13 +51,14 @@
             echo 'connection failed: '.$e->getmessage();
         }
 
-        $sth=$dbh->prepare('select * from '.$_SESSION['id'].'_chatlist order by chat_room_name desc;');
+        $sth=$dbh->prepare('select * from chatlist order by name desc;');
 		$sth->execute();
-		while($friend = $sth->fetch()){
-			echo "<tr><td>".$friend['chat_room_name']."</td><td>".$friend['chat_room_displayname']."</td></tr>";
-			echo "<tr><td> <button onclick = \"open_chat_window('".$friend['chat_room_name']."')\">".$friend['chat_room_displayname']."</button></td></tr>";//need to set onclick function to go into a chat room
+		while($info = $sth->fetch()){
+			echo "<tr><td>".$info['name']."</td><td>".$info['id']."</td><td>".$info['private']."</td></tr>";
 		}
 
         $dsn = null;
 ?>
 </table> 
+</body>
+</html>
