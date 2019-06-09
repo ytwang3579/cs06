@@ -160,15 +160,11 @@
 	var chat_window = $("#chat_window");
 	var name = <?php echo json_encode($_SESSION['name']);?>;
 
-	
-</script>
-
-<script>
   function OpenChatRoom(chatroomid){
     now_room = chatroomid;
 		chat_window.attr("src", "http://cs06.2y.cc/node_server/index.html");
 	}
-  }
+
 </script>
 
 </body>
