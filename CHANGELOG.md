@@ -7,12 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]  
 *Feature(s) in development should be displayed here, with information of who is actively dealing with it.*  
 
+## 0.1.9 - 2019-06-09 - s106062128
+### Added
+- now we have chat history
+
 ## 0.1.8 - 2019-06-09 - s106062328
 ### Fixed
 - synchronize google and fb url as cs06.2y.cc
 
 ## 0.1.7 - 2019-06-09 - s106062128
-### Add
+### Added
 - put chatroom in chatroom/index.php by iframe
 
 ## 0.1.6 - 2019-06-07 - s106062328
