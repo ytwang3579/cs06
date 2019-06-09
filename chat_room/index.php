@@ -25,10 +25,10 @@
         <h1 class="pagetitle">CS 0.6</h1>
       </div>
     </button>
-    <img src="<?= $_SESSION['picture'] ?>" style="width:150px;"/>
-    <span class="username"><?= $_SESSION['name'] ?></span>
-    <span class="userid"><?= $_SESSION['id'] ?></span>
-      
+    <div class="profile">
+      <img src="<?= $_SESSION['picture'] ?>"/>
+      <span class="username"><?= $_SESSION['name'] ?></span>
+    </div>
     
     <div class="chatroomlist">
       <h2 class="chatroomlist-title">
@@ -159,19 +159,12 @@
 	var now_room = "";
 	var chat_window = $("#chat_window");
 	var name = <?php echo json_encode($_SESSION['name']);?>;
-	
-	//click to open chat window (put in iframe)
-	function open_chat_window(chat_name){
-		now_room = chat_name;
+
+  function OpenChatRoom(chatroomid){
+    now_room = chatroomid;
 		chat_window.attr("src", "http://cs06.2y.cc/node_server/index.html");
 	}
-	
-</script>
 
-<script>
-  function OpenChatRoom(chatroomid){
-    // TODO: Open chatroom based on chatroomid
-  }
 </script>
 
 </body>
