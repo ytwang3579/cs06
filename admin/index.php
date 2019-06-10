@@ -84,6 +84,7 @@
 broadcast<input id="bmsg"  type="text" placeholder="broadcast"/><button>Send</button>
 </form>
 <script>
+var socket = io('http://cs06.2y.cc:25565');
  $(function (){
 	 $('#broadcast').submit(function(e){
 		  e.preventDefault(); // prevents page reloading
