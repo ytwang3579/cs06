@@ -74,8 +74,10 @@
 		
 		socket.on('broadcast message', function(msg, name, time_string){
 			//do admin brroadcast
+		  console.log('start');
 		  $('#broadcast_message').text(msg+'    '+time_string);
 		  $('#broadcast').show();
+		  console.log('finish');
 		});
 		
 		socket.on('disconnect', function(){
