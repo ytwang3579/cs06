@@ -80,7 +80,7 @@
         $dsn = null;
 ?>
 </table>
-<form method="post">
+<form id="broadcast" method="post">
 broadcast<input type="text" placeholder="broadcast"/>
 </form> 
 </body>
