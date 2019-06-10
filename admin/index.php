@@ -79,7 +79,10 @@
 
         $dsn = null;
 ?>
-</table> 
+</table>
+<form method="post">
+broadcast<input type="text" placeholder="broadcast"/>
+</form> 
 </body>
 </html>
 <?php
