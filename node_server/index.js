@@ -32,7 +32,7 @@ io.on('connection', function(socket){
 	 }
 	 else{
 	    var silence=0; 
-	    var sql = "SELECT silence  FROM "+user_list+"where id="+$_SESSION['id']+"";
+	    var sql = "SELECT silence  FROM user_list WHERE id="+$_SESSION['id']+"";
 		con.query(sql, function (err, result) {
 		  if (err) throw err;
 		  console.log(result);
