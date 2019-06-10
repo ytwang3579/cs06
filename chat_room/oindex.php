@@ -97,7 +97,7 @@
 	//click to open chat window (put in iframe)
 	function open_chat_window(chat_name){
 		now_room = chat_name;
-		chat_window.attr("src", "http://cs06.2y.cc/node_server/index.html");
+		chat_window.attr("src", "http://cs06.2y.cc:25565");
 	}
 	
 </script>
