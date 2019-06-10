@@ -78,6 +78,13 @@ io.on('connection', function(socket){
   socket.on('rejoin', function(room){
 	  socket.join(room);
   });
+  
+  socket.on('broadcast message', function(msg){
+	  var d = new Date();
+	  var opt = {hour:"2-digit", minute:"2-digit", hour12:false};
+	  var time_string = d.toLocaleTimeString("zh-TW", opt)
+	  io.emit('chat message', msg, name, time_string);
+  });
 	 
   socket.on('disconnect', function(){
     console.log('user disconnected');
