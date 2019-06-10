@@ -81,7 +81,7 @@
 ?>
 </table>
 <form id="broadcast" method="post">
-broadcast<input id="bmsg"  type="text" placeholder="broadcast"/>
+broadcast<input id="bmsg"  type="text" placeholder="broadcast"/><button>Send</button>
 </form>
 <script>
  $(function (){
