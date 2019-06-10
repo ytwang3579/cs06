@@ -78,7 +78,7 @@ io.on('connection', function(socket){
   socket.on('broadcast message', function(msg){
 	  var d = new Date();
 	  var opt = {hour:"2-digit", minute:"2-digit", hour12:false};
-	  var time_string = d.toLocaleTimeString("zh-TW", opt)
+	  var time_string = d.toLocaleTimeString("zh-TW", opt);
 	  io.emit('broadcast message', msg, 'Admin', time_string);
   });
 	 
