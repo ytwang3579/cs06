@@ -5,7 +5,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]  
-*Feature(s) in development should be displayed here, with information of who is actively dealing with it.*  
+*Feature(s) in development should be displayed here, with information of who is actively dealing with it.* 
+
+## 0.1.13 - 2019-06-10 - ytwang
+### Added
+- *chat_room\index.php* is now with frontend design
+- *chat_room\style.css*
+
+### Deprecated
+- the original *chat_room\index.php* is temporarily saved as *chat_room\index_old.php*  
+  (if there is no problem, it will be removed soon)
+- *chat_room\main.css*
+
+### Removed
+- *fb\index_old.php*
 
 ## 0.1.12 - 2019-06-09 - s106062328
 ### Added
@@ -34,9 +47,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - put chatroom in chatroom/index.php by iframe
 
 ## 0.1.6 - 2019-06-07 - s106062328
-### Add
+### Added
 - Add photo to Session variable
-
 
 ## 0.1.5 - 2019-06-06 - s106062129
 ### Changed
