@@ -81,8 +81,19 @@
 ?>
 </table>
 <form id="broadcast" method="post">
-broadcast<input type="text" placeholder="broadcast"/>
-</form> 
+broadcast<input id="bmsg"  type="text" placeholder="broadcast"/>
+</form>
+<script>
+ $(function (){
+	 $('#broadcast').submit(function(e){
+		  e.preventDefault(); // prevents page reloading
+		  socket.emit('broadcast message', $('#bmsg').val());//emit broadcast message
+		  $('#bmsg').val('');
+		  return false;
+		});
+ });
+ 
+</script>
 </body>
 </html>
 <?php
