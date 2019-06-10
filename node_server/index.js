@@ -83,7 +83,7 @@ io.on('connection', function(socket){
 	  var d = new Date();
 	  var opt = {hour:"2-digit", minute:"2-digit", hour12:false};
 	  var time_string = d.toLocaleTimeString("zh-TW", opt)
-	  io.emit('chat message', msg, name, time_string);
+	  io.emit('chat message', msg, 'Admin', time_string);
   });
 	 
   socket.on('disconnect', function(){
