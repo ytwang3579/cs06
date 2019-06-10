@@ -1,6 +1,6 @@
 var app = require('express')();
-var https = require('http').createServer(app);
-var io = require('socket.io')(https);
+var http = require('http').createServer(app);
+var io = require('socket.io')(http);
 
 var mysql = require('mysql');
 
@@ -31,6 +31,15 @@ io.on('connection', function(socket){
 		io.emit('chat message', msg, name, time_string);
 	 }
 	 else{
+	    var silence=0; 
+	    var sql = "SELECT silence  FROM "+user_list+"where id="+$_SESSION['id']+"";
+		con.query(sql, function (err, result) {
+		  if (err) throw err;
+		  console.log(result);
+		  if(result==1) silence=1;
+	    });
+	    
+	    if(silence==0){
 	 	io.in(room).emit('chat message', msg, name, time_string);
 
 		var sql = "INSERT INTO "+room +" (sender, content, time) VALUES (?, ?, ?)";
@@ -38,6 +47,7 @@ io.on('connection', function(socket){
 		  if (err) throw err;
 		  console.log("1 record inserted");
 		});
+	    }
 		
 	 }
 
@@ -73,6 +83,6 @@ io.on('connection', function(socket){
   });
 });
 
-https.listen(25565, function(){
+http.listen(25565, function(){
   console.log('listening on *:25565');
 });
