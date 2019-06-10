@@ -11,10 +11,16 @@
       .messages { list-style-type: none; margin: 0; padding: 0; margin-bottom:45px}
       .messages li { padding: 5px 10px; }
       .messages li:nth-child(odd) { background: #e8eef5; }
-    </style>
+	  .broadcast {background:#03e000; display:none }
+	</style>
+	<script src="https://kit.fontawesome.com/df3e0e4f87.js"></script>
   </head>
   
   <body>
+	<div class="broadcast">
+	   <i class="fas fa-broadcast-tower"></i>
+	   <span id="broadcast_message"></span>
+    </div>
     <button id='vote'>vote</button>
     <ul id="messages" class = "messages"></ul>
     <form id = "ff" action="" class="ff">
@@ -67,6 +73,7 @@
 		
 		socket.on('broadcast message', function(msg, name, time_string){
 			//do admin brroadcast
+		  $('broadcast_message').text(msg+'    '+time_string);
 		
 		});
 		
