@@ -7,6 +7,7 @@
 <html>
 <head>
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script src="resource/socket.io.js"></script>
 <link rel="stylesheet" href="main.css">
 </head>
 
