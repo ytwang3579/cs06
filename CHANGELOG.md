@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]  
 *Feature(s) in development should be displayed here, with information of who is actively dealing with it.* 
 
+## 0.1.14 - 2019-06-10 - s106062328
+### Added
+- basically done with ban function by modifying node_server/index.js
+
 ## 0.1.13 - 2019-06-10 - ytwang
 ### Added
 - *chat_room\index.php* is now with frontend design
