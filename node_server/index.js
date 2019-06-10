@@ -32,25 +32,26 @@ io.on('connection', function(socket){
 	 }
 	 else{
 	    var silence=0; 
-	    var sql = "SELECT silence  FROM user_list WHERE id="+$_SESSION['id']+"";
-		con.query(sql, function (err, result) {
+	    var sql = "SELECT silence FROM user_list WHERE name =?";
+		con.query(sql,[name] ,function (err, result) {
 		  if (err) throw err;
-		  console.log(result);
-		  if(result==1) silence=1;
+		  console.log(result[0].silence);
+		  if(result[0].silence==1) silence=1;
+		  
+		  if(silence==0){
+	 	    io.in(room).emit('chat message', msg, name, time_string);
+
+		    var sql = "INSERT INTO "+room +" (sender, content, time) VALUES (?, ?, ?)";
+		    con.query(sql, [name, msg, time_string ], function (err, result) {
+		        if (err) throw err;
+		        console.log("1 record inserted");
+		    });
+	          }
 	    });
 	    
-	    if(silence==0){
-	 	io.in(room).emit('chat message', msg, name, time_string);
-
-		var sql = "INSERT INTO "+room +" (sender, content, time) VALUES (?, ?, ?)";
-		con.query(sql, [name, msg, time_string ], function (err, result) {
-		  if (err) throw err;
-		  console.log("1 record inserted");
-		});
-	    }
-		
-	 }
-
+	    console.log(silence);
+	    
+        }
   });
   
   socket.on('join', function(room){
