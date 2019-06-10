@@ -61,7 +61,7 @@
 			vote_area = $('#vote_area');
 			$('#form_vote').submit(function(e){
 				e.preventDefault(); // prevents page reloading
-				socket.emit('voting', $('#theme').val(),  $('#a1').val(),  $('#a2').val(),  $('#a3').val());
+				socket.emit('voting', $('#theme').val(),  $('#a1').val(),  $('#a2').val(),  $('#a3').val(), room);
 				vote_area.fadeOut('normal', function(){
 					vote_area.remove();
 				});
