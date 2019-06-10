@@ -65,6 +65,11 @@
 			});
 		});
 		
+		socket.on('broadcast message', function(msg, name, time_string){
+			//do admin brroadcast
+		
+		});
+		
 		socket.on('disconnect', function(){
 			console.log('server is down.');
 		});

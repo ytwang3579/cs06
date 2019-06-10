@@ -73,6 +73,7 @@ io.on('connection', function(socket){
   
   socket.on('voting', function(theme, a1, a2, a3){
 	  console.log([theme, a1, a2, a3]);
+	  io.in(room).emit('vote_event');
   });
   
   socket.on('rejoin', function(room){
@@ -83,7 +84,7 @@ io.on('connection', function(socket){
 	  var d = new Date();
 	  var opt = {hour:"2-digit", minute:"2-digit", hour12:false};
 	  var time_string = d.toLocaleTimeString("zh-TW", opt)
-	  io.emit('chat message', msg, 'Admin', time_string);
+	  io.emit('broadcast message', msg, 'Admin', time_string);
   });
 	 
   socket.on('disconnect', function(){
