@@ -30,7 +30,8 @@
         <h1 class="pagetitle">CS 0.6</h1>
         <span class="username"><?= $_SESSION['name'] ?></span>
       </div>
-      <span onclick="location.href ='logout.php'">
+      <span onclick="location.href ='logout.php'" 
+            style="cursor:pointer;">
          <i class="fas fa-sign-out-alt"></i>
       </span>
   </div>
