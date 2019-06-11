@@ -86,7 +86,7 @@ io.on('connection', function(socket){
     var sql = "DELETE FROM "+room+" WHERE idx = ?";
 	  con.query(sql, idx, function (err, result) {
 		if (err) throw err;
-		io.in(room).emit('delete_message', )idx;
+		io.in(room).emit('delete_message', idx);
 	  });
 	  
   });
