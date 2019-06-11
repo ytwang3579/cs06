@@ -30,7 +30,7 @@
         <h1 class="pagetitle">CS 0.6</h1>
         <span class="username"><?= $_SESSION['name'] ?></span>
       </div>
-      <i class="fa fa-sign-out" aria-hidden="true" onclick="location.href ='./logout.php'"></i>
+      <i class="fa fa-sign-out" aria-hidden="true" onclick="location.href ='logout.php'"></i>
     </button>
     <div class="profile">
       <img src="<?= $_SESSION['picture'] ?>" style="width:200px; height:200px;"/>
