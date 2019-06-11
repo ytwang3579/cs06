@@ -70,7 +70,9 @@ io.on('connection', function(socket){
   
   socket.on('create vote', function(theme, ans, room){
 	  console.log(ans);
-	  console.log(typeof(ans));
+	  console.log(ans[0]);
+	  
+	  
 	  io.in(room).emit('vote_event');
   });
   
