@@ -25,8 +25,8 @@ if(isset($_GET['code'])) {
 		require_once('../config.php');
 		$dsn='mysql:host=localhost;dbname=cs06';
 		$dbh=new PDO($dsn,$CFG['mysql_username'],$CFG['mysql_password']);
-		$sth=$dbh->prepare('insert into user_list (id,name) values (?,?) ');
-		$sth->execute(array($user_info['id'],$user_info['name']));
+		$sth=$dbh->prepare('insert into user_list (id,name,picture) values (?,?,?) ');
+		$sth->execute(array($user_info['id'],$user_info['name'],$user_info['picture']));
     
 		$_SESSION['id']=$user_info['id'];
 		$_SESSION['name']=$user_info['name'];

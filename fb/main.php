@@ -30,8 +30,8 @@ try {
     require_once('../config.php');
     $dsn='mysql:host=localhost;dbname=cs06';
     $dbh=new PDO($dsn,$CFG['mysql_username'],$CFG['mysql_password']);
-    $sth=$dbh->prepare('insert into user_list (id,name) values (?,?) ');
-    $sth->execute(array($user['id'],$user['name']));
+    $sth=$dbh->prepare('insert into user_list (id,name,picture) values (?,?,?) ');
+    $sth->execute(array($user['id'],$user['name'],'https://graph.facebook.com/'.$user['id'].'/picture?type=large'));
     
     $_SESSION['id']=$user['id'];
     $_SESSION['name']=$user['name'];
