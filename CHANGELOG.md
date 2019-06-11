@@ -7,8 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]  
 *Feature(s) in development should be displayed here, with information of who is actively dealing with it.* 
 
+## 0.1.18 - 2019-06-11 - ytwang
+### Added
+- *node_server/style.css* added (chatroom's css, waiting for the message format)
 
-## 0.1.16 - 2019-06-10 - s106062129
+## 0.1.16 - 2019-06-11 - s106062129
 ### Added
 -  Added delete button in node\_server/index.html
 
@@ -22,13 +25,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 0.1.13 - 2019-06-10 - ytwang
 ### Added
-- *chat_room\index.php* is now with frontend design
-- *chat_room\style.css*
+- *chat_room/index.php* is now with frontend design
+- *chat_room/style.css*
 
 ### Deprecated
-- the original *chat_room\index.php* is temporarily saved as *chat_room\index_old.php*  
+- the original *chat_room/index.php* is temporarily saved as *chat_room/index_old.php*  
   (if there is no problem, it will be removed soon)
-- *chat_room\main.css*
+- *chat_room/main.css*
 
 ### Removed
 - *fb\index_old.php*
