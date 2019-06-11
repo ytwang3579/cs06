@@ -17,9 +17,8 @@
 <title>CHATROOM-index</title>
 <link rel='stylesheet' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
 <link rel="stylesheet" href="./style.css">
-
-<script src="https://kit.fontawesome.com/df3e0e4f87.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/df3e0e4f87.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 </head>
 <body>
