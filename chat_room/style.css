@@ -83,7 +83,8 @@ iframe {
 .pagetitle {
   font-size: 40px;
   font-weight: 900;
-  color: #ffffff
+  color: #ffffff;
+  width: 100%
 }
 .username {
   font-size: 15px;
