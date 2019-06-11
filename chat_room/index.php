@@ -59,7 +59,7 @@
 		    $sth->execute();
 		    while($friend = $sth->fetch()){
           if($friend['private']==0){
-            echo '<li class="chatroomlist-item"><button class="chatroomlist-button" onclick="OpenChatRoom("'.$friend['chat_room_name'].'")"><span>'.$friend['chat_room_displayname'].'</span></button></li>';
+            echo '<li class="chatroomlist-item"><button class="chatroomlist-button" onclick="OpenChatRoom(\''.$friend['chat_room_name'].'\')"><span>'.$friend['chat_room_displayname'].'</span></button></li>';
           }
         }
 
