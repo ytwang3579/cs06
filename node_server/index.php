@@ -150,11 +150,26 @@
             		//<div class="text">fasfdfsafas</div>
         		//</span>
 			//</div>
-
+			document.cookie = 'msgname="' + name + '";';
 			var new_message = $('<li>');
 			
 			var div = $('<div>').toggleClass('message');
-			
+<?php
+	require("../config.php");
+	$dsn='mysql:host='.$CFG['mysql_host'].';dbname='.$CFG['mysql_dbname'].';';
+	try {
+		$dbh = new pdo($dsn, $CFG['mysql_username'],$CFG['mysql_password']);
+	}catch (pdoexception $e) {
+		echo 'connection failed: '.$e->getmessage();
+	}
+
+	$sth=$dbh->prepare('select picture from user_list where name = '.$_COOKIE['msgname'].';');
+	$sth->execute();
+	
+	var_dump($sth->fetch());
+
+	$dsn = null;
+?>
 			var img = $('<img>').toggleClass('message-image');
 			img.attr('src', '%USER_IMAGE_URL%');
 			
