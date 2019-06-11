@@ -68,6 +68,7 @@ io.on('connection', function(socket){
   
   socket.on('voting', function(theme, a1, a2, a3, room){
 	  console.log([theme, a1, a2, a3]);
+	  console.log(typeof(a2));
 	  io.in(room).emit('vote_event');
   });
   

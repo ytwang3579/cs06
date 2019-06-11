@@ -55,16 +55,27 @@
 		  window.scroll(0,document.body.scrollHeight);
 		});
 		
-		$('#vote').click(function(){
+		$('#vote').click(function(){ //deal with create vote when click vote button
 			var vote_area =  create_vote_area();
 			$('#vote').after(vote_area);
 			vote_area = $('#vote_area');
-			$('#form_vote').submit(function(e){
+			$('#form_vote').submit(function(e){//when submit the create vote form
 				e.preventDefault(); // prevents page reloading
-				socket.emit('voting', $('#theme').val(),  $('#a1').val(),  $('#a2').val(),  $('#a3').val(), room);
-				vote_area.fadeOut('normal', function(){
-					vote_area.remove();
-				});
+				//do check input
+				var ok=1;
+				if($('#theme').val() == ''){
+					if($('#theme_err').length>0){
+						$('#theme').after('<span id="theme_err" style="color:blue">theme cannot be empty</span>');
+					}
+					ok=0;
+				}
+				
+				if(ok){
+					socket.emit('voting', $('#theme').val(),  $('#a1').val(),  $('#a2').val(),  $('#a3').val(), room);
+					vote_area.fadeOut('normal', function(){
+						vote_area.remove();
+					});
+				}
 			});
 			$('#cancel').click(function(e){
 				e.preventDefault();
