@@ -81,6 +81,15 @@ io.on('connection', function(socket){
 	  var time_string = d.toLocaleTimeString("zh-TW", opt);
 	  io.emit('broadcast message', msg, 'Admin', time_string);
   });
+  
+  socket.on('delete_message', function(idx, room){
+    var sql = "DELETE FROM "+room+" WHERE idx = ?";
+	  con.query(sql, idx, function (err, result) {
+		if (err) throw err;
+		io.in(room).emit('delete_message', )idx;
+	  });
+	  
+  });
 	 
   socket.on('disconnect', function(){
     console.log('user disconnected');
