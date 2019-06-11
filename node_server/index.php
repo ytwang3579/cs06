@@ -41,13 +41,17 @@
 		//send message
 		$('#ff').submit(function(e){
 		  e.preventDefault(); // prevents page reloading
-		  socket.emit('chat message', $('#m').val(), window.parent.name, room);//emit chat message
-		  $('#m').val('');
+		  if($('#m').val() != ''){
+			socket.emit('chat message', $('#m').val(), window.parent.name, room);//emit chat message
+			$('#m').val('');
+		  }
 		  return false;
 		});
 		
 		socket.on('chat message', function(idx, msg, name, time_string){//receive server pushed message
-		  add_new_chat_message(idx, msg, name, time_string);
+		  if(msg != ''){
+			add_new_chat_message(idx, msg, name, time_string);
+		  }
 		});
 		
 		  socket.on('delete_message', function(idx){
@@ -200,6 +204,13 @@
 		  }
 		  $('#messages').append(new_message);//append new message and scroll down
 		  window.scroll(0,document.body.scrollHeight);
+		}
+		
+		function vote_object_to_table(data){
+			if(typeof(data) != 'object')	return;
+			
+			
+			
 		}
 	</script>
   </body>

@@ -76,7 +76,7 @@ io.on('connection', function(socket){
 		  vote_object[item] = 0;
 	  });
 	  vote_object['theme'] = theme;
-	  vote_object['answers'] = ans;
+	  vote_object['options'] = ans;
 	  
 	  var d = new Date();
 	  var opt = {hour:"2-digit", minute:"2-digit", hour12:false};
