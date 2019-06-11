@@ -217,12 +217,14 @@
 			
 			var theme = $('<p>').text(data.theme);
 			var vote_table = $('<table>');
-			var tmp_tr = $('<tr>').append($('<th>')).text("Options");
+			var tmp_tr = $('<tr>');
+			tmp_tr.append($('<th>')).text("Options");
 			tmp_tr.append($('<th>')).text("Vote number");
 			vote_table.append(tmp_tr);
 			
 			data.options.forEach(function(item){
-				tmp_tr = $('<tr>').append($('<td>')).text(item);
+				tmp_tr = $('<tr>');
+				tmp_tr.append($('<td>')).text(item);
 				tmp_tr.append($('<td>')).text(data[item]);
 				vote_table.append(tmp_tr);
 			});
