@@ -40,11 +40,10 @@ io.on('connection', function(socket){
 		    con.query(sql, [name, msg, time_string ], function (err, result) {
 		        if (err) throw err;
 		        console.log("1 record inserted");
+				console.log(result);
 		    });
-	          }
+	      }
 	    });
-	    
-	    console.log(silence);
 	    
         }
   });
@@ -57,7 +56,7 @@ io.on('connection', function(socket){
 		if (err) throw err;
 		console.log("selected");
 		result.forEach(function(item){
-			socket.emit('chat message', item.content, item.sender, item.time);
+			socket.emit('chat message', item.idx, item.content, item.sender, item.time);
 		});
 			
 		
