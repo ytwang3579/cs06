@@ -57,20 +57,29 @@
 			});
 		socket.on('chat message', function(idx, msg, name, time_string){//receive server pushed message
 		  var new_message = $('<li>').text(name+' '+msg+' '+time_string);
-		  var delete_button = $('<button>').text("delete");//add delete button
-		  delete_button.toggleClass("delete");
-		  delete_button.hide();
-		  delete_button.click(function(){
-    			//send remove message to server
-  		  });
-		  new_message.append(delete_button);//append delete button to new_message
-		  
+		  new_message.attr('id', idx);
+			
+		  if( name == window.parent.name ){
+			  var delete_button = $('<button>').text("delete");//add delete button
+			  delete_button.toggleClass("delete");
+			  delete_button.hide();
+			  delete_button.click(function(){
+    				//send remove message to server
+				  socket.emit('delete_message', idx, room);
+  			  });
+			  new_message.append(delete_button);//append delete button to new_message
+		  }
+
 		  if(is_tag(msg)){//do hightlight
 			new_message.css("background", "#fdfdba");
 		  }
 		  $('#messages').append(new_message);//append new message and scroll down
 		  window.scroll(0,document.body.scrollHeight);
 		});
+		
+		  socket.on('delete_message', function(idx){
+			$('#'+idx+'').remove();
+		  });
 		
 		$('#vote').click(function(){ //deal with create vote when click vote button
 			var vote_area =  create_vote_area();
