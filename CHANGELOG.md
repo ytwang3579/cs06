@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]  
 *Feature(s) in development should be displayed here, with information of who is actively dealing with it.* 
 
+## 0.1.19 - 2019-06-11 - s106062129
+### Changed
+- Use create new message element function to create new message element
+- Finish delete function
+
 ## 0.1.18 - 2019-06-11 - ytwang
 ### Added
 - *node_server/style.css* added (chatroom's css, waiting for the message format)

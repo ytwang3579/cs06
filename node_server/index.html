@@ -55,10 +55,10 @@
 		  return false;
 			});
 		socket.on('chat message', function(idx, msg, name, time_string){//receive server pushed message
-		  var new_message = $('<li>').text(name+' '+msg+' '+time_string);
+		  var new_message = create_new_message_div(name, msg, time_string);
 		  new_message.attr('id', idx);
 			
-		  if( name == window.parent.name ){
+		  if( name == window.parent.name ){//add delete button if sender is yourself
 			  var delete_button = $('<button>').text("delete");//add delete button
 			  delete_button.toggleClass("delete");
 			  delete_button.hide();
@@ -146,6 +146,48 @@
 				if(data.slice(at_position+1, i+1) == $("#n").val())	return true;
 			}
 		  }
+		}
+
+		function create_new_message_div(name, msg, time_string){//create new message element
+			//<div  class="message">
+        		//<img class="message-image" src="%USER_IMAGE_URL%">
+        		//<a class="sender">Leo Wang</a>
+        		//<a class="message-timestamp">16:02</a>
+        
+        		//<span class="message-content" >
+            		//<div class="text">fasfdfsafas</div>
+        		//</span>
+			//</div>
+
+			var new_message = $('<li>');
+			
+			var div = $('<div>');
+			div.toggleClass('message');
+			
+			var img = $('<img>');
+			img.toggleClass('message-image');
+			img.attr('src', '%USER_IMAGE_URL%');
+			
+			var a_name = $('<a>').text(name);
+			a_name.toggleClass('sender');
+			
+			var a_time = $('<a>').text(time_string);
+			a_time.toggleClass('message-timestamp');
+
+			var span_message = $('<span>').toggleClass('message_content');
+
+			var div_message = $('<div>').text(msg);
+			div_message.toggleClass('text');
+			span_message.append(div_message);
+
+			div.append(img);
+			div.append(a_name);
+			div.append(a_time);
+			div.append(span_message);
+
+			new_message.append(div);
+
+			return new_message;			
 		}
 		
 		return false;
