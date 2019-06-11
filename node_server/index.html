@@ -49,12 +49,14 @@
 		var socket = io('http://cs06.2y.cc:25565');
 		socket.emit('join', room);
 		
+		//send message
 		$('#ff').submit(function(e){
 		  e.preventDefault(); // prevents page reloading
 		  socket.emit('chat message', $('#m').val(), window.parent.name, room);//emit chat message
 		  $('#m').val('');
 		  return false;
-			});
+		});
+		
 		socket.on('chat message', function(idx, msg, name, time_string){//receive server pushed message
 		  var new_message = create_new_message_div(name, msg, time_string);
 		  new_message.attr('id', idx);
@@ -132,7 +134,7 @@
 		socket.on('vote message', function(vote_object){
 			
 			
-		};
+		});
 		
 		socket.on('disconnect', function(){
 			console.log('server is down.');
