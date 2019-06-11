@@ -107,7 +107,7 @@
 		});
 		
 		socket.on('vote message', function(vote_object, name, time_string){
-			add_new_chat_message('100', JSON.stringify(vote_object), name, time_string);
+			add_new_chat_message('100', vote_object, name, time_string);
 			
 		});
 		
