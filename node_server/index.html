@@ -161,11 +161,9 @@
 
 			var new_message = $('<li>');
 			
-			var div = $('<div>');
-			div.toggleClass('message');
+			var div = $('<div>').toggleClass('message');
 			
-			var img = $('<img>');
-			img.toggleClass('message-image');
+			var img = $('<img>').toggleClass('message-image');
 			img.attr('src', '%USER_IMAGE_URL%');
 			
 			var a_name = $('<a>').text(name);
