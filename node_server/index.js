@@ -82,7 +82,7 @@ io.on('connection', function(socket){
 	  var opt = {hour:"2-digit", minute:"2-digit", hour12:false};
 	  var time_string = d.toLocaleTimeString("zh-TW", opt);
 	  
-	  io.in(room).emit('vote message', vote_object);
+	  io.in(room).emit('vote message', vote_object, name, time_string);
   });
   
   socket.on('rejoin', function(room){

@@ -58,25 +58,7 @@
 		});
 		
 		socket.on('chat message', function(idx, msg, name, time_string){//receive server pushed message
-		  var new_message = create_new_message_div(name, msg, time_string);
-		  new_message.attr('id', idx);
-			
-		  if( name == window.parent.name ){//add delete button if sender is yourself
-			  var delete_button = $('<button>').text("delete");//add delete button
-			  delete_button.toggleClass("delete");
-			  delete_button.hide();
-			  delete_button.click(function(){
-    				//send remove message to server
-				  socket.emit('delete_message', idx, room);
-  			  });
-			  new_message.append(delete_button);//append delete button to new_message
-		  }
-
-		  if(is_tag(msg)){//do hightlight
-			new_message.css("background", "#fdfdba");
-		  }
-		  $('#messages').append(new_message);//append new message and scroll down
-		  window.scroll(0,document.body.scrollHeight);
+		  add_new_chat_message(idx, msg, name, time_string);
 		});
 		
 		  socket.on('delete_message', function(idx){
@@ -131,8 +113,8 @@
 		  console.log('finish');
 		});
 		
-		socket.on('vote message', function(vote_object){
-			
+		socket.on('vote message', function(vote_object, name, time_string){
+			add_new_chat_message('100', JSON.stringify(vote_object), name, time_string);
 			
 		});
 		
@@ -207,6 +189,28 @@
 			new_message.append(div);
 
 			return new_message;			
+		}
+		
+		function add_new_chat_message(idx, msg, name, time_string){
+		  var new_message = create_new_message_div(name, msg, time_string);
+		  new_message.attr('id', idx);
+			
+		  if( name == window.parent.name ){//add delete button if sender is yourself
+			  var delete_button = $('<button>').text("delete");//add delete button
+			  delete_button.toggleClass("delete");
+			  delete_button.hide();
+			  delete_button.click(function(){
+    				//send remove message to server
+				  socket.emit('delete_message', idx, room);
+  			  });
+			  new_message.append(delete_button);//append delete button to new_message
+		  }
+
+		  if(is_tag(msg)){//do hightlight
+			new_message.css("background", "#fdfdba");
+		  }
+		  $('#messages').append(new_message);//append new message and scroll down
+		  window.scroll(0,document.body.scrollHeight);
 		}
 	</script>
   </body>
