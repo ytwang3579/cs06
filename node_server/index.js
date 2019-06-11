@@ -34,13 +34,13 @@ io.on('connection', function(socket){
 		  if(result[0].silence==1) silence=1;
 		  
 		  if(silence==0){
-	 	    io.in(room).emit('chat message', msg, name, time_string);
+	 	    
 
 		    var sql = "INSERT INTO "+room +" (sender, content, time) VALUES (?, ?, ?)";
 		    con.query(sql, [name, msg, time_string ], function (err, result) {
 		        if (err) throw err;
 		        console.log("1 record inserted");
-				console.log(result);
+				io.in(room).emit('chat message', result.insertId, msg, name, time_string);
 		    });
 	      }
 	    });
