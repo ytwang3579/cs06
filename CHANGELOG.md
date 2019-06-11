@@ -7,8 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]  
 *Feature(s) in development should be displayed here, with information of who is actively dealing with it.* 
 
+## 0.1.17 - 2019-06-11 - s106062128
+### Added
+-  Added delete event to everyone in chatroom response in node\_server/index.js
 
-## 0.1.16 - 2019-06-10 - s106062129
+## 0.1.16 - 2019-06-11 - s106062129
 ### Added
 -  Added delete button in node\_server/index.html
 
