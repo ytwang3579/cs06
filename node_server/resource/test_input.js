@@ -20,4 +20,6 @@ function test_ans(a1, a2, a3){
 	var ans={};
 	ans['a_total'] = a_total;
 	ans['a_array'] = a_array;
+	
+	return ans;
 }
