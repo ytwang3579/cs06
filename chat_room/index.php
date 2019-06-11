@@ -42,7 +42,7 @@
         <span>
           PUBLIC CHATROOM
         </span>
-        <button class="ion-ios-plus-outline chatroomlist-add" onclick="location.href='./create_public_chatroom.php';"></button>
+        <button class="ion-ios-plus-outline chatroomlist-add" onclick="create_public_chatroom();"></button>
       </h2>
       <ul class="chatroomlist-list">
 <?php
@@ -80,7 +80,7 @@
         <span>
           PRIVATE CHATROOM
         </span>
-        <button class="ion-ios-plus-outline chatroomlist-add" onclick="location.href='./create_private_chatroom.php';"></button>
+        <button class="ion-ios-plus-outline chatroomlist-add" onclick="create_private_chatroom();"></button>
       </h2>
       <ul class="chatroomlist-list">
 <?php
@@ -118,7 +118,7 @@
         <span>
           FRIEND
         </span>
-        <button class="ion-ios-plus-outline friendlist-add" onclick="location.href='./add_friend.php';"></button>
+        <button class="ion-ios-plus-outline friendlist-add" onclick="addfriend();"></button>
       </h2>
       <ul class="friendlist-list">
 <?php
@@ -170,10 +170,22 @@
 	var chat_window = $("#chat_window");
 	var name = <?php echo json_encode($_SESSION['name']);?>;
 
-        function OpenChatRoom(chatroomid){
-            now_room = chatroomid;
-		chat_window.attr("src", "http://cs06.2y.cc/node_server/index.html");
+  function OpenChatRoom(chatroomid){
+     now_room = chatroomid;
+		 chat_window.attr("src", "http://cs06.2y.cc/node_server/index.html");
 	}
+
+  function addfriend(){
+    $("#chat_window").attr("src", "http://cs06.2y.cc/chat_room/add_friend.php");
+  }
+
+  function create_private_chatroom(){
+    $("#chat_window").attr("src", "http://cs06.2y.cc/chat_room/create_private_chatroom.php");
+  }
+
+  function create_public_chatroom(){
+    $("#chat_window").attr("src", "http://cs06.2y.cc/chat_room/create_public_chatroom.php");
+  }
 
 </script>
 
