@@ -21,8 +21,8 @@ try {
 
 $user = $response->getGraphUser();
 
-var_dump($user);
-echo '<br><br>Hello ' . $user['name'];
+//var_dump($user);
+//echo '<br><br>Hello ' . $user['name'];
 
 require_once("../config.php");
 
