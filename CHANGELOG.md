@@ -14,6 +14,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Change fb/,google/ insertion into mysql adding picture
 - Insert add_friend add_public_chatroom into iframe
 
+## 0.1.20 - 2019-06-11 - s106062328
+### Added
+- Add logout function in chat_room/index.php and admin/index.php
+
 ## 0.1.19 - 2019-06-11 - s106062129
 ### Changed
 - Use create new message element function to create new message element

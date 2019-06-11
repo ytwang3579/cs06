@@ -8,10 +8,15 @@
 <head>
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 <script src="resource/socket.io.js"></script>
+<script src="https://kit.fontawesome.com/df3e0e4f87.js"></script>
 <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
+<div onclick="location.href ='../chat_room/logout.php'" 
+            style="cursor:pointer;">
+         <i class="fas fa-sign-out-alt"></i>
+    </div>
 <div class="friend_list">
 <b>User list</b>
 <br>
