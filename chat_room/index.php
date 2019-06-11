@@ -25,7 +25,7 @@
   <div class="sidebar">
     <div class="titlebtn">
       <div class="team-menu-info">
-        <a class="pagetitle" onclick="location.reload();">CS 0.6</a>
+        <button class="pagetitle" onclick="location.reload();">CS 0.6</button>
         <span class="username"><?= $_SESSION['name'] ?></span>
       </div>
       <span onclick="location.href ='logout.php'" 
