@@ -85,6 +85,7 @@
       <ul class="chatroomlist-list">
 <?php
 //list chat room
+        echo $_SESSION['picture'];
         require("../config.php");
         $dsn='mysql:host='.$CFG['mysql_host'].';dbname='.$CFG['mysql_dbname'].';';
         try {
