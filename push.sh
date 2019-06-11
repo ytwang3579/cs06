@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/tcsh
 
 git pull
 git add .
