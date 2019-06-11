@@ -1,7 +1,8 @@
 <?php
     // Start the session
     session_start();
-    if( $_SESSION['id']=='admin' &&  $_SESSION['name']=='Admin'){
+    if(isset($_SESSION['id'])&&isset($_SESSION['name'])
+      if($_SESSION['id']=='admin' &&  $_SESSION['name']=='Admin'){
 ?>
 
 <html>
@@ -107,4 +108,7 @@ var socket = io('http://cs06.2y.cc:25565');
  else{
     echo 'curiosity kills the cat';
  } 
+ else{
+    echo 'curiosity kills the cat';
+ }
 ?>
