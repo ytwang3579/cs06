@@ -27,6 +27,8 @@ ul {
   padding: 0;
   border: 0;
   vertical-align: baseline;
+  overflow-y: scroll;
+  height: 150px;
 }
 
 h1 {
