@@ -1,7 +1,10 @@
 <!doctype html>
 <html>
-  <head>
-    <title>Socket.IO chat</title>
+  <head>	
+	<script src="resource/socket.io.js"></script>
+	<script src="resource/create_vote.js"></script>
+	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+	<title>Socket.IO chat</title>
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body { font: 13px Helvetica, Arial; }
@@ -39,10 +42,7 @@
     <form id = "ff" action="" class="ff">
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
-	
-	<script src="resource/socket.io.js"></script>
-	<script src="resource/create_vote.js"></script>
-	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+
 	<script>
 		var room = window.parent.now_room;
 	  $(function () {
