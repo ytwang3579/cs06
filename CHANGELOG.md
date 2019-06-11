@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]  
 *Feature(s) in development should be displayed here, with information of who is actively dealing with it.* 
 
+## 0.2.1 - 2019-06-12 - ytwang
+### Added
+- Add *node_server/style.css* for chatroom iframe (**TODO: img src**)
+### Fixed
+- Add scrollbar to sidebar of *chat_room/index.php* ( in *chat_room/style.css* ) to avoid overflow
+
 ## 0.2.0 - 2019-06-11 - s106062328
 ### Changed
 - Change all url to http
