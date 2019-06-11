@@ -138,7 +138,7 @@
 		});
 	  });
 	  
-	  function is_tag(data){
+	  function is_tag(data){//return if user is taged
 	    var at_position=-1;
 		var name_taged;
 		for(var i=0; i<data.length; i++){
@@ -151,10 +151,10 @@
 		    if(data[i] == ' '){
 				name_taged = data.slice(at_position+1, i);
 				console.log(name_taged);
-				if(name_taged == $("#n").val())	return true;
+				if(name_taged == window.parent.name)	return true;
 			}
 			else if(i == data.length-1){
-				if(data.slice(at_position+1, i+1) == $("#n").val())	return true;
+				if(data.slice(at_position+1, i+1) == window.parent.name )	return true;
 			}
 		  }
 		}
