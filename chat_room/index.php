@@ -24,7 +24,7 @@
 <body>
 <div class="slack">
   <div class="sidebar">
-    <button class="titlebtn" onclick="window.location.reload();">
+    <div class="titlebtn">
       <div class="team-menu-info">
         <h1 class="pagetitle">CS 0.6</h1>
         <span class="username"><?= $_SESSION['name'] ?></span>
@@ -32,7 +32,7 @@
       <span onclick="location.href ='logout.php'">
          <i class="fas fa-sign-out-alt"></i>
       </span>
-    </button>
+  </div>
     <div class="profile">
       <img src="<?= $_SESSION['picture'] ?>" style="width:200px; height:200px;"/>
     </div>
