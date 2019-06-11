@@ -70,4 +70,3 @@
 	<input type="text" name="friend_id" placeholder="type friend id">
 	<input type="submit" value="add friend">
 </form>
-<button onclick=" location.href='./index.php'; ">Back to Chat Room</button>
