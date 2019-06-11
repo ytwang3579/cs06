@@ -57,6 +57,9 @@ io.on('connection', function(socket){
 		console.log("selected");
 		result.forEach(function(item){
 			socket.emit('chat message', item.idx, item.content, item.sender, item.time);
+			if(item.vote == null){
+				console.log('null');
+			}
 		});
 			
 		
@@ -65,9 +68,9 @@ io.on('connection', function(socket){
 	  }
   });
   
-  socket.on('voting', function(theme, a1, a2, a3, room){
-	  console.log([theme, a1, a2, a3]);
-	  console.log(typeof(a2));
+  socket.on('create vote', function(theme, ans, room){
+	  console.log(ans);
+	  console.log(typeof(ans));
 	  io.in(room).emit('vote_event');
   });
   
