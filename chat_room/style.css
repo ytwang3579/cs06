@@ -28,8 +28,8 @@ ul {
   border: 0;
   vertical-align: baseline;
   overflow-y: scroll;
-  overflow: hidden;
-  height: 80px;
+  overflow-x: hidden;
+  height: 90px;
 }
 
 ul::-webkit-scrollbar {
@@ -145,6 +145,7 @@ iframe {
   line-height: 2.1;
   text-transform: uppercase;
   opacity: 0.6;
+  margin: 0
 }
 .chatroomlist-button,
 .friendlist-button {
