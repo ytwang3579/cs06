@@ -169,10 +169,12 @@
 	var now_room = "";
 	var chat_window = $("#chat_window");
 	var name = <?php echo json_encode($_SESSION['name']);?>;
+  var flag = false;
 
   function OpenChatRoom(chatroomid){
      now_room = chatroomid;
 		 chat_window.attr("src", "http://cs06.2y.cc/node_server/index.php");
+     flag = true;
 	}
 
   function addfriend(){
@@ -185,6 +187,10 @@
 
   function create_public_chatroom(){
     $("#chat_window").attr("src", "http://cs06.2y.cc/chat_room/create_public_chatroom.php");
+  }
+
+  if(flag==false){
+    $("#chat_window").attr("background-image", "url('chatroomback.png')");
   }
 
 </script>
