@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]  
 *Feature(s) in development should be displayed here, with information of who is actively dealing with it.* 
 
+## 0.2.0 - 2019-06-11 - s106062328
+### Changed
+- Change all url to http
+- Add column picture in table user_list in mysql
+- Change fb/,google/ insertion into mysql adding picture
+- Insert add_friend add_public_chatroom into iframe
 
 ## 0.1.19 - 2019-06-11 - s106062129
 ### Changed
