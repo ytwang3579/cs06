@@ -21,7 +21,7 @@ io.on('connection', function(socket){
   socket.on('chat message', function(msg, name, room){
 	 var d = new Date();
 	 var opt = {hour:"2-digit", minute:"2-digit", hour12:false};
-	 var time_string = d.toLocaleTimeString("zh-TW", opt)
+	 var time_string = d.toLocaleTimeString("zh-TW", opt);
 	 if(room == ''){
 		io.emit('chat message', msg, name, time_string);
 	 }
@@ -68,12 +68,21 @@ io.on('connection', function(socket){
 	  }
   });
   
-  socket.on('create vote', function(theme, ans, room){
+  socket.on('create vote', function(theme, ans, name, room){
 	  console.log(ans);
 	  console.log(ans[0]);
+	  var vote_object = {};
+	  ans.forEach(function(item){
+		  vote_object[item] = 0;
+	  });
+	  vote_object['theme'] = theme;
+	  vote_object['answers'] = ans;
 	  
+	  var d = new Date();
+	  var opt = {hour:"2-digit", minute:"2-digit", hour12:false};
+	  var time_string = d.toLocaleTimeString("zh-TW", opt);
 	  
-	  io.in(room).emit('vote_event');
+	  io.in(room).emit('vote message', vote_object);
   });
   
   socket.on('rejoin', function(room){
