@@ -121,6 +121,8 @@
 	  });
 	  
 	  function is_tag(data){//return if user is taged
+		if(typeof(data) != 'string') return false;
+	  
 	    var at_position=-1;
 		var name_taged;
 		for(var i=0; i<data.length; i++){
@@ -170,7 +172,9 @@
 
 			var span_message = $('<span>').toggleClass('message_content');
 
-			var div_message = $('<div>').text(msg);
+			var div_message;
+			if(typeof(msg) == 'string')	div_message = $('<div>').text(msg);
+			else div_message = vote_object_to_div(msg);
 			div_message.toggleClass('text');
 			span_message.append(div_message);
 
@@ -206,11 +210,27 @@
 		  window.scroll(0,document.body.scrollHeight);
 		}
 		
-		function vote_object_to_table(data){
-			if(typeof(data) != 'object')	return;
+		function vote_object_to_div(data){
+			if(typeof(data) != 'object')	return $('<div>');
 			
+			var vote_div = $('<div>');
 			
+			var theme = $('<p>').text(data.theme);
+			var vote_table = $('<table>');
+			var tmp_tr = $('<tr>').append($('<th>')).text("Options");
+			tmp_tr.append($('<th>')).text("Vote number");
+			vote_table.append(tmp_tr);
 			
+			data.options.forEach(function(item){
+				tmp_tr = $('<tr>').append($('<td>')).text(item);
+				tmp_tr.append($('<td>')).text(data[item]);
+				vote_table.append(tmp_tr);
+			});
+			
+			vote_div.append(theme);
+			vote_div.append(vote_table);
+			
+			return vote_div;
 		}
 	</script>
   </body>
