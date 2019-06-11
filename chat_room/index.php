@@ -172,7 +172,7 @@
 
   function OpenChatRoom(chatroomid){
      now_room = chatroomid;
-		 chat_window.attr("src", "http://cs06.2y.cc/node_server/index.html");
+		 chat_window.attr("src", "http://cs06.2y.cc/node_server/index.php");
 	}
 
   function addfriend(){
