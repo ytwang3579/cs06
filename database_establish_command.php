@@ -11,7 +11,9 @@
     // sql to create table
     $sql = "CREATE TABLE user_list (
 		id VARCHAR(45) PRIMARY KEY NOT NULL,
-		name VARCHAR(45) NOT NULL
+		name VARCHAR(45) NOT NULL,
+        picture VARCHAR(500) NOT NULL,
+        silence INT(10) NOT NULL,
     )"; //may add something else
 	
 	$sql2 = "CREATE TABLE chat_list (
