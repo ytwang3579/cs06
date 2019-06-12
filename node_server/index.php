@@ -1,3 +1,7 @@
+<?php
+   session_start();
+>
+
 <!doctype html>
 <html>
   <head>	
@@ -42,15 +46,15 @@
 		$('#ff').submit(function(e){
 		  e.preventDefault(); // prevents page reloading
 		  if($('#m').val() != ''){
-			socket.emit('chat message', $('#m').val(), window.parent.name, room);//emit chat message
+			socket.emit('chat message', $('#m').val(), window.parent.name, room, <?=  $_SESSION['picture'] ?>);//emit chat message
 			$('#m').val('');
 		  }
 		  return false;
 		});
 		
-		socket.on('chat message', function(idx, msg, name, time_string){//receive server pushed message
+		socket.on('chat message', function(idx, msg, name, time_string, picture){//receive server pushed message
 		  if(msg != ''){
-			add_new_chat_message(idx, msg, name, time_string);
+			add_new_chat_message(idx, msg, name, time_string, picture);
 		  }
 		});
 		
@@ -107,7 +111,7 @@
 		});
 		
 		socket.on('vote message', function(vote_object, name, time_string){
-			add_new_chat_message('100', vote_object, name, time_string);
+			add_new_chat_message('100', JSON.stringify(vote_object), name, time_string,<?= $_SESSION['picture']?>);
 			
 		});
 		
@@ -121,8 +125,6 @@
 	  });
 	  
 	  function is_tag(data){//return if user is taged
-		if(typeof(data) != 'string') return false;
-	  
 	    var at_position=-1;
 		var name_taged;
 		for(var i=0; i<data.length; i++){
@@ -146,7 +148,7 @@
 		return false;
 	  }
 
-		function create_new_message_div(name, msg, time_string){//create new message element
+		function create_new_message_div(name, msg, time_string, picture){//create new message element
 			//<div  class="message">
         		//<img class="message-image" src="%USER_IMAGE_URL%">
         		//<a class="sender">Leo Wang</a>
@@ -162,7 +164,7 @@
 			var div = $('<div>').toggleClass('message');
 			
 			var img = $('<img>').toggleClass('message-image');
-			img.attr('src', '%USER_IMAGE_URL%');
+			img.attr('src', picture);
 			
 			var a_name = $('<a>').text(name);
 			a_name.toggleClass('sender');
@@ -172,9 +174,7 @@
 
 			var span_message = $('<span>').toggleClass('message_content');
 
-			var div_message;
-			if(typeof(msg) == 'string')	div_message = $('<div>').text(msg);
-			else div_message = vote_object_to_div(msg);
+			var div_message = $('<div>').text(msg);
 			div_message.toggleClass('text');
 			span_message.append(div_message);
 
@@ -188,8 +188,8 @@
 			return new_message;			
 		}
 		
-		function add_new_chat_message(idx, msg, name, time_string){
-		  var new_message = create_new_message_div(name, msg, time_string);
+		function add_new_chat_message(idx, msg, name, time_string, picture){
+		  var new_message = create_new_message_div(name, msg, time_string, picture);
 		  new_message.attr('id', idx);
 			
 		  if( name == window.parent.name ){//add delete button if sender is yourself
@@ -210,41 +210,13 @@
 		  window.scroll(0,document.body.scrollHeight);
 		}
 		
-		function vote_object_to_div(data){
-			if(typeof(data) != 'object')	return $('<div>');
+		function vote_object_to_table(data){
+			if(typeof(data) != 'object')	return;
 			
-			var vote_div = $('<div>');
 			
-			var theme = $('<p>').text(data.theme);
-			var vote_table = $('<table>');
-			var tmp_tr = $('<tr>');
-			tmp_tr.append($('<th>').text("Options"));
-			tmp_tr.append($('<th>').text("Vote number"));
-			vote_table.append(tmp_tr);
 			
-			data.options.forEach(function(item){
-				var vote_input = $('<input>');
-				vote_input.attr('id', item);
-				vote_input.attr('type', 'radio');
-				vote_input.attr('form', data.theme);
-				vote_input.attr('name', 'options');
-				vote_input.attr('value', item);
-				tmp_tr = $('<tr>');
-				tmp_tr.append($('<td>').text(item));
-				tmp_tr.append($('<td>').text(data[item]));
-				tmp_tr.append($('<td>').append(vote_input));
-				vote_table.append(tmp_tr);
-			});
-			
-			var vote_form = $('<form>');
-			vote_form.attr('id', data.theme);//add form id
-			vote_div.append(theme);
-			vote_form.append(vote_table);
-			vote_form.append($('<button>').text('send'));
-			vote_div.append(vote_form);
-			
-			return vote_div;
 		}
 	</script>
   </body>
 </html>
+
