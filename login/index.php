@@ -26,10 +26,13 @@ session_start();
 <script type="text/javascript">
         function doSomething(event)
         {
-            if (event.shiftKey)
+            if (event.shiftKey){
+                e.preventDefault();
                 alert('Shift key was pressed.');
-            else
+            } else {
                 reload();
+            }
+
         }
 </script>
 </head>
