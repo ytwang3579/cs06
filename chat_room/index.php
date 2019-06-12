@@ -2,10 +2,11 @@
     // Start the session
     session_start();
     if( !isset($_SESSION['id']) | empty($_SESSION['id']) | !isset($_SESSION['name']) | empty($_SESSION['name']) ){
-        echo "<script> location.href='../login/fb/'; </script>";
+        echo "<script> location.href='../login'; </script>";
         exit();
     }
-    else if($_SESSION['id']=='admin'&&$_SESSION['name']=='Admin'){
+	//if admin redirection to admin page
+	else if($_SESSION['id']=='admin'&&$_SESSION['name']=='Admin'){
       echo "<script> location.href='../admin';</script>";
     }
     date_default_timezone_set('Asia/Taipei');
@@ -25,16 +26,16 @@
   <div class="sidebar">
     <div class="titlebtn">
       <div class="team-menu-info">
-        <button class="pagetitle" onclick="location.reload();">CS 0.6</button>
+        <button class="pagetitle" onclick="location.reload();">CS 0.6</button> <!--reload page-->
         <span class="username"><?= $_SESSION['name'] ?></span>
       </div>
       <span onclick="location.href ='logout.php'" 
-            style="cursor:pointer;">
+            style="cursor:pointer;"> <!--logout to login page-->
          <i class="fas fa-sign-out-alt"></i>
       </span>
   </div>
     <div class="profile">
-      <img src="<?= $_SESSION['picture'] ?>" style="width:200px; height:200px;"/>
+      <img src="<?= $_SESSION['picture'] ?>" style="width:200px; height:200px;"/> <!--user's picture'-->
     </div>
     
     <div class="chatroomlist">
@@ -141,7 +142,7 @@
 ?>
         <!-- ONLY FOR DEBUG 
         <li class="friendlist-item">
-          <button class="friendlist-button friendlist-button--online">
+          <button class="friendlist-button friendlist-button-online">
             <span>Harry Potter</span>
           </button>
         </li>

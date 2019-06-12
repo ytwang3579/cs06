@@ -7,17 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]  
 *Feature(s) in development should be displayed here, with information of who is actively dealing with it.* 
 
+## 0.2.5 - 2019-06-12 - s106062129
+## Changed 
+- Modidied chat\_room/index.php to redirect to ../login if not login yet
+- Add some comment in chat\_room's file
+
 ## 0.2.4 - 2019-06-12 - s106062328
 ## Changed
 - After create chat room will not show "Create Successfully" message but refresh the whole page new update
   Sidebar list.
 - Load picture in socket message
-- Modified preparation in READ.md
+- Modified preparation in README.md
 
 ## 0.2.3 - 2019-06-12 - s106062129
 ## Changed
 - After create chat room will not load chat\_room/index.php but show "Create Successfully" message
-- Modified preparation in READ.md
+- Modified preparation in README.md
 
 ## 0.2.2 - 2019-06-12 - ytwang
 ### Changed
@@ -33,13 +38,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## 0.2.0 - 2019-06-11 - s106062328
 ### Changed
 - Change all url to http
-- Add column picture in table user_list in mysql
+- Add column picture in table user\_list in mysql
 - Change fb/,google/ insertion into mysql adding picture
-- Insert add_friend add_public_chatroom into iframe
+- Insert add\_friend add\_public\_chatroom into iframe
 
 ## 0.1.20 - 2019-06-11 - s106062328
 ### Added
-- Add logout function in chat_room/index.php and admin/index.php
+- Add logout function in chat\_room/index.php and admin/index.php
 
 ## 0.1.19 - 2019-06-11 - s106062129
 ### Changed
