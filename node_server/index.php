@@ -110,9 +110,9 @@
 		  console.log('finish');
 		});
 		
-		socket.on('vote message', function(vote_object, name, time_string){
-			add_new_chat_message('100', vote_object, name, time_string, vote_object.picture);
-			
+		socket.on('vote message', function(idx, vote_object, name, time_string){
+			add_new_chat_message(idx, vote_object, name, time_string, vote_object.picture);
+			vote_object['index'] = idx;
 		});
 		
 		socket.on('disconnect', function(){

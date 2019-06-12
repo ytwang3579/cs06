@@ -62,7 +62,7 @@ io.on('connection', function(socket){
 				socket.emit('chat message', item.idx, item.content, item.sender, item.time, vote_object.picture);
 			}
 			else{
-				socket.emit('vote message', vote_object, item.sender, item.time);
+				socket.emit('vote message', item.idx, vote_object, item.sender, item.time);
 				console.log('vote');
 			}
 			
@@ -97,7 +97,7 @@ io.on('connection', function(socket){
 		    con.query(sql, [name, "", time_string , JSON.stringify(vote_object)], function (err, result) {
 		        if (err) throw err;
 				console.log("vote record inserted");
-				io.in(room).emit('vote message', vote_object, name, time_string);	
+				io.in(room).emit('vote message', result.insertId, vote_object, name, time_string);	
 	  });
 	  
   });
