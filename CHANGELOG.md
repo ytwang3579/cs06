@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]  
 *Feature(s) in development should be displayed here, with information of who is actively dealing with it.* 
 
+## 0.2.2 - 2019-06-12 - ytwang
+### Changed
+- README.md now contains some information
+  > TODO: Demo picture and deploy instructions
+
 ## 0.2.1 - 2019-06-12 - ytwang
 ### Added
 - Add *node_server/style.css* for chatroom iframe (**TODO: img src**)
