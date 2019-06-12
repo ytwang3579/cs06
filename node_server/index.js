@@ -82,7 +82,7 @@ io.on('connection', function(socket){
 	  ans.forEach(function(item){
 		  vote_object[item] = 0;
 	  });
-	  vote_object['voted'] = [];
+	  vote_object['voted'] = [''];
 	  vote_object['theme'] = theme;
 	  vote_object['options'] = ans;
 	  vote_object['picture'] = picture;
