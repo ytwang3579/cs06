@@ -26,10 +26,12 @@ session_start();
 <script type="text/javascript">
         function doSomething(event)
         {
-            if (event.key=="a")
+            if (event.key=="a"){
+                alert('a pressed');
                 (function (){location.href="../admin/admin_login.php";})();
-            else
+            } else {
                 reload();
+            }
         }
 </script>
 </head>
