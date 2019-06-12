@@ -171,6 +171,7 @@
 		});
 		
 		socket.on('is private',function(is_private){
+			console.log(is_private);
 			if(!is_private){
 				var vote_button = $('<button>');
 				vote_button.attr({type:"button", class:"btn btn-primary btn-sm", id:"vote"});
