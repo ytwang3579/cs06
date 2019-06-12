@@ -131,8 +131,9 @@
 			console.log(vote_object);
 			var new_message = get_chat_message_div(vote_object.index, vote_object, name, time_string, vote_object.picture, socket);
 			var old_vote_message = $('#'+vote_object.index);
-			old_vote_message.after(new_message);
+			//old_vote_message.after(new_message);
 			old_vote_message.remove();
+			$('#messages').append(new_message);
 		});
 		
 		socket.on('disconnect', function(){
