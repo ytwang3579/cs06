@@ -137,12 +137,12 @@
 			if(!is_private){
 				var vote_button = $('<button>').text("vote");
 				vote_button.attr({type:"button", class:"btn btn-outline-success my-2 my-sm-0", id:"vote", style:"right:60px; top:5px; position:fixed;"});
-				
+
+				$('#show_delete').before(vote_button);
+
 				var vote_img = $('<i>');
 				vote_img.attr({class:"fas fa-poll"});
 				$('#vote').append(vote_img);
-
-				$('#show_delete').before(vote_button);
 				
 				$('#vote').click(function(){ //deal with create vote when click vote button
 				var vote_area =  create_vote_area();
