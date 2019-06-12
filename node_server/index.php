@@ -10,7 +10,6 @@
 	<script src="resource/test_input.js"></script>
 	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>    
 	<script src="https://kit.fontawesome.com/df3e0e4f87.js"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="./style.css">
   </head>
   
@@ -21,10 +20,8 @@
 	   <i class="fas fa-broadcast-tower"></i>
 	   <span id="broadcast_message"></span>
     </div>
-
-	<button type="button" class="btn btn-primary btn-sm" id="vote">vote</button>
-    <button type="button" class="btn btn-secondary btn-sm" id="show_delete">Edit</button>
-
+    <button id='vote'>vote</button>
+	<button id='show_delete'>Edit</button>
 	<script>
 		$('#show_delete').click(function(){
 			if($('.delete').css("display") != "none" )
@@ -118,7 +115,12 @@
 		
 		socket.on('vote message', function(idx, vote_object, name, time_string){ //receive vote message
 			vote_object['index'] = idx;
+			var is_voted = false;
+			vote_object["voted"].forEach(function(item){
+				if(item == user_id) is_voted = true;
+			});
 			var new_message = get_chat_message_div(idx, vote_object, name, time_string, vote_object.picture, socket);
+			
 			$('#messages').append(new_message);//append new message and scroll down
 			window.scroll(0,document.body.scrollHeight);
 			$('#'+vote_object.theme+'_'+vote_object.index).submit(function(e){//Do vote 
@@ -243,6 +245,11 @@
 		function vote_object_to_div(data){
 			if(typeof(data) != 'object')	return;
 			
+			var is_voted = false;
+			data["voted"].forEach(function(item){
+				if(item == user_id) is_voted = true;
+			});
+			
 			var vote_div = $('<div>');
 			
 			var theme = $('<p>').text(data.theme);
@@ -253,16 +260,18 @@
 			vote_table.append(tmp_tr);
 			
 			data.options.forEach(function(item){
-				var vote_input = $('<input>');
-				vote_input.attr('id', item+"_"+data.index);
-				vote_input.attr('type', 'radio');
-				vote_input.attr('form', data.theme+"_"+data.index);
-				vote_input.attr('name', 'options_'+data.index);
-				vote_input.attr('value', item);
+				if(!is_voted){
+					var vote_input = $('<input>');
+					vote_input.attr('id', item+"_"+data.index);
+					vote_input.attr('type', 'radio');
+					vote_input.attr('form', data.theme+"_"+data.index);
+					vote_input.attr('name', 'options_'+data.index);
+					vote_input.attr('value', item);
+				}
 				tmp_tr = $('<tr>');
 				tmp_tr.append($('<td>').text(item));
 				tmp_tr.append($('<td>').text(data[item]));
-				tmp_tr.append($('<td>').append(vote_input));
+				if(!is_voted) tmp_tr.append($('<td>').append(vote_input));
 				vote_table.append(tmp_tr);
 			});
 			
@@ -270,7 +279,7 @@
 			vote_form.attr('id', data.theme+"_"+data.index);//add form id
 			vote_div.append(theme);
 			vote_form.append(vote_table);
-			vote_form.append($('<button>').text('send'));
+			if(!is_voted) vote_form.append($('<button>').text('send'));
 			vote_div.append(vote_form);
 			
 			return vote_div;
