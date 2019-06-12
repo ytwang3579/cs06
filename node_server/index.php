@@ -136,7 +136,7 @@
 		socket.on('is private',function(is_private){
 			if(!is_private){
 				var vote_button = $('<button>').text("vote");
-				vote_button.attr({type:"button", class:"btn btn-outline-success my-2 my-sm-0", id:"vote", style:"right:60px; top:5px; position:absolute;"});
+				vote_button.attr({type:"button", class:"btn btn-outline-success my-2 my-sm-0", id:"vote", style:"right:60px; top:5px; position:fixed;"});
 				$('.vote').append('<i class="fas fa-poll"></i>');
 
 				$('#show_delete').before(vote_button);
