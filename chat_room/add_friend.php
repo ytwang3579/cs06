@@ -7,8 +7,8 @@
     }
 
     date_default_timezone_set('Asia/Taipei');
-	echo "<div class="card"><div class="card-header">Hello, ".$_SESSION['name'].'<div class="card-body">';
-	echo "<h5 class="card-title">Your ID is ".$_SESSION['id']."</h5>";
+	echo "<div class='card'><div class='card-header'>Hello, ".$_SESSION['name']."<div class='card-body'>";
+	echo "<h5 class='card-title'>Your ID is ".$_SESSION['id']."</h5>";
 ?>
 <!DOCTYPE html>
 <head>
