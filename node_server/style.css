@@ -108,7 +108,7 @@ ul {
 	top:1px;
 }
 
-.ff { background: none; padding: 3px; position: fixed; bottom: 0; width: 100%; height:45px; left: 0;}
+.ff { background: none; padding: 3px; position: fixed; bottom: 5; width: 100%; height:45px; left: 0;}
 .ff #m { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
 .ff button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
 .broadcast {background:#03e000; display:none }
