@@ -20,10 +20,15 @@ Here is the [SPEC](https://hackmd.io/eKbYWhuwT_qhxavD3OAUPQ?view) from approved 
 
 ### Preparation
 Before deploying this project, you wil need to:  
-1. Set up [Facebook PHP] and [Google OAuth].
-2. Install and set up MySQL
+1. Set up PHP.
+2. Set up [Facebook PHP] and [Google OAuth].
+3. Install and set up MySQL.
+4. Modified config.php to set Mysql database name, location, password, admin name, admin password etc.
+5. Execute database\_establish\_command.php to initialize Mysql database.
+6. Install and set up Node.js.
 
 ### Deploy
+1. Execute node\_server/index.js by execute command "node index.js" and keep it running
 
 ## Contributors
 

@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## 0.2.3 - 2019-06-12 - s106062129
 ## Changed
 - After create chat room will not load chat\_room/index.php but show "Create Successfully" message
+- Modified preparation in READ.md
 
 ## 0.2.2 - 2019-06-12 - ytwang
 ### Changed
