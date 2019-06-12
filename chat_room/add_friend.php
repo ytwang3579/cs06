@@ -2,13 +2,13 @@
     // Start the session
     session_start();
     if( !isset($_SESSION['id']) | empty($_SESSION['id']) | !isset($_SESSION['name']) | empty($_SESSION['name']) ){
-        echo "<script> location.href='../fb/index.php'; </script>";
+        echo "<script> location.href='../login/fb/index.php'; </script>";
         exit();
     }
 
     date_default_timezone_set('Asia/Taipei');
-	echo "Hello, ".$_SESSION['name'].'<br>';
-	echo "Your ID is ".$_SESSION['id'].'<br>';
+	echo "<div class="card"><div class="card-header">Hello, ".$_SESSION['name'].'<div class="card-body">';
+	echo "<h5 class="card-title">Your ID is ".$_SESSION['id']."</h5>";
 ?>
 <!DOCTYPE html>
 <head>
@@ -72,7 +72,10 @@
 	echo $user_err;//print error message
 ?>
 <form method="POST">
-	<input type="text" name="friend_id" placeholder="type friend id">
-	<input type="submit" value="add friend">
+	<input type="text" name="friend_id" class="form-control" placeholder="type friend id">
+	<input type="submit" class="btn btn-secondary"value="add friend">
 </form>
+</div>
+</div>
+</div>
 </body>
