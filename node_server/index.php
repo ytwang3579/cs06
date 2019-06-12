@@ -54,7 +54,7 @@
 		
 		socket.on('chat message', function(idx, msg, name, time_string, picture){//receive server pushed message
 		  if(msg != ''){
-			add_new_chat_message(idx, msg, name, time_string, picture);
+			add_new_chat_message(idx, msg, name, time_string, picture, socket);
 		  }
 		});
 		
@@ -112,10 +112,10 @@
 		
 		socket.on('vote message', function(idx, vote_object, name, time_string){
 			vote_object['index'] = idx;
-			add_new_chat_message(idx, vote_object, name, time_string, vote_object.picture);
-			$('#'+vote_object.theme+'_'+vote_object.index).submit(function(e){
+			add_new_chat_message(idx, vote_object, name, time_string, vote_object.picture, socket);
+			$('#'+vote_object.theme+'_'+vote_object.index).submit(function(e){//Do vote 
 				e.preventDefault();
-				console.log("kaeritai");
+				socket.emit('vote update', )
 			});
 		});
 		
@@ -195,7 +195,7 @@
 			return new_message;			
 		}
 		
-		function add_new_chat_message(idx, msg, name, time_string, picture){
+		function add_new_chat_message(idx, msg, name, time_string, picture, socket){
 		  var new_message = create_new_message_div(name, msg, time_string, picture);
 		  new_message.attr('id', idx);
 			
