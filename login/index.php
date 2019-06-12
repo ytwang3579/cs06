@@ -26,12 +26,14 @@ session_start();
 <script type="text/javascript">
         function doSomething(event)
         {
-            if (event.key=="a"){
-                alert('a pressed');
-                (function (){location.href="../admin/admin_login.php";})();
+            if (event.shiftKey){
+                event.preventDefault();
+                alert("You have discovered a path to admin!!");
+                function (){location.href="../admin/admin_login.php"}();
             } else {
                 reload();
             }
+
         }
 </script>
 </head>
