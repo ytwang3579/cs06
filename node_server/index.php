@@ -46,7 +46,7 @@
 		$('#ff').submit(function(e){
 		  e.preventDefault(); // prevents page reloading
 		  if($('#m').val() != ''){
-			socket.emit('chat message', $('#m').val(), window.parent.name, room, <?=  $_SESSION['picture'] ?>);//emit chat message
+			socket.emit('chat message', $('#m').val(), window.parent.name, room, "<?=  $_SESSION['picture'] ?>");//emit chat message
 			$('#m').val('');
 		  }
 		  return false;
