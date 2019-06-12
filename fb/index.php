@@ -42,38 +42,6 @@ $loginUrl = $helper->getLoginUrl('https://cs06.2y.cc/fb/fb-callback.php', $permi
 echo '<script type="text/javascript">function reload(){location.href="'.$loginUrl.'"}</script>';
 echo '<script src="https://apis.google.com/js/platform.js" async defer></script>';
 ?>
-<div class="container">
-    <div class="login-space p-l-110 p-r-110 p-t-62 p-b-33">
-        <span class="page-title">
-        CS 0.6
-        </span>
-        <br>
-        <span class="page-subtitle">
-        
-        </span>
-        <form class="login-form flex-sb flex-w">
-            <span class="login-title">
-            SIGN IN WITH
-            </span>
-            <a href="#" class="fb-login m-t-50 m-b-20" onclick="reload();">
-                <i class="fa fa-facebook-official"></i>
-                FACEBOOK
-            </a>
-            <br>
-            <a href="<?= 'https://accounts.google.com/o/oauth2/auth?scope=' . urlencode('https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email') . '&redirect_uri=' . urlencode(CLIENT_REDIRECT_URL) . '&response_type=code&client_id=' . CLIENT_ID . '&access_type=online' ?>" class="gg-login m-b-20">
-                <img src="./css/icon-google.webp" alt="GOOGLE">
-                GOOGLE
-            </a>
-
-            <div class="login-footer">
-            
-            </div>
-        </form>
-    </div>
-</div>
-
-
-
 
 </body>
 </html>
