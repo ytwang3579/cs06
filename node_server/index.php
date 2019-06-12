@@ -32,10 +32,13 @@
 		});
 	</script>
 
-    <ul id="messages" class = "messages"></ul>
-    <form  id = "ff" action="" class="ff">
-      <input id="m" autocomplete="off" /><button class="btn btn-outline-success my-2 my-sm-0">Send</button>
-    </form>
+	<ul id="messages" class = "messages"></ul>
+	<div class="ff">
+    <form  id = "ff" action="" class="input-group mb-3">
+	   <input id="m" autocomplete="off" type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+	   <button class="btn btn-outline-success my-2 my-sm-0">Send</button>
+	</form>
+	</div>
 
 	<script>
 		var room = window.parent.now_room;
