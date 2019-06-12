@@ -173,8 +173,11 @@
 			a_time.toggleClass('message-timestamp');
 
 			var span_message = $('<span>').toggleClass('message_content');
-
-			var div_message = $('<div>').text(msg);
+			
+			var div_message;
+			if(typeof(msg) == 'string')	div_message = $('<div>').text(msg);
+			else div_message = vote_object_to_div(msg);
+			
 			div_message.toggleClass('text');
 			span_message.append(div_message);
 
@@ -213,7 +216,37 @@
 		function vote_object_to_table(data){
 			if(typeof(data) != 'object')	return;
 			
+			var vote_div = $('<div>');
 			
+			var theme = $('<p>').text(data.theme);
+			var vote_table = $('<table>');
+			var tmp_tr = $('<tr>');
+			tmp_tr.append($('<th>').text("Options"));
+			tmp_tr.append($('<th>').text("Vote number"));
+			vote_table.append(tmp_tr);
+			
+			data.options.forEach(function(item){
+				var vote_input = $('<input>');
+				vote_input.attr('id', item);
+				vote_input.attr('type', 'radio');
+				vote_input.attr('form', data.theme);
+				vote_input.attr('name', 'options');
+				vote_input.attr('value', item);
+				tmp_tr = $('<tr>');
+				tmp_tr.append($('<td>').text(item));
+				tmp_tr.append($('<td>').text(data[item]));
+				tmp_tr.append($('<td>').append(vote_input));
+				vote_table.append(tmp_tr);
+			});
+			
+			var vote_form = $('<form>');
+			vote_form.attr('id', data.theme);//add form id
+			vote_div.append(theme);
+			vote_form.append(vote_table);
+			vote_form.append($('<button>').text('send'));
+			vote_div.append(vote_form);
+			
+			return vote_div;
 			
 		}
 	</script>
