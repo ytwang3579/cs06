@@ -180,14 +180,17 @@
 
   function addfriend(){
     $("#chat_window").attr("src", "http://cs06.2y.cc/chat_room/add_friend.php");
+    flag = true;
   }
 
   function create_private_chatroom(){
     $("#chat_window").attr("src", "http://cs06.2y.cc/chat_room/create_private_chatroom.php");
+    flag = true;
   }
 
   function create_public_chatroom(){
     $("#chat_window").attr("src", "http://cs06.2y.cc/chat_room/create_public_chatroom.php");
+    flag = true;
   }
 
   if(flag==false){
