@@ -66,8 +66,10 @@ body {
 }
 
 ul {
-    height: calc(100% - 45px);
-    
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
 }
 
 .ff { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; height:45px; left: 0;}
