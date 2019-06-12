@@ -17,12 +17,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - After create chat room will not show "Create Successfully" message but refresh the whole page new update
   Sidebar list.
 - Load picture in socket message
-- Modified preparation in READ.md
+- Modified preparation in README.md
 
 ## 0.2.3 - 2019-06-12 - s106062129
 ## Changed
 - After create chat room will not load chat\_room/index.php but show "Create Successfully" message
-- Modified preparation in READ.md
+- Modified preparation in README.md
 
 ## 0.2.2 - 2019-06-12 - ytwang
 ### Changed
