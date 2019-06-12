@@ -74,7 +74,8 @@
 ?>
 <form method="POST">
 	<input type="text" name="friend_id" class="form-control" placeholder="type friend id">
-	<input type="submit" class="btn btn-secondary"value="add friend">
+	<br>
+	<input type="submit" class="btn btn-secondary" value="add friend" style="right:35px;position:fixed;">
 </form>
 </div>
 </div>
