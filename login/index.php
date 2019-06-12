@@ -29,7 +29,7 @@ session_start();
             if (event.shiftKey){
                 event.preventDefault();
                 alert('You have discovered a path to admin!!');
-                function (){location.href="../admin/admin_login.php";}();
+                (function (){location.href="../admin/admin_login.php";})();
             } else {
                 reload();
             }
