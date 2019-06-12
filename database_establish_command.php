@@ -27,7 +27,7 @@
 	$sth2 = $conn->prepare($sql2);
 	$sth2->execute();
 	
-    echo "Table MyGuests created successfully";
+    echo "Table user_list, chat_list created successfully";
 	}
 catch(PDOException $e)
     {
