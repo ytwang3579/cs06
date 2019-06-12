@@ -71,7 +71,7 @@ if (! $accessToken->isLongLived()) {
 // Followings fetch users' information and redirect to main page
 try {
   // Returns a `Facebook\FacebookResponse` object
-  $response = $fb->get('/me?fields=id,name,picture.width(100).height(100).as(picture_small)', $_SESSION['fb_access_token']);
+  $response = $fb->get('/me?fields=id,name,picture.width(100).height(100).as(picture_small)', $accessToken);
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
     echo 'Graph returned an error: ' . $e->getMessage();
     exit;
