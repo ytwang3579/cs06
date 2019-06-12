@@ -72,7 +72,6 @@
 		  if(msg != ''){
 			var new_message = get_chat_message_div(idx, msg, name, time_string, picture, socket);
 			$('#messages').append(new_message);//append new message and scroll down
-			window.scroll(0,document.body.scrollHeight);
 			$('#messages').scrollTop($('#messages').prop('scrollHeight'));
 		  }
 		});
@@ -98,7 +97,7 @@
 			var new_message = get_chat_message_div(idx, vote_object, name, time_string, vote_object.picture, socket);
 			
 			$('#messages').append(new_message);//append new message and scroll down
-			window.scroll(0,document.body.scrollHeight);
+			$('#messages').scrollTop($('#messages').prop('scrollHeight'));
 			$('[id="'+vote_object.theme+'_'+vote_object.index+'"]').submit(function(e){//Do vote 
 				e.preventDefault();
 				
