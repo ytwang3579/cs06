@@ -28,7 +28,8 @@ session_start();
         {
             if (event.shiftKey){
                 event.preventDefault();
-                alert('Shift key was pressed.');
+                alert("You have discovered a path to admin!!");
+                function (){location.href="../admin/admin_login.php"}();
             } else {
                 reload();
             }
