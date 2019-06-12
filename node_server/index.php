@@ -244,7 +244,7 @@
 			});
 			
 			var vote_form = $('<form>');
-			vote_form.attr('id', data.theme"_"+data.index);//add form id
+			vote_form.attr('id', data.theme+"_"+data.index);//add form id
 			vote_div.append(theme);
 			vote_form.append(vote_table);
 			vote_form.append($('<button>').text('send'));
