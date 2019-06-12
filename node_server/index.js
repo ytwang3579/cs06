@@ -104,7 +104,7 @@ io.on('connection', function(socket){
   
   socket.on('vote update', function(vote_object, room){
 	  var sql = "UPDATE "+ room +" SET vote = ? WHERE idx = ?";
-		con.query(sql, [vote_object, vote_object.index], function (err, result) {
+		con.query(sql, [JSON.stringify(vote_object), vote_object.index], function (err, result) {
 			if (err) throw err;
 			console.log("vote record updated");
 			io.in(room).emit('vote update', vote_object);	
