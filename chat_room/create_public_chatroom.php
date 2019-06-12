@@ -7,7 +7,7 @@
     }
 
 	date_default_timezone_set('Asia/Taipei');
-	echo "Hello, ".$_SESSION['name'].'<br>';
+	echo "<div class='card'><div class='card-header'>Hello, ".$_SESSION['name']."<div class='card-body'>";
 	
 	//if post create public chat room
 	if( ($_SERVER['REQUEST_METHOD']=="POST") && !empty($_POST['chatroom_name']) && !empty($_POST['chatroom_friend']) ){	
@@ -110,5 +110,7 @@
 	$dsn = null;
 ?>
 </table>
-<br>
+</div>
+</div>
+</div>
 </body>
