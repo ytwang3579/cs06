@@ -21,9 +21,9 @@ Here is the [SPEC](https://hackmd.io/eKbYWhuwT_qhxavD3OAUPQ?view) from approved 
 ### Preparation
 Before deploying this project, you wil need to:  
 1. Set up PHP.
-2. Set up Facebook app and Google project with OAuth credential
+2. Set up your own Facebook app and Google project with OAuth credential
     (reference: [Facebook PHP] and [Google OAuth]).
-    Change Client_ID,Client_Secret,CLIENT_REDIRECT_URL in google/settings.php
+    Change CLIENT_ID,ClIENT_SECRET,CLIENT_REDIRECT_URL in google/settings.php
     Change all 'app_id' 'app_secret' in fb/index.php fb/fb-callback.php
 3. Install and set up MySQL.
 4. Modified config.php to set Mysql database name, server location, password, admin name, admin password etc.
