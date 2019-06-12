@@ -213,7 +213,7 @@
 		  window.scroll(0,document.body.scrollHeight);
 		}
 		
-		function vote_object_to_table(data){
+		function vote_object_to_div(data){
 			if(typeof(data) != 'object')	return;
 			
 			var vote_div = $('<div>');
