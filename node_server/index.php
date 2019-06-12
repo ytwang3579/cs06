@@ -138,7 +138,7 @@
 				var vote_button = $('<button>').text("vote");
 				vote_button.attr({type:"button", class:"btn btn-outline-success my-2 my-sm-0", id:"vote", style:"right:60px; top:5px; position:fixed;"});
 
-				$('#vote').append($('<i />').attr({
+				$('#vote').append($('<i>').attr({
 					'class': 'fas fa-poll'
 				}));
 
