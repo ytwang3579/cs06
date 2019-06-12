@@ -58,6 +58,7 @@
 				sender VARCHAR(100) NOT NULL,
 				content VARCHAR(1000) NOT NULL,
 				time VARCHAR(20) NOT NULL,
+				vote JSON NOT NULL,
 				PRIMARY KEY (idx)
 				)');
 			$sth->execute();
