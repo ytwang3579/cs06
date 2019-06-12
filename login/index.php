@@ -37,7 +37,7 @@ $fb = new Facebook\Facebook([
 $helper = $fb->getRedirectLoginHelper();
 
 $permissions = ['email']; // Optional permissions
-$loginUrl = $helper->getLoginUrl('https://cs06.2y.cc/fb/fb-callback.php', $permissions);
+$loginUrl = $helper->getLoginUrl('https://cs06.2y.cc/login/fb/fb-callback.php', $permissions);
 
 echo '<script type="text/javascript">function reload(){location.href="'.$loginUrl.'"}</script>';
 echo '<script src="https://apis.google.com/js/platform.js" async defer></script>';
