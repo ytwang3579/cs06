@@ -115,7 +115,11 @@
 			add_new_chat_message(idx, vote_object, name, time_string, vote_object.picture, socket);
 			$('#'+vote_object.theme+'_'+vote_object.index).submit(function(e){//Do vote 
 				e.preventDefault();
-				socket.emit('vote update', )
+				
+				var voted = $('input[name=options_'+data.index']:checked').val();
+				vote_object[voted]++;
+				
+				socket.emit('vote update', vote_object);
 			});
 		});
 		
@@ -233,8 +237,8 @@
 				var vote_input = $('<input>');
 				vote_input.attr('id', item+"_"+data.index);
 				vote_input.attr('type', 'radio');
-				vote_input.attr('form', data.theme);
-				vote_input.attr('name', 'options');
+				vote_input.attr('form', data.theme+"_"+data.index);
+				vote_input.attr('name', 'options_'+data.index);
 				vote_input.attr('value', item);
 				tmp_tr = $('<tr>');
 				tmp_tr.append($('<td>').text(item));

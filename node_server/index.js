@@ -102,6 +102,10 @@ io.on('connection', function(socket){
 	  
   });
   
+  socket.on('vote update', function(vote_object){
+	  console.log(vote_object);
+  });
+  
   socket.on('rejoin', function(room){
 	  socket.join(room);
   });
