@@ -1,6 +1,6 @@
 <?php
-require_once('vendor/autoload.php');
-require_once('../google/settings.php');
+require_once('fb/vendor/autoload.php');
+require_once('google/settings.php');
 
 session_start();
 ?>
