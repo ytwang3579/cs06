@@ -24,10 +24,10 @@
 	</div>
 	
 
-	<nav class="navbar navbar-light bg-light" style="height:45px;">
+	<nav class="navbar navbar-light bg-light" style="height:45px; margin-bottom:10px;">
      <a class="navbar-brand" href="#">
-       <img src="../image.png" width="30" height="30" class="d-inline-block align-top" alt="">
-	   <span id="room_name"></span>
+       <img src="../image.png" width="30" height="30" class="d-inline-block align-top" alt="" style="top:10px; position:fixed;">
+	   <span id="room_name" style="top:13px; left:60px; position:fixed;"></span>
        <button type="button" class="btn btn-outline-success my-2 my-sm-0" id="show_delete" style="right:5px; top:5px; position:fixed;">
 		   Edit
 	   </button>
