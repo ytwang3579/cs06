@@ -54,7 +54,9 @@
 		
 		socket.on('chat message', function(idx, msg, name, time_string, picture){//receive server pushed message
 		  if(msg != ''){
-			add_new_chat_message(idx, msg, name, time_string, picture, socket);
+			var new_message = get_chat_message_div(idx, msg, name, time_string, picture, socket);
+			$('#messages').append(new_message);//append new message and scroll down
+			window.scroll(0,document.body.scrollHeight);
 		  }
 		});
 		
@@ -112,20 +114,25 @@
 		
 		socket.on('vote message', function(idx, vote_object, name, time_string){
 			vote_object['index'] = idx;
-			add_new_chat_message(idx, vote_object, name, time_string, vote_object.picture, socket);
+			var new_message = get_chat_message_div(idx, vote_object, name, time_string, vote_object.picture, socket);
+			$('#messages').append(new_message);//append new message and scroll down
+			window.scroll(0,document.body.scrollHeight);
 			$('#'+vote_object.theme+'_'+vote_object.index).submit(function(e){//Do vote 
 				e.preventDefault();
 				
 				var voted = $('input[name=options_'+vote_object.index+']:checked').val();
 				vote_object[voted]++;
 				
-				socket.emit('vote update', vote_object, room);
+				socket.emit('vote update', vote_object, room, name, time_string);
 			});
 		});
 		
-		socket.on('vote update', function(vote_object){
+		socket.on('vote update', function(vote_object, name, time_string){
 			console.log(vote_object);
-			
+			var new_message = get_chat_message_div(vote_object.index, vote_object, name, time_string, vote_object.picture, socket);
+			var old_vote_message = $('#'+vote_object.index);
+			old_vote_message.after(new_message);
+			old_vote_message.remove();
 		});
 		
 		socket.on('disconnect', function(){
@@ -204,7 +211,7 @@
 			return new_message;			
 		}
 		
-		function add_new_chat_message(idx, msg, name, time_string, picture, socket){
+		function get_chat_message_div(idx, msg, name, time_string, picture, socket){
 		  var new_message = create_new_message_div(name, msg, time_string, picture);
 		  new_message.attr('id', idx);
 			
@@ -222,8 +229,8 @@
 		  if(is_tag(msg)){//do hightlight
 			new_message.css("background", "#fdfdba");
 		  }
-		  $('#messages').append(new_message);//append new message and scroll down
-		  window.scroll(0,document.body.scrollHeight);
+		  
+		  return new_message;
 		}
 		
 		function vote_object_to_div(data){
