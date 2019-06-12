@@ -116,7 +116,7 @@
 			$('#'+vote_object.theme+'_'+vote_object.index).submit(function(e){//Do vote 
 				e.preventDefault();
 				
-				var voted = $('input[name=options_'+data.index+']:checked').val();
+				var voted = $('input[name=options_'+vote_object.index+']:checked').val();
 				vote_object[voted]++;
 				
 				socket.emit('vote update', vote_object);
