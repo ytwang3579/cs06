@@ -20,7 +20,7 @@ Here is the [SPEC](https://hackmd.io/eKbYWhuwT_qhxavD3OAUPQ?view) from approved 
 
 ### Preparation
 Before deploying this project, you wil need to:
-1. Set up [Facebook PHP] and [Google Auth].
+1. Set up [Facebook PHP] and [Google OAuth].
 2. Install and set up MySQL
 
 ### Deploy
@@ -54,3 +54,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+
+[Facebook PHP]: https://developers.facebook.com/docs/reference/php  
+[Google OAuth]: https://developers.google.com/api-client-library/php/auth/web-app#protectauthcode
