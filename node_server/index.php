@@ -20,9 +20,19 @@
 	   <i class="fas fa-broadcast-tower"></i>
 	   <i class="fas fa-broadcast-tower"></i>
 	   <span id="broadcast_message"></span>
-    </div>
-	<button type="button" class="btn btn-primary btn-sm" id="vote">vote</button>
-    <button type="button" class="btn btn-secondary btn-sm" id="show_delete">Edit</button>
+	</div>
+	
+
+	<nav class="navbar navbar-light bg-light">
+     <a class="navbar-brand" href="#">
+       <img src="../image.png" width="30" height="30" class="d-inline-block align-top" alt="">
+	   <span id="room_name"></span>
+	   <button type="button" class="btn btn-primary btn-sm" id="vote">vote</button>
+       <button type="button" class="btn btn-secondary btn-sm" id="show_delete">Edit</button>
+     </a>
+	</nav>
+	
+
 	<script>
 		$('#show_delete').click(function(){
 			if($('.delete').css("display") != "none" )
@@ -43,6 +53,7 @@
 	<script>
 		var room = window.parent.now_room;
 		var user_id = "<?php echo $_SESSION['id']; ?>";
+	  $('#room_name').append(window.parent.now_room_name);
 	  $(function () {
 		var socket = io('http://cs06.2y.cc:25565');
 		socket.emit('join', room);
