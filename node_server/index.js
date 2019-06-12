@@ -79,7 +79,7 @@ io.on('connection', function(socket){
 	  con.query(sql, [room], function (err, result){
 		  if (err) throw err;
 		  
-		  socket.emit("is private", result['private']);
+		  socket.emit("is private", result[0].private);
 	  });
 	  
 	  }

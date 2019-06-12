@@ -28,7 +28,6 @@
      <a class="navbar-brand" href="#">
        <img src="../image.png" width="30" height="30" class="d-inline-block align-top" alt="">
 	   <span id="room_name"></span>
-	   <button type="button" class="btn btn-primary btn-sm" id="vote">vote</button>
        <button type="button" class="btn btn-secondary btn-sm" id="show_delete">Edit</button>
      </a>
 	</nav>
@@ -171,11 +170,10 @@
 		});
 		
 		socket.on('is private',function(is_private){
-			console.log(is_private);
 			if(!is_private){
 				var vote_button = $('<button>');
 				vote_button.attr({type:"button", class:"btn btn-primary btn-sm", id:"vote"});
-				$('#show_delete').before();
+				$('#show_delete').before(vote_button);
 			}
 		});
 		
