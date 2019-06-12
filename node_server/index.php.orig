@@ -10,7 +10,6 @@
 	<script src="resource/test_input.js"></script>
 	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>    
 	<script src="https://kit.fontawesome.com/df3e0e4f87.js"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="./style.css">
   </head>
   
@@ -21,8 +20,8 @@
 	   <i class="fas fa-broadcast-tower"></i>
 	   <span id="broadcast_message"></span>
     </div>
-	<button type="button" class="btn btn-primary btn-sm" id="vote">vote</button>
-    <button type="button" class="btn btn-secondary btn-sm" id="show_delete">Edit</button>
+    <button id='vote'>vote</button>
+	<button id='show_delete'>Edit</button>
 	<script>
 		$('#show_delete').click(function(){
 			if($('.delete').css("display") != "none" )
@@ -32,6 +31,12 @@
 		});
 	</script>
 
+<<<<<<< HEAD
+    <ul id="messages" class = "messages"></ul>
+    <form id = "ff" action="" class="ff">
+      <input id="m" autocomplete="off" /><button>Send</button>
+    </form>
+=======
 	<ul id="messages" class = "messages"></ul>
 	<div class="ff">
     <form  id = "ff" action="" class="input-group mb-3">
@@ -39,6 +44,7 @@
 	   <button class="btn btn-outline-success my-2 my-sm-0">Send</button>
 	</form>
 	</div>
+>>>>>>> 0dd74ed986c83a07f26dd9e663e2caf488a16dbc
 
 	<script>
 		var room = window.parent.now_room;
@@ -125,7 +131,7 @@
 			
 			$('#messages').append(new_message);//append new message and scroll down
 			window.scroll(0,document.body.scrollHeight);
-			$('[id="'+vote_object.theme+'_'+vote_object.index+'"]').submit(function(e){//Do vote 
+			$('#'+vote_object.theme+'_'+vote_object.index).submit(function(e){//Do vote prevent reload
 				e.preventDefault();
 				
 				if($('input[name=options_'+vote_object.index+']:checked').length > 0){
@@ -145,7 +151,7 @@
 			old_vote_message.after(new_message);
 			old_vote_message.remove();
 			
-			$('[id="'+vote_object.theme+'_'+vote_object.index+'"]').submit(function(e){//Do vote prevent reload
+			$('#'+vote_object.theme+'_'+vote_object.index).submit(function(e){//Do vote prevent reload
 				e.preventDefault();
 				
 				if($('input[name=options_'+vote_object.index+']:checked').length > 0){
