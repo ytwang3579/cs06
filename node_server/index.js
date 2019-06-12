@@ -78,6 +78,9 @@ io.on('connection', function(socket){
 	  vote_object['theme'] = theme;
 	  vote_object['options'] = ans;
 	  
+	  //TODO add index. insert into mysql
+	  vote_object['index'] = '100';
+	  
 	  var d = new Date();
 	  var opt = {hour:"2-digit", minute:"2-digit", hour12:false};
 	  var time_string = d.toLocaleTimeString("zh-TW", opt);

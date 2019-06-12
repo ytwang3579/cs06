@@ -226,6 +226,7 @@
 				var vote_input = $('<input>');
 				vote_input.attr('id', item);
 				vote_input.attr('type', 'radio');
+				vote_input.attr('form', data.theme);
 				tmp_tr = $('<tr>');
 				tmp_tr.append($('<td>').text(item));
 				tmp_tr.append($('<td>').text(data[item]));
@@ -234,6 +235,7 @@
 			});
 			
 			var vote_form = $('<form>');
+			vote_form.attr('id', data.theme);//add form id
 			vote_div.append(theme);
 			vote_form.append(vote_table);
 			vote_form.append($('<button>').text('send'));
