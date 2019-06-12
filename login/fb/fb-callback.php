@@ -82,10 +82,10 @@ try {
 
 $user = $response->getGraphUser();
 
-require_once("../config.php");
+require_once("../../config.php");
 
 try {
-    require_once('../config.php');
+    require_once('../../config.php');
     $dsn='mysql:host=localhost;dbname=cs06';
     $dbh=new PDO($dsn,$CFG['mysql_username'],$CFG['mysql_password']);
     
