@@ -25,8 +25,6 @@ if(isset($_GET['code'])) {
 		require_once('../config.php');
 		$dsn='mysql:host=localhost;dbname=cs06';
 		$dbh=new PDO($dsn,$CFG['mysql_username'],$CFG['mysql_password']);
-		$sth=$dbh->prepare('insert into user_list (id,name,picture) values (?,?,?) ');
-		$sth->execute(array($user_info['id'],$user_info['name'],$user_info['picture']));
     
 		$_SESSION['id']=$user_info['id'];
 		$_SESSION['name']=$user_info['name'];
@@ -48,6 +46,9 @@ if(isset($_GET['code'])) {
 		$sth->execute();
 		$sth2 = $dbh->prepare($sql2);
 		$sth2->execute();
+
+		$sth=$dbh->prepare('insert into user_list (id,name,picture) values (?,?,?) ');
+		$sth->execute(array($user_info['id'],$user_info['name'],$user_info['picture']));
      
     
 		echo '<br><br><script>location.href="http://cs06.2y.cc/chat_room/index.php"</script>';

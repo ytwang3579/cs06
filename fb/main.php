@@ -30,8 +30,6 @@ try {
     require_once('../config.php');
     $dsn='mysql:host=localhost;dbname=cs06';
     $dbh=new PDO($dsn,$CFG['mysql_username'],$CFG['mysql_password']);
-    $sth=$dbh->prepare('insert into user_list (id,name,picture) values (?,?,?) ');
-    $sth->execute(array($user['id'],$user['name'],'https://graph.facebook.com/'.$user['id'].'/picture?type=large'));
     
     $_SESSION['id']=$user['id'];
     $_SESSION['name']=$user['name'];
@@ -54,6 +52,10 @@ try {
     $sth->execute();
     $sth2 = $dbh->prepare($sql2);
     $sth2->execute();
+
+
+    $sth=$dbh->prepare('insert into user_list (id,name,picture) values (?,?,?) ');
+    $sth->execute(array($user['id'],$user['name'],'https://graph.facebook.com/'.$user['id'].'/picture?type=large'));
      
     
     echo '<br><br><<script>location.href="http://cs06.2y.cc/chat_room/index.php"</script>';
