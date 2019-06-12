@@ -58,7 +58,12 @@ io.on('connection', function(socket){
 		console.log("selected");
 		result.forEach(function(item){
 			var vote_object = JSON.parse(item.vote);
-			socket.emit('chat message', item.idx, item.content, item.sender, item.time, vote_object.picture);
+			if(item.content != ''){
+				socket.emit('chat message', item.idx, item.content, item.sender, item.time, vote_object.picture);
+			}
+			else{
+				socket.emit('vote message', vote_object, item.sender, item.time);
+			}
 			console.log(vote_object);
 			if(item.vote == null){
 				console.log('null');
@@ -71,15 +76,14 @@ io.on('connection', function(socket){
 	  }
   });
   
-  socket.on('create vote', function(theme, ans, name, room){
-	  console.log(ans);
-	  console.log(ans[0]);
+  socket.on('create vote', function(theme, ans, name, room, picture){
 	  var vote_object = {};
 	  ans.forEach(function(item){
 		  vote_object[item] = 0;
 	  });
 	  vote_object['theme'] = theme;
 	  vote_object['options'] = ans;
+	  vote_object['picture'] = picture;
 	  
 	  //TODO add index. insert into mysql
 	  vote_object['index'] = '100';
@@ -88,7 +92,13 @@ io.on('connection', function(socket){
 	  var opt = {hour:"2-digit", minute:"2-digit", hour12:false};
 	  var time_string = d.toLocaleTimeString("zh-TW", opt);
 	  
-	  io.in(room).emit('vote message', vote_object, name, time_string);
+	  var sql = "INSERT INTO "+room +" (sender, content, time, vote) VALUES (?, ?, ?, ?)";
+		    con.query(sql, [name, "", time_string , JSON.stringify(vote_object)], function (err, result) {
+		        if (err) throw err;
+				console.log("vote record inserted");
+				io.in(room).emit('vote message', vote_object, name, time_string);	
+	  });
+	  
   });
   
   socket.on('rejoin', function(room){
