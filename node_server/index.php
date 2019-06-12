@@ -124,7 +124,7 @@
 				if($('input[name=options_'+vote_object.index+']:checked').length > 0){
 					var voted = $('input[name=options_'+vote_object.index+']:checked').val();
 					vote_object[voted]++;
-					vote_object['vote'].push(user_id);
+					vote_object['voted'].push(user_id);
 					
 					socket.emit('vote update', vote_object, room, name, time_string);
 				}
