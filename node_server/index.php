@@ -125,7 +125,7 @@
 			
 			$('#messages').append(new_message);//append new message and scroll down
 			window.scroll(0,document.body.scrollHeight);
-			$('#'+vote_object.theme+'_'+vote_object.index).submit(function(e){//Do vote 
+			$('[id='+vote_object.theme+'_'+vote_object.index']').submit(function(e){//Do vote 
 				e.preventDefault();
 				
 				if($('input[name=options_'+vote_object.index+']:checked').length > 0){
@@ -145,7 +145,7 @@
 			old_vote_message.after(new_message);
 			old_vote_message.remove();
 			
-			$('#'+vote_object.theme+'_'+vote_object.index).submit(function(e){//Do vote prevent reload
+			$('[id='+vote_object.theme+'_'+vote_object.index']').submit(function(e){//Do vote prevent reload
 				e.preventDefault();
 				
 				if($('input[name=options_'+vote_object.index+']:checked').length > 0){
