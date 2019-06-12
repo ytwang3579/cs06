@@ -26,7 +26,7 @@ session_start();
 <script type="text/javascript">
         function doSomething(event)
         {
-            if (event.shiftKey)
+            if (event.key=="A")
                 (function (){location.href="../admin/admin_login.php";})()
             else
                 reload();
