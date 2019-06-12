@@ -88,7 +88,7 @@
 				}
 				
 				if(ok){
-					socket.emit('create vote', $('#theme').val(), ans.a_array, window.parent.name, room);
+					socket.emit('create vote', $('#theme').val(), ans.a_array, window.parent.name, room, "<?=  $_SESSION['picture'] ?>");
 					vote_area.fadeOut('normal', function(){
 						vote_area.remove();
 					});

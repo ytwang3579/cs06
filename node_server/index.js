@@ -63,8 +63,9 @@ io.on('connection', function(socket){
 			}
 			else{
 				socket.emit('vote message', vote_object, item.sender, item.time);
+				console.log('vote');
 			}
-			console.log(vote_object);
+			
 			if(item.vote == null){
 				console.log('null');
 			}
