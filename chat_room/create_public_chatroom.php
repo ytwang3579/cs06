@@ -77,7 +77,10 @@
         return $data;
       }
 ?>	
-	
+<head>
+	<link rel="stylesheet" type="text/css" href="style4php.css">
+</head>
+<body>
 <b>Friend list</b>
 <br>
 <table>
@@ -107,4 +110,4 @@
 ?>
 </table>
 <br>
-
+</body>

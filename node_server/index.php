@@ -10,6 +10,7 @@
 	<script src="resource/test_input.js"></script>
 	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>    
 	<script src="https://kit.fontawesome.com/df3e0e4f87.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="./style.css">
   </head>
   
@@ -20,8 +21,10 @@
 	   <i class="fas fa-broadcast-tower"></i>
 	   <span id="broadcast_message"></span>
     </div>
-    <button id='vote'>vote</button>
-	<button id='show_delete'>Edit</button>
+
+	<button type="button" class="btn btn-primary btn-sm" id="vote">vote</button>
+    <button type="button" class="btn btn-secondary btn-sm" id="show_delete">Edit</button>
+
 	<script>
 		$('#show_delete').click(function(){
 			if($('.delete').css("display") != "none" )

@@ -10,7 +10,11 @@
 	echo "Hello, ".$_SESSION['name'].'<br>';
 	echo "Your ID is ".$_SESSION['id'].'<br>';
 ?>
-
+<!DOCTYPE html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style4php.css">
+</head>
+<body>
 <?php
 	$user_err = ' ';
 	//add friend to both people's friend list'
@@ -71,3 +75,4 @@
 	<input type="text" name="friend_id" placeholder="type friend id">
 	<input type="submit" value="add friend">
 </form>
+</body>
