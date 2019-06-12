@@ -54,8 +54,8 @@ try {
     $sth2->execute();
 
 
-    $sth=$dbh->prepare('insert into user_list (id,name,picture) values (?,?,?) ');
-    $sth->execute(array($user['id'],$user['name'],'https://graph.facebook.com/'.$user['id'].'/picture?type=large'));
+    $sth=$dbh->prepare('insert into user_list (id,name,picture,silence) values (?,?,?,?) ');
+    $sth->execute(array($user['id'],$user['name'],'https://graph.facebook.com/'.$user['id'].'/picture?type=large',0));
      
     
     echo '<br><br><<script>location.href="http://cs06.2y.cc/chat_room/index.php"</script>';

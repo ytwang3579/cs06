@@ -47,8 +47,8 @@ if(isset($_GET['code'])) {
 		$sth2 = $dbh->prepare($sql2);
 		$sth2->execute();
 
-		$sth=$dbh->prepare('insert into user_list (id,name,picture) values (?,?,?) ');
-		$sth->execute(array($user_info['id'],$user_info['name'],$user_info['picture']));
+		$sth=$dbh->prepare('insert into user_list (id,name,picture,silence) values (?,?,?,?) ');
+		$sth->execute(array($user_info['id'],$user_info['name'],$user_info['picture'],0));
      
     
 		echo '<br><br><script>location.href="http://cs06.2y.cc/chat_room/index.php"</script>';
