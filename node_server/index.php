@@ -233,9 +233,11 @@
 				vote_table.append(tmp_tr);
 			});
 			
+			var vote_form = $('<form>');
 			vote_div.append(theme);
-			vote_div.append(vote_table);
-			vote_div.append($('<button>').text('send'));
+			vote_form.append(vote_table);
+			vote_form.append($('<button>').text('send'));
+			vote_div.append(vote_form);
 			
 			return vote_div;
 		}

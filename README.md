@@ -23,7 +23,7 @@ Before deploying this project, you wil need to:
 1. Set up PHP.
 2. Set up [Facebook PHP] and [Google OAuth].
 3. Install and set up MySQL.
-4. Modified config.php to set Mysql database name, location, password, admin name, admin password etc.
+4. Modified config.php to set Mysql database name, server location, password, admin name, admin password etc.
 5. Execute database\_establish\_command.php to initialize Mysql database.
 6. Install and set up Node.js.
 
