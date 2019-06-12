@@ -60,7 +60,7 @@
 		    $sth->execute();
 		    while($friend = $sth->fetch()){
           if($friend['private']==0){
-            echo '<li class="chatroomlist-item"><button class="chatroomlist-button" onclick="OpenChatRoom(\''.$friend['chat_room_name'].'\')"><span>'.$friend['chat_room_displayname'].'</span></button></li>';
+            echo '<li class="chatroomlist-item"><button class="chatroomlist-button" onclick="OpenChatRoom(\''.$friend['chat_room_name'].','.$friend['chat_room_displayname'].'\')"><span>'.$friend['chat_room_displayname'].'</span></button></li>';
           }
         }
 
@@ -98,7 +98,7 @@
 		    $sth->execute();
 		    while($friend = $sth->fetch()){
           if($friend['private']==1){
-            echo "<li class='chatroomlist-item'><button class='chatroomlist-button' onclick=\"OpenChatRoom('".$friend['chat_room_name']."')\"><span>".$friend['chat_room_displayname']."</span></button></li>";
+            echo "<li class='chatroomlist-item'><button class='chatroomlist-button' onclick=\"OpenChatRoom('".$friend['chat_room_name'].",".$friend['chat_room_displayname']."')\"><span>".$friend['chat_room_displayname']."</span></button></li>";
           }
         }
 
@@ -168,12 +168,14 @@
 	var chat_list = $('#chat_list');
 	var friend_list = $("#friend_list");
 	var now_room = "";
+	var now_room_name = "";
 	var chat_window = $("#chat_window");
 	var name = <?php echo json_encode($_SESSION['name']);?>;
   var flag = false;
 
-  function OpenChatRoom(chatroomid){
+  function OpenChatRoom(chatroomid, chatroomname){
      now_room = chatroomid;
+	 now_room_name = chatroomname;
 		 chat_window.attr("src", "http://cs06.2y.cc/node_server/index.php");
      flag = true;
 	}
