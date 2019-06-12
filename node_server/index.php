@@ -72,7 +72,7 @@
 		  if(msg != ''){
 			var new_message = get_chat_message_div(idx, msg, name, time_string, picture, socket);
 			$('#messages').append(new_message);//append new message and scroll down
-			window.scrollTo(0,document.body.scrollHeight);
+			window.scroll(0,document.body.scrollHeight);
 		  }
 		});
 		
