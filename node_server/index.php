@@ -170,6 +170,14 @@
 			});
 		});
 		
+		socket.on('is private',function(is_private){
+			if(!is_private){
+				var vote_button = $('<button>');
+				vote_button.attr({type:"button", class:"btn btn-primary btn-sm", id:"vote"});
+				$('#show_delete').before();
+			}
+		});
+		
 		socket.on('disconnect', function(){
 			console.log('server is down.');
 		});
