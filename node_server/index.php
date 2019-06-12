@@ -111,8 +111,12 @@
 		});
 		
 		socket.on('vote message', function(idx, vote_object, name, time_string){
-			add_new_chat_message(idx, vote_object, name, time_string, vote_object.picture);
 			vote_object['index'] = idx;
+			add_new_chat_message(idx, vote_object, name, time_string, vote_object.picture);
+			$('#'+vote_object.theme+'_'+vote_object.index).submit(function(e){
+				e.preventDefault();
+				console.log("kaeritai");
+			});
 		});
 		
 		socket.on('disconnect', function(){
@@ -227,7 +231,7 @@
 			
 			data.options.forEach(function(item){
 				var vote_input = $('<input>');
-				vote_input.attr('id', item);
+				vote_input.attr('id', item+"_"+data.index);
 				vote_input.attr('type', 'radio');
 				vote_input.attr('form', data.theme);
 				vote_input.attr('name', 'options');
@@ -240,7 +244,7 @@
 			});
 			
 			var vote_form = $('<form>');
-			vote_form.attr('id', data.theme);//add form id
+			vote_form.attr('id', data.theme"_"+data.index);//add form id
 			vote_div.append(theme);
 			vote_form.append(vote_table);
 			vote_form.append($('<button>').text('send'));
