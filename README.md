@@ -13,28 +13,29 @@ Here is the [SPEC](https://hackmd.io/eKbYWhuwT_qhxavD3OAUPQ?view) from approved 
   2. Add friend by using id (by using plus icon beside Friend list)
     ![](./readme_image/add_friend.png)
 - Private and public chatrooms
-  1. Add private chatroom and public chatroom by using plus icon beside chatroom list(The new chatroom will show immediately after create successfully)
+  1. Add private chatroom and public chatroom by using plus icon beside chatroom list  
+   (The new chatroom will show immediately after create successfully)
     ![](./readme_image/add_private.png)
   2. Click chat button beside friend's name to create private chatroom name
     ![](./readme_image/add_public.png)
   3. Type your public chatroom name and join member in create public chatroom name
 - Chatroom update immediately when there's a new message
-- Tag ohter by type '@' before friend's name
+- Tag other by type '@' before friend's name
     ![](./readme_image/tag.png)
-- Voting(Only available for public chatroom)
+- Voting (Only available for public chatroom)
   1. Create vote by clicking vote button in a public chatroom
     ![](./readme_image/vote_button.png)
   2. Form vote title and option name
   3. Click confirm to create vote
     ![](./readme_image/create_vote.png)
-  4. Chatroom member can choose option in chatroom(Everyone can only choose once)
+  4. Chatroom member can choose option in chatroom (Everyone can only choose once)
     ![](./readme_image/vote.png)
 - Unsend message (Only messages send by you can delete)
   1. Click Edit button in chatroom to show delete message button
   2. Click delete button to delete message
     ![](./readme_image/delete_message.png)
 - Admin page: banning users, broadcast
-  1. By type shift and click facebook button to redirect to admin login page when you're in login page
+  1. Press shift and click facebook button to redirect to admin login page when you're in login page
     ![](./readme_image/gotoadmin.png)
   2. Enter admin information to login with admin permission
     ![](./readme_image/admininformation.png)
@@ -49,9 +50,9 @@ Here is the [SPEC](https://hackmd.io/eKbYWhuwT_qhxavD3OAUPQ?view) from approved 
 ### Preparation
 Before deploying this project, you wil need to:  
 1. Set up PHP.
-2. Set up your own Facebook app and Google project with OAuth credential
-    (reference: [Facebook PHP] and [Google OAuth]).
-    Change CLIENT_ID,ClIENT_SECRET,CLIENT_REDIRECT_URL in google/settings.php
+2. Set up your own Facebook app and Google project with OAuth credential  
+    (reference: [Facebook PHP] and [Google OAuth]).  
+    Change CLIENT_ID,ClIENT_SECRET,CLIENT_REDIRECT_URL in google/settings.php  
     Change all 'app_id' 'app_secret' in fb/index.php fb/fb-callback.php
 3. Install and set up MySQL.
 4. Modified config.php to set Mysql database name, server location, password, admin name, admin password etc.
@@ -67,6 +68,7 @@ Before deploying this project, you wil need to:
 - 106062128 陳頌恩
 - 106062129 梁瑜軒
 - 106062328 李思佑
+> Contributions are recorded in [CHANGELOG](CHANGELOG.md)  
 
 ## License
 MIT License
