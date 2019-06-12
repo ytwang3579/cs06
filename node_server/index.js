@@ -57,7 +57,9 @@ io.on('connection', function(socket){
 		if (err) throw err;
 		console.log("selected");
 		result.forEach(function(item){
-			socket.emit('chat message', item.idx, item.content, item.sender, item.time, item.vote['picture']);
+			var vote_object = JSON.parse(item.vote);
+			socket.emit('chat message', item.idx, item.content, item.sender, item.time, vote_object.picture);
+			console.log(vote_object);
 			if(item.vote == null){
 				console.log('null');
 			}
