@@ -28,7 +28,7 @@
      <a class="navbar-brand" href="#">
        <img src="../image.png" width="30" height="30" class="d-inline-block align-top" alt="">
 	   <span id="room_name"></span>
-       <button type="button" class="btn btn-secondary btn-sm" id="show_delete">Edit</button>
+       <button type="button" class="btn btn-secondary btn-sm align-right" id="show_delete">Edit</button>
      </a>
 	</nav>
 	
