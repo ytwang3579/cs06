@@ -49,6 +49,7 @@
 				$sth=$dbh->prepare('insert into '.$_POST['friend_id'].'_friend (`friend_id`,`friend_name`,`confirm_friend`) VALUES ( ? , ? , ? ) ;');
 				$sth->execute( array( $_SESSION['id'], $_SESSION['name'], true ) );
 				echo "add successful<br>";
+				echo "<script>window.parent.location.reload();</script>";
 			}
 			else {
 				echo "Friend not found<br>";

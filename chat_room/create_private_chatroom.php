@@ -48,7 +48,8 @@
 				)');
 			$sth->execute();
 			
-			echo "Create Successfully!!";	
+			echo "Create Successfully!!";
+			echo "<script>window.parent.location.reload();</script>";	
 		}
 		else{
 			echo "Chat room has already exist!!";

@@ -65,6 +65,7 @@
 			
 			//successfully	create
 			echo "Create Successfullly!!";
+			echo "<script>window.parent.location.reload();</script>";
 		}
 	}
 
