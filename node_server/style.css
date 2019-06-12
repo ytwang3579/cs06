@@ -69,7 +69,7 @@ ul {
     position: fixed;
     width: 100%;
     height: calc(100% - 115px);
-    overflow-y: scroll;
+
 }
 
 ul::-webkit-scrollbar {
