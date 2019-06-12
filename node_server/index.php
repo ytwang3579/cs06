@@ -246,7 +246,7 @@
 			if(typeof(data) != 'object')	return;
 			
 			var is_voted = false;
-			data.["voted"].forEach(function(item){
+			data["voted"].forEach(function(item){
 				if(item == user_id) is_voted = true;
 			});
 			
