@@ -193,9 +193,7 @@
     flag = true;
   }
 
-  if(flag==false){
-    $("#chat_window").attr("background-image", "url('chatroomback.png')");
-  }
+  
 
 </script>
 

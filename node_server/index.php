@@ -108,10 +108,8 @@
 		
 		socket.on('broadcast message', function(msg, name, time_string){
 			//do admin brroadcast
-		  console.log('start');
 		  $('#broadcast_message').text(msg+'    '+time_string);
 		  $('#broadcast').show();
-		  console.log('finish');
 		});
 		
 		socket.on('vote message', function(idx, vote_object, name, time_string){ //receive vote message
