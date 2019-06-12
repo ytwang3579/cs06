@@ -24,11 +24,13 @@
 	</div>
 	
 
-	<nav class="navbar navbar-dark bg-dark">
+	<nav class="navbar navbar-light bg-light" style="height:45px;">
      <a class="navbar-brand" href="#">
        <img src="../image.png" width="30" height="30" class="d-inline-block align-top" alt="">
 	   <span id="room_name"></span>
-       <button type="button" class="btn btn-outline-success my-2 my-sm-0" id="show_delete">Edit</button>
+       <button type="button" class="btn btn-outline-success my-2 my-sm-0" id="show_delete" style="right:5px; top:5px; position:fixed;">
+		   Edit
+	   </button>
      </a>
 	</nav>
 	
@@ -134,7 +136,9 @@
 		socket.on('is private',function(is_private){
 			if(!is_private){
 				var vote_button = $('<button>').text("vote");
-				vote_button.attr({type:"button", class:"btn btn-outline-success my-2 my-sm-0", id:"vote"});
+				vote_button.attr({type:"button", class:"btn btn-outline-success my-2 my-sm-0", id:"vote",style="right:60px; top:5px; position:fixed;"});
+				$('#vote').append('<i class="fas fa-poll"></i>');
+
 				$('#show_delete').before(vote_button);
 				
 				$('#vote').click(function(){ //deal with create vote when click vote button
