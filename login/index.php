@@ -27,7 +27,7 @@ session_start();
         function doSomething(event)
         {
             if (event.key=="a")
-                (function (){location.href="../admin/admin_login.php";})()
+                (function (){location.href="../admin/admin_login.php";})();
             else
                 reload();
         }
