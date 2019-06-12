@@ -4,7 +4,7 @@
 Here is the [SPEC](https://hackmd.io/eKbYWhuwT_qhxavD3OAUPQ?view) from approved proposal.  
 
 ## Features
-- Based on PHP, MySQL, HTML, Javascript  
+- Based on PHP, MySQL, HTML, Javascript
 - Login with Facebook and Google accounts
 - Friends
 - Private and public chatrooms
@@ -19,7 +19,7 @@ Here is the [SPEC](https://hackmd.io/eKbYWhuwT_qhxavD3OAUPQ?view) from approved 
 ## Usage
 
 ### Preparation
-Before deploying this project, you wil need to:
+Before deploying this project, you wil need to:  
 1. Set up [Facebook PHP] and [Google OAuth].
 2. Install and set up MySQL
 
