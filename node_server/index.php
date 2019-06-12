@@ -73,7 +73,7 @@
 			var new_message = get_chat_message_div(idx, msg, name, time_string, picture, socket);
 			$('#messages').append(new_message);//append new message and scroll down
 			window.scroll(0,document.body.scrollHeight);
-			$('#new_message').scrollTop($('#new_message').prop('scrollHeight'));
+			$('#messages').scrollTop($('#messages').prop('scrollHeight'));
 		  }
 		});
 		
