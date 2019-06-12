@@ -1,6 +1,9 @@
 <?php
 //session start
 session_start();
+if( isset($_SESSION['id']) && isset($_SESSION['name']) ){
+	echo "<script> location.href='../chat_room'; </script>";
+}
 
 $user_err = $password_err = "";
 	

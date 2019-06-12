@@ -5,9 +5,9 @@
         echo "<script> location.href='../login'; </script>";
         exit();
     }
-	//if admin redirection to admin page
-	else if($_SESSION['id']=='admin'&&$_SESSION['name']=='Admin'){
-      echo "<script> location.href='../admin';</script>";
+	  //if admin redirection to admin page
+	  else if($_SESSION['id']=='admin'&&$_SESSION['name']=='Admin'){
+        echo "<script> location.href='../admin';</script>";
     }
     date_default_timezone_set('Asia/Taipei');
 ?>
