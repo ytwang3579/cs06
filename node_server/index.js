@@ -94,16 +94,21 @@ io.on('connection', function(socket){
 	  var time_string = d.toLocaleTimeString("zh-TW", opt);
 	  
 	  var sql = "INSERT INTO "+room +" (sender, content, time, vote) VALUES (?, ?, ?, ?)";
-		    con.query(sql, [name, "", time_string , JSON.stringify(vote_object)], function (err, result) {
-		        if (err) throw err;
-				console.log("vote record inserted");
-				io.in(room).emit('vote message', result.insertId, vote_object, name, time_string);	
+		con.query(sql, [name, "", time_string , JSON.stringify(vote_object)], function (err, result) {
+			if (err) throw err;
+			console.log("vote record inserted");
+			io.in(room).emit('vote message', result.insertId, vote_object, name, time_string);	
 	  });
 	  
   });
   
-  socket.on('vote update', function(vote_object){
-	  console.log(vote_object);
+  socket.on('vote update', function(vote_object, room){
+	  var sql = "UPDATE "+ room +" SET vote = ? WHERE idx = ?";
+		con.query(sql, [vote_object, vote_object.index], function (err, result) {
+			if (err) throw err;
+			console.log("vote record updated");
+			io.in(room).emit('vote update', vote_object);	
+	  });
   });
   
   socket.on('rejoin', function(room){

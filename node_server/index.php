@@ -119,8 +119,13 @@
 				var voted = $('input[name=options_'+vote_object.index+']:checked').val();
 				vote_object[voted]++;
 				
-				socket.emit('vote update', vote_object);
+				socket.emit('vote update', vote_object, room);
 			});
+		});
+		
+		socket.on('vote update', function(vote_object){
+			console.log(vote_object);
+			
 		});
 		
 		socket.on('disconnect', function(){
