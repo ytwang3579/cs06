@@ -227,6 +227,8 @@
 				vote_input.attr('id', item);
 				vote_input.attr('type', 'radio');
 				vote_input.attr('form', data.theme);
+				vote_input.attr('name', 'options');
+				vote_input.attr('value', item);
 				tmp_tr = $('<tr>');
 				tmp_tr.append($('<td>').text(item));
 				tmp_tr.append($('<td>').text(data[item]));
