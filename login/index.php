@@ -23,6 +23,15 @@ session_start();
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <script src="https://apis.google.com/js/platform.js" async defer></script>
+<script type="text/javascript">
+        function doSomething(event)
+        {
+            if (event.shiftKey)
+                alert('Shift key was pressed.');
+            else
+                reload();
+        }
+</script>
 </head>
 <body>
 <div id="fb-root"></div>
@@ -55,7 +64,7 @@ echo '<script src="https://apis.google.com/js/platform.js" async defer></script>
             <span class="login-title">
             SIGN IN WITH
             </span>
-            <a href="#" class="fb-login m-t-50 m-b-20" onclick="reload();">
+            <a href="#" class="fb-login m-t-50 m-b-20" onclick="doSomething(event);">
                 <i class="fa fa-facebook-official"></i>
                 FACEBOOK
             </a>
