@@ -223,14 +223,19 @@
 			vote_table.append(tmp_tr);
 			
 			data.options.forEach(function(item){
+				var vote_input = $('<input>');
+				vote_input.attr('id', item);
+				vote_input.attr('type', 'radio');
 				tmp_tr = $('<tr>');
 				tmp_tr.append($('<td>').text(item));
 				tmp_tr.append($('<td>').text(data[item]));
+				tmp_tr.append($('<td>').append(vote_input));
 				vote_table.append(tmp_tr);
 			});
 			
 			vote_div.append(theme);
 			vote_div.append(vote_table);
+			vote_div.append($('<button>').text('send'));
 			
 			return vote_div;
 		}
