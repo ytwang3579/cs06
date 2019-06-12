@@ -80,45 +80,7 @@
 			$('#'+idx+'').remove();
 		  });
 		
-		$('#vote').click(function(){ //deal with create vote when click vote button
-			var vote_area =  create_vote_area();
-			$('body').append(vote_area);
-			vote_area = $('#vote_area');
-			$('#form_vote').submit(function(e){//when submit the create vote form
-				e.preventDefault(); // prevents page reloading
-				//do check input
-				var ok=1;
-				if($('#theme').val() == ''){// theme cannot be empty
-					if($('#theme_err').length == 0){
-						$('#theme').after('<span id="theme_err" style="color:red">theme cannot be empty</span>');
-					}
-					ok=0;
-				}
-				
-				//test if we have at least two choice
-				var ans = test_ans( $('#a1').val(),  $('#a2').val(),  $('#a3').val() );
-				
-				if(ans.a_total < 2){
-					if($('#a_err').length == 0){
-						$('#cancel').after('<span id="a_err" style="color:red">There must be at least two choice</span>');
-					}
-					ok= 0;
-				}
-				
-				if(ok){
-					socket.emit('create vote', $('#theme').val(), ans.a_array, window.parent.name, room, "<?=  $_SESSION['picture'] ?>");
-					vote_area.fadeOut('normal', function(){
-						vote_area.remove();
-					});
-				}
-			});
-			$('#cancel').click(function(e){
-				e.preventDefault();
-				vote_area.fadeOut('normal', function(){
-					vote_area.remove();
-				});
-			});
-		});
+		
 		
 		socket.on('broadcast message', function(msg, name, time_string){
 			//do admin brroadcast
@@ -174,6 +136,46 @@
 				var vote_button = $('<button>').text("vote");
 				vote_button.attr({type:"button", class:"btn btn-primary btn-sm", id:"vote"});
 				$('#show_delete').before(vote_button);
+				
+				$('#vote').click(function(){ //deal with create vote when click vote button
+				var vote_area =  create_vote_area();
+				$('body').append(vote_area);
+				vote_area = $('#vote_area');
+				$('#form_vote').submit(function(e){//when submit the create vote form
+					e.preventDefault(); // prevents page reloading
+					//do check input
+					var ok=1;
+					if($('#theme').val() == ''){// theme cannot be empty
+						if($('#theme_err').length == 0){
+							$('#theme').after('<span id="theme_err" style="color:red">theme cannot be empty</span>');
+						}
+						ok=0;
+					}
+					
+					//test if we have at least two choice
+					var ans = test_ans( $('#a1').val(),  $('#a2').val(),  $('#a3').val() );
+					
+					if(ans.a_total < 2){
+						if($('#a_err').length == 0){
+							$('#cancel').after('<span id="a_err" style="color:red">There must be at least two choice</span>');
+						}
+						ok= 0;
+					}
+					
+					if(ok){
+						socket.emit('create vote', $('#theme').val(), ans.a_array, window.parent.name, room, "<?=  $_SESSION['picture'] ?>");
+						vote_area.fadeOut('normal', function(){
+							vote_area.remove();
+						});
+					}
+				});
+				$('#cancel').click(function(e){
+					e.preventDefault();
+					vote_area.fadeOut('normal', function(){
+						vote_area.remove();
+					});
+				});
+			});
 			}
 		});
 		
