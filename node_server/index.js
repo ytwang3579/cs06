@@ -18,7 +18,7 @@ con.connect(function(err) {
 
 io.on('connection', function(socket){
   console.log('a user connected');
-  socket.on('chat message', function(msg, name, room){
+  socket.on('chat message', function(msg, name, room, picture){
 	 var d = new Date();
 	 var opt = {hour:"2-digit", minute:"2-digit", hour12:false};
 	 var time_string = d.toLocaleTimeString("zh-TW", opt);
@@ -36,11 +36,12 @@ io.on('connection', function(socket){
 		  if(silence==0){
 	 	    
 			var tmp = {};
+			tmp['picture'] = picture;
 		    var sql = "INSERT INTO "+room +" (sender, content, time, vote) VALUES (?, ?, ?, ?)";
 		    con.query(sql, [name, msg, time_string , JSON.stringify(tmp)], function (err, result) {
 		        if (err) throw err;
 		        console.log("1 record inserted");
-				io.in(room).emit('chat message', result.insertId, msg, name, time_string);
+				io.in(room).emit('chat message', result.insertId, msg, name, time_string, picture);
 		    });
 	      }
 	    });
@@ -56,7 +57,7 @@ io.on('connection', function(socket){
 		if (err) throw err;
 		console.log("selected");
 		result.forEach(function(item){
-			socket.emit('chat message', item.idx, item.content, item.sender, item.time);
+			socket.emit('chat message', item.idx, item.content, item.sender, item.time, item.vote['picture']);
 			if(item.vote == null){
 				console.log('null');
 			}
