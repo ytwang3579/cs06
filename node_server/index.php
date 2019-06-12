@@ -33,8 +33,8 @@
 	</script>
 
     <ul id="messages" class = "messages"></ul>
-    <form id = "ff" action="" class="ff">
-      <input id="m" autocomplete="off" /><button>Send</button>
+    <form  id = "ff" action="" class="ff">
+      <input id="m" autocomplete="off" /><button class="btn btn-outline-success my-2 my-sm-0">Send</button>
     </form>
 
 	<script>
