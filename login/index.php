@@ -27,7 +27,7 @@ session_start();
         function doSomething(event)
         {
             if (event.shiftKey){
-                e.preventDefault();
+                event.preventDefault();
                 alert('Shift key was pressed.');
             } else {
                 reload();
