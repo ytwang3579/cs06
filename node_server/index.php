@@ -10,7 +10,6 @@
 	<script src="resource/test_input.js"></script>
 	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>    
 	<script src="https://kit.fontawesome.com/df3e0e4f87.js"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="./style.css">
   </head>
   
@@ -21,10 +20,8 @@
 	   <i class="fas fa-broadcast-tower"></i>
 	   <span id="broadcast_message"></span>
     </div>
-
-	<button type="button" class="btn btn-primary btn-sm" id="vote">vote</button>
-    <button type="button" class="btn btn-secondary btn-sm" id="show_delete">Edit</button>
-
+    <button id='vote'>vote</button>
+	<button id='show_delete'>Edit</button>
 	<script>
 		$('#show_delete').click(function(){
 			if($('.delete').css("display") != "none" )
@@ -119,7 +116,7 @@
 		socket.on('vote message', function(idx, vote_object, name, time_string){ //receive vote message
 			vote_object['index'] = idx;
 			var is_voted = false;
-			vote_object.["voted"].forEach(function(item){
+			vote_object["voted"].forEach(function(item){
 				if(item == user_id) is_voted = true;
 			});
 			var new_message = get_chat_message_div(idx, vote_object, name, time_string, vote_object.picture, socket);
