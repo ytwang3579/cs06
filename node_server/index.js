@@ -26,7 +26,7 @@ io.on('connection', function(socket){
 		io.emit('chat message', msg, name, time_string);
 	 }
 	 else{
-	    var silence=0; 
+	    var silence=0;
 	    var sql = "SELECT silence FROM user_list WHERE name =?";
 		con.query(sql,[name] ,function (err, result) {
 		  if (err) throw err;
