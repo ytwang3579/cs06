@@ -26,9 +26,8 @@ session_start();
 <script type="text/javascript">
         function doSomething(event)
         {
-            event.preventDefault();
             if (event.shiftKey)
-                function (){location.href="../admin/admin_login.php";}()
+                alert('Shift key was pressed.');
             else
                 reload();
         }
