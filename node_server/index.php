@@ -41,6 +41,7 @@
 
 	<script>
 		var room = window.parent.now_room;
+		var user_id = "<?php echo $_SESSION['id']; ?>";
 	  $(function () {
 		var socket = io('http://cs06.2y.cc:25565');
 		socket.emit('join', room);
@@ -115,7 +116,7 @@
 		  console.log('finish');
 		});
 		
-		socket.on('vote message', function(idx, vote_object, name, time_string){
+		socket.on('vote message', function(idx, vote_object, name, time_string){ //receive vote message
 			vote_object['index'] = idx;
 			var new_message = get_chat_message_div(idx, vote_object, name, time_string, vote_object.picture, socket);
 			$('#messages').append(new_message);//append new message and scroll down
@@ -123,20 +124,22 @@
 			$('#'+vote_object.theme+'_'+vote_object.index).submit(function(e){//Do vote 
 				e.preventDefault();
 				
-				var voted = $('input[name=options_'+vote_object.index+']:checked').val();
-				vote_object[voted]++;
-				
-				socket.emit('vote update', vote_object, room, name, time_string);
+				if($('input[name=options_'+vote_object.index+']:checked').length > 0){
+					var voted = $('input[name=options_'+vote_object.index+']:checked').val();
+					vote_object[voted]++;
+					vote_object['voted'].push(user_id);
+					
+					socket.emit('vote update', vote_object, room, name, time_string);
+				}
 			});
 		});
 		
-		socket.on('vote update', function(vote_object, name, time_string){
+		socket.on('vote update', function(vote_object, name, time_string){	//receive vote update
 			console.log(vote_object);
 			var new_message = get_chat_message_div(vote_object.index, vote_object, name, time_string, vote_object.picture, socket);
 			var old_vote_message = $('#'+vote_object.index);
-			//old_vote_message.after(new_message);
+			old_vote_message.after(new_message);
 			old_vote_message.remove();
-			$('#messages').append(new_message);
 		});
 		
 		socket.on('disconnect', function(){
