@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]  
 *Feature(s) in development should be displayed here, with information of who is actively dealing with it.* 
 
+## 0.2.6 - 2019-06-13 - ytwang
+## Added
+- Easter egg path to *admin/admin_login.php*
+## Removed
+- *chat_room/oindex.php*  
+- *chat_room/main.css*
+
 ## 0.2.5 - 2019-06-12 - s106062129
 ## Changed 
 - Modidied chat\_room/index.php to redirect to ../login if not login yet
