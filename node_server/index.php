@@ -57,7 +57,7 @@
 	  $('#room_name').append(window.parent.now_room_name);
 	  $(function () {
 		var socket = io('http://cs06.2y.cc:25565');
-		socket.emit('join', room);
+		socket.emit('join', room, user_id);
 		
 		//send message
 		$('#ff').submit(function(e){
@@ -83,7 +83,7 @@
 		
 		$('#vote').click(function(){ //deal with create vote when click vote button
 			var vote_area =  create_vote_area();
-			$('#vote').after(vote_area);
+			$('body').append(vote_area);
 			vote_area = $('#vote_area');
 			$('#form_vote').submit(function(e){//when submit the create vote form
 				e.preventDefault(); // prevents page reloading

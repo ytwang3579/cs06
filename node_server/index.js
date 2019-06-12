@@ -49,9 +49,9 @@ io.on('connection', function(socket){
         }
   });
   
-  socket.on('join', function(room){
+  socket.on('join', function(room, user_id){
           //console.log("join");
-	  if(room!=null){
+	  if(room!="" && room!=null){
 	  var sql = "SELECT * FROM " + room;
 	  con.query(sql, function (err, result) {
 		if (err) throw err;
@@ -74,6 +74,14 @@ io.on('connection', function(socket){
 		
 	  });
 	  socket.join(room);
+	  
+	  sql = "SELECT private FROM " + user_id + "_chatlist WHERE chat_room_name = ?";
+	  con.query(sql, [room], function (err, result){
+		  if (err) throw err;
+		  
+		  console.log(result);
+	  });
+	  
 	  }
   });
   
