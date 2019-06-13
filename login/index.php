@@ -3,6 +3,16 @@ require_once('fb/vendor/autoload.php');
 require_once('google/settings.php');
 
 session_start();
+if( !isset($_SESSION['id']) | empty($_SESSION['id']) | !isset($_SESSION['name']) | empty($_SESSION['name']) ){
+}
+  //if admin redirection to admin page
+  else if($_SESSION['id']=='admin'&&$_SESSION['name']=='Admin'){
+    echo "<script> location.href='../admin';</script>";
+}
+  //if user redirection to chat room
+  else{
+    echo "<script> location.href='../chat_room'; </script>";
+}
 ?>
 <!DOCTYPE HTML5>
 <html>
