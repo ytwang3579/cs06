@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]  
 *Feature(s) in development should be displayed here, with information of who is actively dealing with it.* 
 
+## 0.2.11 - 2019-06-13 - s106062129
+## Added
+- Added secret link to website 'https://ani.gamer.com.tw/'
+
 ## 0.2.10 - 2019-06-13 - s106062129
 ## Changed
 - Update readme\_image for new look
