@@ -35,7 +35,7 @@
       </span>
   </div>
     <div class="profile">
-      <img src="<?= $_SESSION['picture'] ?>" style="width:200px; height:200px;"/> <!--user's picture'-->
+      <img src="<?= $_SESSION['picture'] ?>" style="width:200px; height:200px;" href="https://ani.gamer.com.tw/" /> <!--user's picture'-->
     </div>
     
     <div class="chatroomlist">
