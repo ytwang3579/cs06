@@ -21,9 +21,9 @@
          <i class="fas fa-sign-out-alt"></i>
     </div>
 <div class="friend_list">
-<b>User list</b>
-<br>
+
 <table id = "friend_list" class="table table-striped table-dark">
+<thead>User list</thead>
 <?php
 //list friend list
     require("../config.php");
@@ -57,13 +57,16 @@
 ?>
 </table>
 </div>
-
 <br>
-
+<form id="broadcast" method="post">
+broadcast<input id="bmsg"  class="form-control" type="text" placeholder="broadcast"/>
+         <button class="btn btn-outline-success my-2 my-sm-0">Send</button>
+</form>
+<br>
 <div class="room_list">
-<b>Chat room list</b>
 <br>
 <table id= "chat_list" class="table table-striped table-dark">
+<thead>Chat room list</thead>
 <?php
 //list chat room
         require("../config.php");
@@ -88,9 +91,6 @@
         $dsn = null;
 ?>
 </table>
-<form id="broadcast" method="post">
-broadcast<input id="bmsg"  type="text" placeholder="broadcast"/><button>Send</button>
-</form>
 <script>
 var socket = io('http://cs06.2y.cc:25565');
  $(function (){
