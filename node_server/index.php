@@ -53,10 +53,14 @@
 	</div>
 
 	<script>
+		//initialize global variable
 		var room = window.parent.now_room;
 		var user_id = "<?php echo $_SESSION['id']; ?>";
 	  $('#room_name').append(window.parent.now_room_name);
+	  
+	  //main function
 	  $(function () {
+		//create socket and request for join room
 		var socket = io('http://cs06.2y.cc:25565');
 		socket.emit('join', room, user_id);
 		
@@ -70,7 +74,8 @@
 		  return false;
 		});
 		
-		socket.on('chat message', function(idx, msg, name, time_string, picture){//receive server pushed message
+		//receive server pushed message
+		socket.on('chat message', function(idx, msg, name, time_string, picture){
 		  if(msg != ''){
 			var new_message = get_chat_message_div(idx, msg, name, time_string, picture, socket);
 			$('#messages').append(new_message);//append new message and scroll down
@@ -78,19 +83,19 @@
 		  }
 		});
 		
-		  socket.on('delete_message', function(idx){
+		//receive which message should be delete
+		socket.on('delete_message', function(idx){
 			$('#'+idx+'').remove();
-		  });
+		});
 		
-		
-		
+		//receive broadcast message
 		socket.on('broadcast message', function(msg, name, time_string){
-			//do admin brroadcast
 		  $('#broadcast_message').text(msg+'    '+time_string);
 		  $('#broadcast').show();
 		});
 		
-		socket.on('vote message', function(idx, vote_object, name, time_string){ //receive vote message
+		//receive vote message
+		socket.on('vote message', function(idx, vote_object, name, time_string){ 
 			vote_object['index'] = idx;
 			var is_voted = false;
 			vote_object["voted"].forEach(function(item){
@@ -100,9 +105,10 @@
 			
 			$('#messages').append(new_message);//append new message and scroll down
 			$('#messages').scrollTop($('#messages').prop('scrollHeight'));
-			$('[id="'+vote_object.theme+'_'+vote_object.index+'"]').submit(function(e){//Do vote 
+			$('[id="'+vote_object.theme+'_'+vote_object.index+'"]').submit(function(e){// send what you vote to server
 				e.preventDefault();
 				
+				//check if a input is ckecked
 				if($('input[name=options_'+vote_object.index+']:checked').length > 0){
 					var voted = $('input[name=options_'+vote_object.index+']:checked').val();
 					vote_object[voted]++;
@@ -113,15 +119,17 @@
 			});
 		});
 		
+		//receive vote update and update message
 		socket.on('vote update', function(vote_object, name, time_string){	//receive vote update
 			var new_message = get_chat_message_div(vote_object.index, vote_object, name, time_string, vote_object.picture, socket);
 			var old_vote_message = $('#'+vote_object.index);
 			old_vote_message.after(new_message);
 			old_vote_message.remove();
 			
-			$('[id="'+vote_object.theme+'_'+vote_object.index+'"]').submit(function(e){//Do vote prevent reload
-				e.preventDefault();
+			$('[id="'+vote_object.theme+'_'+vote_object.index+'"]').submit(function(e){//Do vote update
+				e.preventDefault();//prevent reload
 				
+				//check if a input is ckecked
 				if($('input[name=options_'+vote_object.index+']:checked').length > 0){
 					var voted = $('input[name=options_'+vote_object.index+']:checked').val();
 					vote_object[voted]++;
@@ -132,6 +140,7 @@
 			});
 		});
 		
+		//deal with public only vote button
 		socket.on('is private',function(is_private){
 			if(!is_private){
 				var vote_button = $('<button>').text("vote");
@@ -144,57 +153,59 @@
 				$('#vote').append(vote_img);
 				
 				$('#vote').click(function(){ //deal with create vote when click vote button
-				var vote_area =  create_vote_area();
-				$('body').append(vote_area);
-				vote_area = $('#vote_area');
-				$('#form_vote').submit(function(e){//when submit the create vote form
-					e.preventDefault(); // prevents page reloading
-					//check if theme is empty
-					var ok=1;
-					if($('#theme').val() == ''){// theme cannot be empty
-						if($('#theme_err').length == 0){
-							$('#theme').after('<span id="theme_err" style="color:red">theme cannot be empty</span>');
+					var vote_area =  create_vote_area();
+					$('body').append(vote_area);
+					vote_area = $('#vote_area');
+					$('#form_vote').submit(function(e){//when submit the create vote form
+						e.preventDefault(); // prevents page reloading
+						//check if theme is empty
+						var ok=1;
+						if($('#theme').val() == ''){// theme cannot be empty
+							if($('#theme_err').length == 0){
+								$('#theme').after('<span id="theme_err" style="color:red">theme cannot be empty</span>');
+							}
+							ok=0;
 						}
-						ok=0;
-					}
-					
-					//test if we have at least two choice and repeated option
-					var ans = test_ans( $('#a1').val(),  $('#a2').val(),  $('#a3').val() );
-					
-					if(ans.a_total < 2){
-						if($('#a_err').length == 0){
-							$('#cancel').after('<span id="a_err" style="color:red">There must be at least two choice</span>');
+						
+						//test if we have at least two choice and repeated option
+						var ans = test_ans( $('#a1').val(),  $('#a2').val(),  $('#a3').val() );
+						
+						if(ans.a_total < 2){
+							if($('#a_err').length == 0){
+								$('#cancel').after('<span id="a_err" style="color:red">There must be at least two choice</span>');
+							}
+							ok= 0;
 						}
-						ok= 0;
-					}
-					if(ans.is_repeat){
-						if($('#repeat_err').length == 0){
-							$('#cancel').after('<span id="repeat_err" style="color:red">There should not have two same option</span>');
+						if(ans.is_repeat){
+							if($('#repeat_err').length == 0){
+								$('#cancel').after('<span id="repeat_err" style="color:red">There should not have two same option</span>');
+							}
+							ok =0;
 						}
-						ok =0;
-					}
-					
-					if(ok){
-						socket.emit('create vote', $('#theme').val(), ans.a_array, window.parent.name, room, "<?=  $_SESSION['picture'] ?>");
+						
+						if(ok){
+							socket.emit('create vote', $('#theme').val(), ans.a_array, window.parent.name, room, "<?=  $_SESSION['picture'] ?>");
+							vote_area.fadeOut('normal', function(){
+								vote_area.remove();
+							});
+						}
+					});
+					$('#cancel').click(function(e){
+						e.preventDefault();
 						vote_area.fadeOut('normal', function(){
 							vote_area.remove();
 						});
-					}
-				});
-				$('#cancel').click(function(e){
-					e.preventDefault();
-					vote_area.fadeOut('normal', function(){
-						vote_area.remove();
 					});
 				});
-			});
 			}
 		});
 		
+		//when server disconnect alert server is down
 		socket.on('disconnect', function(){
 			console.log('server is down.');
 		});
 		
+		//when reconnect, send rejoin room request
 		socket.on('reconnect',function(){
 			socket.emit('rejoin', room);
 		});
@@ -224,6 +235,7 @@
 	  }
 
 		function create_new_message_div(name, msg, time_string, picture){//create new message element
+			//**will create structrue below**//
 			//<div  class="message">
         		//<img class="message-image" src="%USER_IMAGE_URL%">
         		//<a class="sender">Leo Wang</a>
@@ -291,7 +303,7 @@
 		function vote_object_to_div(data){//transfer cote object to msg div(as content)
 			if(typeof(data) != 'object')	return;//avoid illegal parms
 			
-			//check for if you have voted
+			//check for if user have voted
 			var is_voted = false;
 			data["voted"].forEach(function(item){
 				if(item == user_id) is_voted = true;
