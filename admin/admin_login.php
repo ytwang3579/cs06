@@ -56,7 +56,9 @@ if($_SERVER['REQUEST_METHOD']=="POST"){//if post check information
 
 <html>
 <head>
-<title>Admin Login</title>
+    <title>Admin Login</title>
+	<!-- Bootstrap core CSS -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 	<form method="POST">

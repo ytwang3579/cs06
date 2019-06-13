@@ -21,7 +21,7 @@
 <div class="friend_list">
 <b>User list</b>
 <br>
-<table id = "friend_list">
+<table id = "friend_list" class="table table-striped table-dark">
 <?php
 //list friend list
     require("../config.php");
@@ -61,7 +61,7 @@
 <div class="room_list">
 <b>Chat room list</b>
 <br>
-<table id= "chat_list">
+<table id= "chat_list" class="table table-striped table-dark">
 <?php
 //list chat room
         require("../config.php");
