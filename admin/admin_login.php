@@ -61,13 +61,13 @@ if($_SERVER['REQUEST_METHOD']=="POST"){//if post check information
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-	<form method="POST">
+	<!--<form method="POST">
 		Admin:<input type="text" name="user">
 		<br>
 		Password:<input type="password" name="password">
 		<br>
 		<input type="submit" value="Login">
-	</form>
+	</form>-->
 
   <div class="container">
     <div class="row">
@@ -77,7 +77,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){//if post check information
             <h5 class="card-title text-center">Sign In</h5>
             <form class="form-signin" method="POST">
               <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Admin Name" required autofocus>
+                <input type="text" id="inputEmail" class="form-control" placeholder="Admin Name" required autofocus>
                 <label for="inputEmail">Admin Name</label>
               </div>
 
