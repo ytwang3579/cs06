@@ -34,8 +34,8 @@
          <i class="fas fa-sign-out-alt"></i>
       </span>
   </div>
-	<div class="profile">i
-	  <a href="ani.gamer.com.tw" target="_blank">
+	<div class="profile">
+	  <a href="https://ani.gamer.com.tw" target="_blank">
 	  <img src="<?= $_SESSION['picture'] ?>" style="width:200px; height:200px;"/> <!--user's picture'-->
 	  </a>
     </div>
