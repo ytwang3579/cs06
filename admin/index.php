@@ -13,6 +13,7 @@
 <!-- Bootstrap core CSS -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="main.css">
+<link rel="icon" href="../image.png">
 </head>
 
 <body>

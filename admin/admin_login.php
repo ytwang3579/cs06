@@ -57,6 +57,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){//if post check information
 <html>
 <head>
     <title>Admin Login</title>
+    <link rel="icon" href="../image.png">
 	<!-- Bootstrap core CSS -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
