@@ -33,7 +33,6 @@ io.on('connection', function(socket){
 	    var sql = "SELECT silence FROM user_list WHERE name =?";
 		con.query(sql,[name] ,function (err, result) {
 		  if (err) throw err;
-		  console.log(result[0].silence);
 		  if(result[0].silence==1) silence=1;
 		  
 		  //when user is not banned, send message and insert into sql
@@ -44,7 +43,7 @@ io.on('connection', function(socket){
 		    var sql = "INSERT INTO "+room +" (sender, content, time, vote) VALUES (?, ?, ?, ?)";
 		    con.query(sql, [name, msg, time_string , JSON.stringify(tmp)], function (err, result) {
 		        if (err) throw err;
-		        console.log("1 record inserted");
+		        //console.log("1 record inserted");
 				io.in(room).emit('chat message', result.insertId, msg, name, time_string, picture);
 		    });
 	      }
@@ -114,7 +113,7 @@ io.on('connection', function(socket){
 	  var sql = "UPDATE "+ room +" SET vote = ? WHERE idx = ?";
 		con.query(sql, [JSON.stringify(vote_object), vote_object.index], function (err, result) {
 			if (err) throw err;
-			console.log("vote record updated");
+			//console.log("vote record updated");
 			io.in(room).emit('vote update', vote_object, name, time_string);	
 	  });
   });

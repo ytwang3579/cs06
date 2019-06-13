@@ -47,7 +47,7 @@
 	<ul id="messages" class = "messages"></ul>
 	<div class="ff">
     <form  id = "ff" action="" class="input-group mb-3">
-	   <input id="m" autocomplete="off" type="text" class="form-control" placeholder="Say something here" aria-label="Say something here" aria-describedby="button-addon2">
+	   <input id="m" autocomplete="off" type="text" maxlength="990" class="form-control" placeholder="Say something here" aria-label="Say something here" aria-describedby="button-addon2">
 	   <button class="btn btn-outline-success my-2 my-sm-0">Send</button>
 	</form>
 	</div>
