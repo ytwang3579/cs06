@@ -77,14 +77,14 @@ if($_SERVER['REQUEST_METHOD']=="POST"){//if post check information
             <h5 class="card-title text-center">Sign In</h5>
             <form class="form-signin" method="POST">
               <div class="form-label-group">
-                <input type="text" name="user" class="form-control" placeholder="Admin Name" required autofocus>
+                <input type="text" id="inputEmail" name="user" class="form-control" placeholder="Admin Name" required autofocus>
                 <label for="inputEmail">Admin Name</label>
               </div>
 
               <div class="form-label-group">
-                <input type="password" name="password" class="form-control" placeholder="Password" required>
+                <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
                 <label for="inputPassword">Password</label>
-              </div>
+			  </div>
               <input class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" value="Login">
               <hr class="my-4">
 
