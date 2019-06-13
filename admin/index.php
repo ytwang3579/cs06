@@ -16,13 +16,13 @@
 </head>
 
 <body>
-<div onclick="location.href ='../chat_room/logout.php'" 
-            style="cursor:pointer;">
+<div onclick="location.href ='../chat_room/logout.php'" class="btn btn-outline-success my-2 my-sm-0" style="cursor:pointer;">
          <i class="fas fa-sign-out-alt"></i>
+         <span>Logout </span>
     </div>
 <div class="friend_list">
 
-<table id = "friend_list" class="table table-striped table-dark">
+<table id = "friend_list" class="table table-striped table-light">
 <thead>User list</thead>
 <?php
 //list friend list
