@@ -16,14 +16,6 @@
   
   <body>
 
-    <div id="broadcast" class="broadcast">
-	   <i class="fas fa-bullhorn"></i>
-	   <i class="fas fa-bullhorn"></i>
-	   <i class="fas fa-bullhorn"></i>
-	   <span id="broadcast_message"></span>
-	</div>
-	
-
 	<nav class="navbar navbar-light bg-light" style="height:45px; margin-bottom:10px;">
      <a class="navbar-brand" href="#">
        <img src="../image.png" width="30" height="30" class="d-inline-block align-top" alt="" style="top:10px; position:fixed;">
@@ -33,6 +25,13 @@
 	   </button>
      </a>
 	</nav>
+
+	<div id="broadcast" class="broadcast">
+	   <i class="fas fa-bullhorn"></i>
+	   <i class="fas fa-bullhorn"></i>
+	   <i class="fas fa-bullhorn"></i>
+	   <span id="broadcast_message"></span>
+	</div>
 	
 
 	<script>
