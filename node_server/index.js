@@ -14,18 +14,21 @@ var con = mysql.createConnection({
 con.connect(function(err) {
 	if (err) throw err;
 	console.log("sql Connected!");
-	});
+});
 
+//when a user connect
 io.on('connection', function(socket){
   console.log('a user connected');
+  
+  //when user send message tell other in same room, and add to sql
   socket.on('chat message', function(msg, name, room, picture){
-	 var d = new Date();
-	 var opt = {hour:"2-digit", minute:"2-digit", hour12:false};
-	 var time_string = d.toLocaleTimeString("zh-TW", opt);
+	 //get now time
+	 var time_string = get_now_time();
 	 if(room == ''){
-		io.emit('chat message', msg, name, time_string);
+		console.log('an empty room?');
 	 }
 	 else{
+		//deal with insert message into sql, first check if user has been banned
 	    var silence=0;
 	    var sql = "SELECT silence FROM user_list WHERE name =?";
 		con.query(sql,[name] ,function (err, result) {
@@ -33,6 +36,7 @@ io.on('connection', function(socket){
 		  console.log(result[0].silence);
 		  if(result[0].silence==1) silence=1;
 		  
+		  //when user is not banned, send message and insert into sql
 		  if(silence==0){
 	 	    
 			var tmp = {};
@@ -46,16 +50,18 @@ io.on('connection', function(socket){
 	      }
 	    });
 	    
-        }
+     }
   });
   
+  //deal with join request:send chat history and join room and query if room is private
   socket.on('join', function(room, user_id){
-          //console.log("join");
+      
 	  if(room!="" && room!=null){
 	  var sql = "SELECT * FROM " + room;
 	  con.query(sql, function (err, result) {
 		if (err) throw err;
-		console.log("selected");
+		
+		//send chat history
 		result.forEach(function(item){
 			var vote_object = JSON.parse(item.vote);
 			if(item.content != ''){
@@ -63,18 +69,13 @@ io.on('connection', function(socket){
 			}
 			else{
 				socket.emit('vote message', item.idx, vote_object, item.sender, item.time);
-				console.log('vote');
 			}
 			
-			if(item.vote == null){
-				console.log('null');
-			}
 		});
-			
-		
 	  });
 	  socket.join(room);
 	  
+	  //query if room is private
 	  sql = "SELECT private FROM " + user_id + "_chatlist WHERE chat_room_name = ?";
 	  con.query(sql, [room], function (err, result){
 		  if (err) throw err;
@@ -85,6 +86,7 @@ io.on('connection', function(socket){
 	  }
   });
   
+  //create vote object according user send data
   socket.on('create vote', function(theme, ans, name, room, picture){
 	  var vote_object = {};
 	  ans.forEach(function(item){
@@ -94,23 +96,20 @@ io.on('connection', function(socket){
 	  vote_object['theme'] = theme;
 	  vote_object['options'] = ans;
 	  vote_object['picture'] = picture;
+	  vote_object['index'] = 10000;
 	  
-	  //TODO add index. insert into mysql
-	  vote_object['index'] = '100';
-	  
-	  var d = new Date();
-	  var opt = {hour:"2-digit", minute:"2-digit", hour12:false};
-	  var time_string = d.toLocaleTimeString("zh-TW", opt);
+	  //get now time
+	  var time_string = get_now_time();
 	  
 	  var sql = "INSERT INTO "+room +" (sender, content, time, vote) VALUES (?, ?, ?, ?)";
 		con.query(sql, [name, "", time_string , JSON.stringify(vote_object)], function (err, result) {
 			if (err) throw err;
-			console.log("vote record inserted");
 			io.in(room).emit('vote message', result.insertId, vote_object, name, time_string);	
 	  });
 	  
   });
   
+  //deal with  vote update
   socket.on('vote update', function(vote_object, room, name, time_string){
 	  var sql = "UPDATE "+ room +" SET vote = ? WHERE idx = ?";
 		con.query(sql, [JSON.stringify(vote_object), vote_object.index], function (err, result) {
@@ -120,10 +119,12 @@ io.on('connection', function(socket){
 	  });
   });
   
+  //deal with rejoin room
   socket.on('rejoin', function(room){
 	  socket.join(room);
   });
   
+  //deal with broadcast
   socket.on('broadcast message', function(msg){
 	  var d = new Date();
 	  var opt = {hour:"2-digit", minute:"2-digit", hour12:false};
@@ -131,6 +132,7 @@ io.on('connection', function(socket){
 	  io.emit('broadcast message', msg, 'Admin', time_string);
   });
   
+  //deal with delete message
   socket.on('delete_message', function(idx, room){
     var sql = "DELETE FROM "+room+" WHERE idx = ?";
 	  con.query(sql, idx, function (err, result) {
@@ -139,12 +141,21 @@ io.on('connection', function(socket){
 	  });
 	  
   });
-	 
+  
+  //when user disconnect console log it
   socket.on('disconnect', function(){
     console.log('user disconnected');
   });
 });
 
+//listen on port 25565
 http.listen(25565, function(){
   console.log('listening on *:25565');
 });
+
+function get_now_time(){//return now time
+	var d = new Date();
+	var opt = {hour:"2-digit", minute:"2-digit", hour12:false};
+	var time_string = d.toLocaleTimeString("zh-TW", opt);
+	return time_string;
+}
