@@ -108,7 +108,7 @@
 		echo "".
 			"<div class='custom-control custom-checkbox'>
 			 <input type='checkbox' class='custom-control-input' name='chatroom_friend[]' value=".$row['friend_id'].">"
-			."<label class='custom-control-label' for='defaultUnchecked'>".$row['friend_name'].
+			."<label class='custom-control-label'>".$row['friend_name'].
 			"</label>";
 	}
 	echo "<input type='submit'  class='btn btn-secondary' value='Create Room'>";
