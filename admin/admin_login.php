@@ -85,6 +85,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){//if post check information
 			    Password
                 <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
 			  </div>
+			  <br>
               <input class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" value="Login">
               <hr class="my-4">
 
