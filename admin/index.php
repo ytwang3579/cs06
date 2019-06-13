@@ -59,13 +59,16 @@
 </div>
 <br>
 <form id="broadcast" method="post">
-broadcast<input id="bmsg"  class="form-control" type="text" placeholder="broadcast"/>
-         <button class="btn btn-outline-success my-2 my-sm-0">Send</button>
+         <i class="fas fa-bullhorn"></i>
+         <i class="fas fa-bullhorn"></i>
+         <i class="fas fa-bullhorn"></i>
+         <input id="bmsg"  class="form-control" type="text" placeholder="broadcast"/>
+         <button class="btn btn-outline-success my-2 my-sm-0">Broadcast</button>
 </form>
 <br>
 <div class="room_list">
 <br>
-<table id= "chat_list" class="table table-striped table-dark">
+<table id= "chat_list" class="table table-striped table-light">
 <thead>Chat room list</thead>
 <?php
 //list chat room

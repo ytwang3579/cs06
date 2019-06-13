@@ -17,9 +17,9 @@
   <body>
 
     <div id="broadcast" class="broadcast">
-	   <i class="fas fa-broadcast-tower"></i>
-	   <i class="fas fa-broadcast-tower"></i>
-	   <i class="fas fa-broadcast-tower"></i>
+	   <i class="fas fa-bullhorn"></i>
+	   <i class="fas fa-bullhorn"></i>
+	   <i class="fas fa-bullhorn"></i>
 	   <span id="broadcast_message"></span>
 	</div>
 	
