@@ -102,14 +102,14 @@
 
     $sth=$dbh->prepare('select * from '.$_SESSION['id'].'_friend order by friend_name desc;');
 	$sth->execute();
-	echo "<form method=POST>";
+	echo "<form method='POST'>";
 	echo "<input type='text' name='chatroom_name' class='form-control' placeholder='type chat room name'>";
 	while($row = $sth->fetch()){//create chat room button to each friend
 		echo "".
 			"<div class='custom-control custom-checkbox'>
 			 <input type='checkbox' class='custom-control-input' name='chatroom_friend[]' value=".$row['friend_id'].">"
 			."<label class='custom-control-label'>".$row['friend_name'].
-			"</label>";
+			"</label></div>";
 	}
 	echo "<input type='submit'  class='btn btn-secondary' value='Create Room'>";
 	echo "</form>";
