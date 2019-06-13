@@ -168,6 +168,12 @@
 						}
 						ok= 0;
 					}
+					if(ans.is_repeat){
+						if($('#repeat_err').length == 0){
+							$('#cancel').after('<span id="repeat_err" style="color:red">There should not have two same option</span>');
+						}
+						ok =0;
+					}
 					
 					if(ok){
 						socket.emit('create vote', $('#theme').val(), ans.a_array, window.parent.name, room, "<?=  $_SESSION['picture'] ?>");
