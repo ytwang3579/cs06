@@ -107,8 +107,8 @@
 	while($row = $sth->fetch()){//create chat room button to each friend
 		echo "".
 			"<div class='custom-control custom-checkbox'>
-			 <input type='checkbox' class='custom-control-input' name='chatroom_friend[]' value=".$row['friend_id'].">"
-			."<label class='custom-control-label'>".$row['friend_name'].
+			 <input type='checkbox' id='defaultUnchecked' class='custom-control-input' name='chatroom_friend[]' value=".$row['friend_id'].">"
+			."<label class='custom-control-label' for='defaultUnchecked'>".$row['friend_name'].
 			"</label></div>";
 	}
 	echo "<input type='submit'  class='btn btn-secondary' value='Create Room'>";
