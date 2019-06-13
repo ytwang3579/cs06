@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]  
 *Feature(s) in development should be displayed here, with information of who is actively dealing with it.* 
 
+## 0.2.9 - 2019-06-13 - s106062328(szlee118)
+## Added
+- Add css layers in chat_room/add_freind create_private/public_room  and admin
+
 ## 0.2.8 - 2019-06-13 - ytwang
 ## Fixed
 - syntax fixed in README.md
@@ -28,7 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Modidied chat\_room/index.php to redirect to ../login if not login yet
 - Add some comment in chat\_room's file
 
-## 0.2.4 - 2019-06-12 - s106062328
+## 0.2.4 - 2019-06-12 - s106062328(szlee118)
 ## Changed
 - After create chat room will not show "Create Successfully" message but refresh the whole page new update
   Sidebar list.
@@ -51,14 +55,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Add scrollbar to sidebar of *chat_room/index.php* ( in *chat_room/style.css* ) to avoid overflow
 
-## 0.2.0 - 2019-06-11 - s106062328
+## 0.2.0 - 2019-06-11 - s106062328(szlee118)
 ### Changed
 - Change all url to http
 - Add column picture in table user\_list in mysql
 - Change fb/,google/ insertion into mysql adding picture
 - Insert add\_friend add\_public\_chatroom into iframe
 
-## 0.1.20 - 2019-06-11 - s106062328
+## 0.1.20 - 2019-06-11 - s106062328(szlee118)
 ### Added
 - Add logout function in chat\_room/index.php and admin/index.php
 
@@ -80,11 +84,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 -  Added delete button in node\_server/index.html
 
-## 0.1.15 - 2019-06-10 - s106062328
+## 0.1.15 - 2019-06-10 - s106062328(szlee118)
 ### Changed
 - basically done with broadcating by modifying admin/index.php 
 
-## 0.1.14 - 2019-06-10 - s106062328
+## 0.1.14 - 2019-06-10 - s106062328(szlee118)
 ### Added
 - basically done with ban function by modifying node_server/index.js
 
@@ -101,7 +105,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - *fb\index_old.php*
 
-## 0.1.12 - 2019-06-09 - s106062328
+## 0.1.12 - 2019-06-09 - s106062328(szlee118)
 ### Added
 - Add admin page index.php
 
@@ -119,7 +123,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - now we have chat history
 
-## 0.1.8 - 2019-06-09 - s106062328
+## 0.1.8 - 2019-06-09 - s106062328(szlee118)
 ### Fixed
 - synchronize google and fb url as cs06.2y.cc
 
@@ -127,7 +131,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - put chatroom in chatroom/index.php by iframe
 
-## 0.1.6 - 2019-06-07 - s106062328
+## 0.1.6 - 2019-06-07 - s106062328(szlee118)
 ### Added
 - Add photo to Session variable
 
@@ -159,7 +163,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - add create chat room data base in chat\_room/create\_private\_chatroom.php
 
-## 0.0.19 - 2019-06-06 - s106062328
+## 0.0.19 - 2019-06-06 - s106062328(szlee118)
 ### Fixed
 - Change mysql insturctions when register
 
@@ -167,7 +171,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - fix bug of chat\_room/index.php
 
-## 0.0.17 - 2019-06-06 - s106062328
+## 0.0.17 - 2019-06-06 - s106062328(szlee118)
 ### Fixed
 - fix bug of chat\_room/create\_private\_chatroom.php
 
@@ -190,7 +194,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add chat\_room/create\_private\_chatroom.php (not finish yet)
 - Add chat\_room/create\_public\_chatroom.php (empty file)
 
-## 0.0.13 - 2019-05-30 - s106062328
+## 0.0.13 - 2019-05-30 - s106062328(szlee118)
 ### Added
 - basically done with google login, modify the main page
 
@@ -215,7 +219,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - *fb/tmp.html* and *fb/login.css* reserved for unfinished index home page.
 
-## 0.0.8 - 2019-05-27 - s106062328
+## 0.0.8 - 2019-05-27 - s106062328(szlee118)
 ### Added
 - fb\main.php create user_chatlist user_friendlist when register, insert into user-list
 
@@ -248,7 +252,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Change database\_establish\_command to database\_establish\_command.php
 
-## 0.0.2 - 2019-05-27 - s106062328
+## 0.0.2 - 2019-05-27 - s106062328(szlee118)
 ### Added
 - Basically done with fb login.
 
