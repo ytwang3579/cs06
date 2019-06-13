@@ -24,7 +24,6 @@ Here is the [SPEC](https://hackmd.io/eKbYWhuwT_qhxavD3OAUPQ?view) from approved 
     ![](./readme_image/tag.png)
 - Voting (Only available for public chatroom)
   1. Create vote by clicking vote button in a public chatroom
-    ![](./readme_image/vote_button.png)
   2. Form vote title and option name
   3. Click confirm to create vote
     ![](./readme_image/create_vote.png)
