@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 0.2.9 - 2019-06-13 - s106062328(szlee118)
 ## Added
-- Add css layers in chat_room/add_freind create_private/public_room  and admin
+- Add css layers in chat\_room/add\_freind create\_private/public\_room  and admin
 
 ## 0.2.8 - 2019-06-13 - ytwang
 ## Fixed
