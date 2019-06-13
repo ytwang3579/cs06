@@ -114,7 +114,6 @@
 		});
 		
 		socket.on('vote update', function(vote_object, name, time_string){	//receive vote update
-			console.log(vote_object);
 			var new_message = get_chat_message_div(vote_object.index, vote_object, name, time_string, vote_object.picture, socket);
 			var old_vote_message = $('#'+vote_object.index);
 			old_vote_message.after(new_message);
@@ -150,7 +149,7 @@
 				vote_area = $('#vote_area');
 				$('#form_vote').submit(function(e){//when submit the create vote form
 					e.preventDefault(); // prevents page reloading
-					//do check input
+					//check if theme is empty
 					var ok=1;
 					if($('#theme').val() == ''){// theme cannot be empty
 						if($('#theme_err').length == 0){
@@ -159,7 +158,7 @@
 						ok=0;
 					}
 					
-					//test if we have at least two choice
+					//test if we have at least two choice and repeated option
 					var ans = test_ans( $('#a1').val(),  $('#a2').val(),  $('#a3').val() );
 					
 					if(ans.a_total < 2){
@@ -213,7 +212,6 @@
 		  else{
 		    if(data[i] == ' '){
 				name_taged = data.slice(at_position+1, i);
-				console.log(name_taged);
 				if(name_taged == window.parent.name)	return true;
 			}
 			else if(i == data.length-1){
@@ -268,7 +266,7 @@
 			return new_message;			
 		}
 		
-		function get_chat_message_div(idx, msg, name, time_string, picture, socket){
+		function get_chat_message_div(idx, msg, name, time_string, picture, socket){//return message div(include delete button)
 		  var new_message = create_new_message_div(name, msg, time_string, picture);
 		  new_message.attr('id', idx);
 			
@@ -290,14 +288,16 @@
 		  return new_message;
 		}
 		
-		function vote_object_to_div(data){
-			if(typeof(data) != 'object')	return;
+		function vote_object_to_div(data){//transfer cote object to msg div(as content)
+			if(typeof(data) != 'object')	return;//avoid illegal parms
 			
+			//check for if you have voted
 			var is_voted = false;
 			data["voted"].forEach(function(item){
 				if(item == user_id) is_voted = true;
 			});
 			
+			//create div
 			var vote_div = $('<div>');
 			
 			var theme = $('<p>').text(data.theme);
@@ -307,8 +307,9 @@
 			tmp_tr.append($('<th>').text("Vote number"));
 			vote_table.append(tmp_tr);
 			
+			//for all option add a <tr>
 			data.options.forEach(function(item){
-				if(!is_voted){
+				if(!is_voted){//deal with input radio
 					var vote_input = $('<input>');
 					vote_input.attr('id', item+"_"+data.index);
 					vote_input.attr('type', 'radio');
