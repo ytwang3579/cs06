@@ -156,6 +156,7 @@
 					var vote_area =  create_vote_area();
 					$('body').append(vote_area);
 					vote_area = $('#vote_area');
+					vote_area.fadeIn('normal');
 					$('#form_vote').submit(function(e){//when submit the create vote form
 						e.preventDefault(); // prevents page reloading
 						//check if theme is empty
