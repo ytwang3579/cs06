@@ -80,7 +80,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){//if post check information
 			    Admin Name
                 <input type="text" id="inputEmail" name="user" class="form-control" placeholder="Admin Name" required autofocus>
               </div>
-
+              <br>
               <div class="form-label-group">
 			    Password
                 <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
