@@ -104,7 +104,7 @@
 	$sth->execute();
 	echo "<form method='POST'>";
 	echo "<input type='text' name='chatroom_name' class='form-control' placeholder='type chat room name'>";
-	$idx=0;
+	$idx=1;
 	while($row = $sth->fetch()){//create chat room button to each friend
 		echo "<div class='custom-control custom-checkbox'>".
 			"<input type='checkbox' id='defaultUnchecked".(string)$idx." class='custom-control-input' name='chatroom_friend[]' value=".$row['friend_id'].">"
