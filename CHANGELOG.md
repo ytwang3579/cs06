@@ -7,18 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]  
 *Feature(s) in development should be displayed here, with information of who is actively dealing with it.* 
 
-## 0.2.11 - 2019-06-13 - s106062129
+## 0.2.12 - 2019-06-13 - s106062129
 ## Added
 - Added secret link to website 'https://ani.gamer.com.tw/'
 
-## 0.2.10 - 2019-06-13 - s106062129
+## 0.2.11 - 2019-06-13 - s106062129
 ## Changed
 - Update readme\_image for new look
 - Modified README.md to have good introduction
 
-## 0.2.9 - 2019-06-13 - s106062328(szlee118)
+## 0.2.10 - 2019-06-13 - s106062328(szlee118)
 ## Added
 - Add css layers in chat\_room/add\_freind create\_private/public\_room  and admin
+
+## 0.2.9 - 2019-06-13 - s106062128
+## Added
+- Add vote feature, but only in public chat room
 
 ## 0.2.8 - 2019-06-13 - ytwang
 ## Fixed
